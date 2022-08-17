@@ -1,0 +1,117 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+footer {
+  background: #f0f0f0;
+  color: #000000bf;
+}
+.footer {
+  padding: 2.5em 0;
+  @include for-pc-screen {
+    padding: 3em 0;
+  }
+  &Inner {
+    margin: 0 auto;
+    width: 82%;
+    @include for-pc-screen {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1100px;
+      position: relative;
+      width: 92%;
+    }
+    & > div {
+      &:first-of-type {
+        .copyright {
+          @include for-mobile-screen {
+            display: none;
+          }
+          @include for-pc-screen {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            word-break: break-all;
+          }
+        }
+        @include for-pc-screen {
+          position: relative;
+          width: 17%;
+        }
+      }
+      @include for-pc-screen {
+        width: 24%;
+        & + div {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+  &Link {
+    color: inherit;
+    display: block;
+    font-size: $FONT_SIZE_14;
+    & + .footerLink {
+      margin-top: 2em;
+    }
+    @include for-mobile-screen {
+      text-align: center;
+    }
+  }
+  &Section {
+    @include for-mobile-screen {
+      margin-top: 2em;
+    }
+    & + .footerSection {
+      margin-top: 2em;
+    }
+    h3 {
+      font-size: $FONT_SIZE_14;
+      font-weight: 600;
+      @include for-mobile-screen {
+        text-align: center;
+      }
+    }
+    p,
+    .emailForm {
+      font-size: $FONT_SIZE_12;
+      line-height: 1.3rem;
+      margin-top: 1.4em;
+      @include for-mobile-screen {
+        text-align: center;
+      }
+    }
+  }
+}
+.emailForm {
+  margin-top: 1.4em;
+}
+.copyright {
+  color: #00000099;
+  font-size: $FONT_SIZE_14;
+}
+.schoolLogo {
+  text-align: center;
+  @include for-mobile-screen {
+    margin-top: 1.5em;
+  }
+  @include for-pc-screen {
+    display: flex;
+    align-items: center;
+    max-width: 190px;
+  }
+  img {
+    max-width: 150px;
+    width: 30%;
+    @include for-pc-screen {
+      max-width: none;
+      width: 100%;
+    }
+  }
+  & + .copyright {
+    margin-top: 2em;
+    text-align: center;
+    @include for-pc-screen {
+      display: none;
+    }
+  }
+}
