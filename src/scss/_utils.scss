@@ -1,0 +1,10 @@
+@mixin for-mobile-screen {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin for-pc-screen {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
