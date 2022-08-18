@@ -1,12 +1,12 @@
 import React from 'react'
 
 import './App.css'
-import Calender from '../src/component/Calendar/Calender'
+import Calendar from './component/Calendar/Calendar'
 
 function App() {
   return (
     <div className='App'>
-      <Calender />
+      <Calendar />
     </div>
   )
 }

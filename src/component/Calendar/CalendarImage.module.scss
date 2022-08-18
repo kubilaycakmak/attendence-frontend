@@ -1,0 +1,11 @@
+.image {
+  width: 60%;
+  height: 60%;
+  text-align: center;
+}
+@media screen and (max-width: 1200px) {
+  .image {
+    width: 386px;
+    height: 270px;
+  }
+}
