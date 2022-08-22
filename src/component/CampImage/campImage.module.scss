@@ -1,0 +1,17 @@
+.campImage {
+  position: absolute;
+  width: 1527px;
+  height: 516px;
+  left: -157px;
+  top: 120px;
+}
+@media only screen and (max-width: 768px) {
+  .campImage {
+    position: absolute;
+    width: 500px;
+    height: 403px;
+    left: 5px;
+    top: 100px;
+    z-index: -2;
+  }
+}
