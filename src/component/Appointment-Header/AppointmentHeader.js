@@ -15,8 +15,10 @@ export const AppointmentHeader = () => {
                 <div className={classes.sentence_wrapper}>
                     <h1>Request a meeting from our professional team.</h1>
                 </div>
-                <img className={classes.image_mob} src={imageMob} alt="header-pic"/>
-                <img className={classes.image_web} src={imageWeb} alt="header-pic"/>
+                <div className={classes.image_wrapper}>
+                    <img className={classes.image_mob} src={imageMob} alt="header-pic"/>
+                    <img className={classes.image_web} src={imageWeb} alt="header-pic"/>
+                </div>
                 <div className={classes.button_wrapper}>
                     <button className={classes.button}>Get started</button>
                 </div>

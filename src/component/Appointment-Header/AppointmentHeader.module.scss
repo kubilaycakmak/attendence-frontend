@@ -11,13 +11,13 @@
     @media (min-width: 768px) and (max-width: 1248px) {
         width: 100%;
         display: grid;
-        grid-template-columns: 33% 24%;
-        grid-template-rows: 7% 36% 1%;
+        grid-template-columns: 25% 31%;
+        grid-template-rows: 7% 26% 1%;
         margin-top: 20%;
-        margin-left: 10%;
+        margin-left: 7%;
     }
 
-    @media (min-width: 1249px) and (max-width: 1600px) {
+    @media (min-width: 1249px)  {
         width: 100%;
         display: grid;
         grid-template-columns: 33% 24%;
@@ -59,9 +59,18 @@
         font-family: Poppins;
         font-size: 32px;
       
-          @media screen and (min-width: 768px) {
-              font-size: 48px;
+        //   @media screen and (min-width: 768px) {
+        //       font-size: 48px;
+        //     }
+
+          @media (min-width: 768px) and (max-width: 1248px)  {
+              font-size: 36px;
             }
+          
+          @media (min-width: 1249px) {
+              font-size: 48px;
+          }
+          
     } 
 
 }
@@ -72,31 +81,50 @@
 // }
 
 
-.image_mob {
-    width: 346px;
-    height: 212px;
-    left: 34px;
-    top: 396px;
-    margin-bottom: 24px;
+.image_wrapper{
 
-    @media screen and (min-width: 768px) {
+    grid-row: 1/3;
+    grid-column: 2/3;
+
+    .image_mob {
+        width: 346px;
+        height: 212px;
+        left: 34px;
+        top: 396px;
+        margin-bottom: 24px;
+
+        @media screen and (min-width: 768px) {
+            display: none;
+        }
+    }
+
+
+    .image_web {
         display: none;
+
+        @media (min-width: 768px) and (max-width: 1248px) {
+            display: inline-block;
+            width: auto;
+            grid-row: 1/3;
+            grid-column: 2/3;
+            padding-top: 2%;
+            aspect-ratio: 173/106;
+            height: 95%;
+        }
+
+        @media (min-width: 1249px) {
+            display: inline-block;
+            width: auto;
+            grid-row: 1/3;
+            grid-column: 2/3;
+            padding-top: 2%;
+            aspect-ratio: 173/106;
+            height: 95%;
+            aspect-ratio: 173/106;
+            height: 110%;
+        }
     }
-}
 
-
-.image_web {
-    display: none;
-
-    @media screen and (min-width: 768px) {
-        display: inline-block;
-        width: auto;
-        grid-row: 1/3;
-        grid-column: 2/3;
-        padding-top: 2%;
-        aspect-ratio: 173/106;
-        height: 110%;
-    }
 }
 
 .button_wrapper {
