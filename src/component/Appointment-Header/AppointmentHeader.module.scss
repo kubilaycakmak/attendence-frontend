@@ -5,24 +5,23 @@
 }
 
 .container {
-    position: absolute;
     top: 20%;
     overflow: hidden;
 
     @media (min-width: 768px) and (max-width: 1248px) {
-        width: 100%;
+        width: 90%;
         display: grid;
-        grid-template-columns: 25% 31%;
+        grid-template-columns: 28% 31%;
         grid-template-rows: 7% 26% 1%;
-        transform: translate(5%,15%);
+        margin: auto;
     }
 
     @media (min-width: 1249px)  {
-        width: 100%;
+        width: 90%;
         display: grid;
-        grid-template-columns: 33% 24%;
+        grid-template-columns: 37% 24%;
         grid-template-rows: 10% 29% 1%;
-        transform: translate(5%,15%);
+        margin: auto;
     }
     }
 
