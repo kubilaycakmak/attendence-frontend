@@ -136,6 +136,7 @@
     }
 
     .button {
+        font-family: Poppins;
         box-sizing: border-box;
         display: inline-block;
         width: 348px;
@@ -143,6 +144,10 @@
         background: #FFFFFF;
         border: 0.5px solid #000000;
         border-radius: 4px;
+        
+        &:hover{
+            cursor: pointer;
+        }
 
         @media screen and (min-width: 768px) {
             display: inline;
