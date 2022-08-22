@@ -33,7 +33,7 @@ const LoginSignupForm = () => {
         <button type="submit">SIGN IN</button>
       </form>
       <div className={styles.otherOptions}>
-        {isLoginPage ? (
+        {!isLoginPage ? (
           <>
             <Link to="/login">If you have an account already please login</Link>
           </>
