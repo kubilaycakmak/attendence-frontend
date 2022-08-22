@@ -9,9 +9,11 @@
   .campImage {
     position: absolute;
     width: 500px;
-    height: 403px;
+    height: 250px;
     left: 5px;
-    top: 100px;
-    z-index: -2;
+    right: 5px;
+    margin: auto auto;
+    top: 150px;
+    z-index: 1;
   }
 }

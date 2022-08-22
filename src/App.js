@@ -7,8 +7,8 @@ import NewPassword from './component/NewPassword/NewPassword'
 function App() {
   return (
     <div className='App'>
-      {/* <ForgetPassword /> */}
-      <NewPassword />
+      <ForgetPassword />
+      {/* <NewPassword /> */}
     </div>
   )
 }
