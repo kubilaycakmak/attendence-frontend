@@ -8,3 +8,9 @@
     @content;
   }
 }
+@mixin hover-opacity {
+  transition: opacity 200ms ease;
+  &:hover {
+    opacity: 0.75;
+  }
+}
