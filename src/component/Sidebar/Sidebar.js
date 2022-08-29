@@ -21,10 +21,8 @@ const Sidebar = () => {
             </li>
           )
         })}
+        <p className='logo'>attendance</p>
       </ul>
-      <div className={styles.image}>
-        <img src={attendance} alt='attendance' />
-      </div>
     </div>
   )
 }
