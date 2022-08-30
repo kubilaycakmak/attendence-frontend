@@ -4,6 +4,7 @@
 .reservationCard {
   border: 0.5px solid #000000;
   border-radius: 8px;
+  scroll-snap-align: center;
   padding: 1em;
   text-align: left;
   img {
