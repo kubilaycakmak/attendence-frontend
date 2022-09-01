@@ -1,0 +1,45 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.reservationCard {
+  border: 0.5px solid #000000;
+  border-radius: 8px;
+  scroll-snap-align: center;
+  padding: 1em;
+  text-align: left;
+  img {
+    display: block;
+    width: 100%;
+  }
+  li {
+    margin-top: 1em;
+  }
+  &__location {
+    font-size: $FONT_SIZE_14;
+    font-weight: 500;
+  }
+  &__date {
+    font-size: $FONT_SIZE_12;
+  }
+  &__duration {
+    font-size: $FONT_SIZE_12;
+  }
+  &__description {
+    font-size: $FONT_SIZE_12;
+    height: 3.5em;
+    line-height: 1.5;
+    overflow-y: scroll;
+  }
+  button {
+    background: #fff;
+    border: 0.2px solid #000000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: $FONT_SIZE_14;
+    font-weight: 500;
+    margin-top: 1.3em;
+    padding: 1em 0;
+    width: 100%;
+    @include hover-opacity;
+  }
+}

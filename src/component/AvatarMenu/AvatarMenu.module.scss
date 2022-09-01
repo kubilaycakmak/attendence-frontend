@@ -42,7 +42,7 @@
   &__menu {
     font-size: $FONT_SIZE_10;
     margin-top: 0.3em;
-    padding: 0 1em;
+    padding: 0.8em;
     text-align: left;
     &Wrap {
       opacity: 0;
@@ -54,10 +54,10 @@
     }
     li {
       @include hover-opacity;
-      padding: 1em 0;
       & + li {
         border-top: 1px solid rgba(0, 0, 0, 0.2);
       }
+      padding: 0.3em 0;
       a {
         color: inherit;
         text-decoration: none;
