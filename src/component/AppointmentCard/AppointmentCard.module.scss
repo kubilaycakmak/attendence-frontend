@@ -1,0 +1,97 @@
+.card_wrapper {
+    padding: 10px;
+
+    & .card_body {
+        box-sizing: border-box;
+        width: 232px;
+        height: 341px;
+        background: #FFFFFF;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+
+    & .img_wrapper {
+        display: block;
+        margin: 16px auto 20px;
+        
+        & .prof_img {
+            width: 200px;
+            height: 145px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    }
+
+    & .name_wrapper {
+        text-align: left;
+        margin-left: 16px;
+        h1 {
+            font-family: 'Poppins';
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+    }
+
+    & .tag_wrapper {
+        text-align: left;
+        margin-left: 16px;
+        // & .tag_body {
+        //     width: 75px;
+        //     height: 32px;
+        //     background: #AE7D00;
+        //     border-radius: 4px;
+        //     display: inline-block;
+
+        //     & p {
+        //         font-family: 'Poppins';
+        //         text-align: center;
+        //         margin: 8px auto;
+        //         font-size: 12px;
+        //         font-family: 'Poppins';
+        //         color: white;
+    
+        //     }
+        // }
+    }
+
+    & .description_wrapper {
+        text-align: left;
+        margin: 8px 16px 20px 16px;
+        overflow: scroll;
+        height: 22px;
+        word-wrap: break-word;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+
+        & .desc_text {
+            font-family: 'Poppins';
+            font-size: 12px;
+            margin-top: 5px;
+            line-height: 16px;
+
+
+
+        }
+
+        &::-webkit-scrollbar { 
+            display: none; /* for chrome */
+          }
+    }
+
+    & .btn_wrapper {
+        text-align: center;
+        margin-top: 8px;
+        & .card_btn {
+            width: 200px;
+            height: 32px;
+            background-color: #000000;
+            border-radius: 4px;
+            font-size: 12px;
+            color: white;
+        }
+    }
+}
+}
+// description-wrapper
+// height: 36px;
+// word-wrap: break-word;
+// border: 1px solid black;
