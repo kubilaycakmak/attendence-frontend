@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Footer from './component/Footer/Footer';
 import './App.css';
+import Footer from './component/Footer/Footer';
+import Header from './component/Header/Header';
 import LoginSignup from './component/pages/LoginSignup/LoginSignup';
 import AvatarMenu from './component/AvatarMenu/AvatarMenu';
 import ReservationCardList from './component/ReservationCardList/ReservationCardList';
@@ -70,6 +71,7 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
+          <Header />
           <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} />
@@ -78,7 +80,7 @@ function App() {
             <Route path="/login" element={<LoginSignup />} />
           </Routes>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </>
   );
