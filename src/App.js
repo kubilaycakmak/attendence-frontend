@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './component/Header/Header';
 import Calendar from './component/Calendar/Calendar';
+import AppointmentHeader from './component/Appointment-Header/AppointmentHeader';
 import LoginSignup from './component/pages/LoginSignup/LoginSignup';
 import AvatarMenu from './component/AvatarMenu/AvatarMenu';
 import ReservationCardList from './component/ReservationCardList/ReservationCardList';
@@ -74,6 +75,7 @@ function App() {
         <div className="App">
           <Header />
           <Calendar />
+          <AppointmentHeader />
           <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} />
