@@ -1,0 +1,23 @@
+.active {
+  font-size: 18px;
+  padding: 12px 36px;
+  background-color: black;
+  color: white;
+  border-radius: 7px;
+  border: 1px solid black;
+  margin: 16px;
+}
+
+.inActive {
+  font-size: 18px;
+  padding: 12px 36px;
+  background-color: transparent;
+  border-radius: 7px;
+  border: 1px solid black;
+  margin: 16px;
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+  }
+}
