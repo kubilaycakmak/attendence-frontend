@@ -10,7 +10,7 @@ const ProfileTabBtn = () => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <button
         id={"1"}
         key={1}
@@ -32,7 +32,7 @@ const ProfileTabBtn = () => {
         onClick={handleClick}>
         Reservations
       </button>
-    </>
+    </div>
   )
 }
 
