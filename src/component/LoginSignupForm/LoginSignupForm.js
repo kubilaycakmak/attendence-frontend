@@ -20,7 +20,9 @@ const LoginSignupForm = () => {
       <div className={styles.googleBtnWrap}>
         <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText="Sign in with Google"
+          buttonText={
+            isLoginPage ? 'Sign in with Google' : 'Sign up with Google'
+          }
           onSuccess={handleLogin}
           onFailure={handleLogin}
           cookiePolicy={'single_host_origin'}

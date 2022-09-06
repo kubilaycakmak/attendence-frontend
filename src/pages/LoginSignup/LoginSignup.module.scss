@@ -1,10 +1,10 @@
-@import '../../../scss/variables';
-@import '../../../scss/utils';
+@import '../../scss/variables';
+@import '../../scss/utils';
 
 .login {
   @include for-pc-screen {
     align-items: center;
-    background: url(../../../assets/imgs/graduating-1.png) no-repeat 100% 100% /
+    background: url(../../assets/imgs/graduating-1.png) no-repeat 100% 100% /
       1000px;
     display: flex;
     height: 100vh;
