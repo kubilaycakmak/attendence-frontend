@@ -3,12 +3,17 @@ import { GoogleLogin } from 'react-google-login';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './LoginSignupForm.module.scss';
 
-const LoginSignupForm = () => {
+const LoginSignupForm = ({ googleSignupCallback }) => {
   const location = useLocation();
 
   const isLoginPage = location.pathname.includes('login');
-  const handleLogin = (res) => {
-    // logics for success and failure
+  const handleGoogleSuccess = (res) => {
+    if (!isLoginPage) googleSignupCallback();
+    // logics for success
+    // console.log(res);
+  };
+  const handleGoogleFailure = (res) => {
+    // logics for failure
     // console.log(res);
   };
   const handleSubmit = (e) => {
@@ -23,8 +28,8 @@ const LoginSignupForm = () => {
           buttonText={
             isLoginPage ? 'Sign in with Google' : 'Sign up with Google'
           }
-          onSuccess={handleLogin}
-          onFailure={handleLogin}
+          onSuccess={handleGoogleSuccess}
+          onFailure={handleGoogleFailure}
           cookiePolicy={'single_host_origin'}
         />
       </div>
@@ -32,7 +37,7 @@ const LoginSignupForm = () => {
       <form onSubmit={handleSubmit}>
         <input type="email" placeholder="Enter email addess" />
         <input type="password" placeholder="Enter password" />
-        <button type="submit">SIGN IN</button>
+        <button type="submit">{isLoginPage ? 'SIGN IN' : 'SIGN UP'}</button>
       </form>
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
