@@ -4,9 +4,9 @@ import EmailForm from '../EmailForm/EmailForm';
 import logo from '../../assets/imgs/attendance.png';
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+const Footer = ({ className }) => {
   return (
-    <footer className={styles.footer}>
+    <footer className={`${styles.footer} ${className}`}>
       <div className={styles.footerInner}>
         <div>
           <Link to="/" className={styles.footerLink}>

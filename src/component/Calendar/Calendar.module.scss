@@ -2,9 +2,37 @@
 .calendar {
   display: flex;
   flex-direction: row;
-  margin: 0 169px;
   padding-top: 80px;
+  padding: 2.5em 1em 0;
   align-items: flex-start;
+  div {
+    &:first-child {
+      width: 50%;
+      height: 60%;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+      button {
+        display: none;
+        margin-top: 2em;
+        @media screen and (max-width: 767px) {
+          display: block;
+        }
+      }
+    }
+    &:nth-child(2) {
+      width: 40%;
+      @media screen and (max-width: 767px) {
+        width: 100%;
+      }
+      button {
+        display: block;
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .title {
@@ -19,22 +47,32 @@
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 36px;
-  line-height: 60px;
+  font-size: 48px;
+  line-height: 72px;
   color: #000000;
   text-align: left;
+  @media screen and (max-width: 767px) {
+    font-size: 36px;
+    line-height: 46px;
+  }
 }
 .button {
   background: #ffffff;
   border: 0.5px solid #000000;
   border-radius: 4px;
+  font-size: 11px;
   width: 239px;
   height: 36px;
-  margin-left: 420px;
   margin-top: 0px;
+  cursor: pointer;
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+  }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 767px) {
   .calendar {
     display: flex;
     flex-direction: column-reverse;
@@ -56,15 +94,19 @@
     font-weight: 500;
     font-size: 32px;
     line-height: 48px;
+    margin-top: 0.8em;
     text-align: center;
   }
 
   .button {
-    width: 308px;
+    display: block;
+    font-size: 10px;
+    width: 92%;
     height: 34.94px;
     background: #ffffff;
     border: 0.5px solid #000000;
     border-radius: 4px;
     margin: 0px auto;
+    max-width: 504px;
   }
 }

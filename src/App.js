@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css';
-import Header from './component/Header/Header';
-import Calendar from './component/Calendar/Calendar';
-import AppointmentHeader from './component/Appointment-Header/AppointmentHeader';
-import LoginSignup from './component/pages/LoginSignup/LoginSignup';
+// import './App.css';
+import Home from './pages/Home/Home';
+import LoginSignup from './pages/LoginSignup/LoginSignup';
 import AvatarMenu from './component/AvatarMenu/AvatarMenu';
 import ReservationCardList from './component/ReservationCardList/ReservationCardList';
-import Footer from './component/Footer/Footer';
 
 function App() {
   // TODO: temp data
@@ -73,18 +70,15 @@ function App() {
     <>
       <BrowserRouter>
         <div className="App">
-          <Header />
-          <Calendar />
-          <AppointmentHeader />
-          <AvatarMenu />
+          {/* <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
-          <ReservationCardList list={list2} />
+          <ReservationCardList list={list2} /> */}
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/register" element={<LoginSignup />} />
             <Route path="/login" element={<LoginSignup />} />
           </Routes>
         </div>
-        <Footer />
       </BrowserRouter>
     </>
   );
