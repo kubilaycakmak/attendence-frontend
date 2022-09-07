@@ -14,13 +14,13 @@
   height: 100%;
   width: 100%;
   list-style: none;
-  text-align: left;
+  // text-align: left;
   color: gray;
   margin-top: 50px;
   position: relative;
 
   .row {
-    width: 100%;
+    width: max-content;
     height: 50px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -61,7 +61,7 @@ p {
     position: absolute;
     top: -32px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   p {
