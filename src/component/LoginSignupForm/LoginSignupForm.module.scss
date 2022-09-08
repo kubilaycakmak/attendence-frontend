@@ -5,6 +5,10 @@
   h1 {
     font-size: $FONT_SIZE_24;
     font-weight: 600;
+    text-align: center;
+    @include for-pc-screen {
+      text-align: left;
+    }
   }
   .googleBtnWrap {
     button {

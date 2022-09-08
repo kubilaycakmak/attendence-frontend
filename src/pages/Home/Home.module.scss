@@ -1,12 +1,6 @@
 @import '../../scss/variables';
 @import '../../scss/utils';
 
-.home {
-  padding-top: 20px;
-  @include for-pc-screen {
-    padding-top: 40px;
-  }
-}
 .findLocationHero {
   @include for-pc-screen {
     margin-top: 20px;

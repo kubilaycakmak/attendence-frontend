@@ -2,12 +2,15 @@
 @import '../../scss/utils';
 
 .login {
+  @include for-mobile-screen {
+    margin-top: 16%;
+  }
   @include for-pc-screen {
     align-items: center;
     background: url(../../assets/imgs/graduating-1.png) no-repeat 100% 100% /
-      1000px;
+      900px;
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 84px);
   }
   .container {
     margin: 0 auto;
