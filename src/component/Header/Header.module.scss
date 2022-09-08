@@ -1,87 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-.container {
-  padding: 2.5em 1em 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  @media screen and (max-width: 767px) {
-    flex-direction: column;
+.Nav {
+  margin-top: 56px;
+  padding: 0 10px !important;
+  color: rgba(0, 0, 0, 0.75);
+  max-width: 1100px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1024px) {
+    padding: 0 32px !important;
+  }
+  @media only screen and (max-width: 480px) {
+    padding: 0 16px !important;
   }
 }
 
-.titleContainer {
-  font-family: 'Poppins', sans-serif;
-  width: 40%;
-  @media screen and (max-width: 767px) {
-    width: 100%;
-    margin: 10%;
+.navLinkButton {
+  width: 141px;
+  height: 36px;
+  background: #ffffff;
+  border: 0.5px solid #000000;
+  border-radius: 4px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  text-align: center;
+  margin-left: 74px;
+
+  &:hover {
+    background-color: black;
+    color: white !important;
+    transition: 0.5s;
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin: auto auto;
+  }
+  @media only screen and (max-width: 1024px) {
+    margin: auto auto;
+    width: auto auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.mobileNav {
+  a {
+    min-width: auto;
+    width: auto !important;
+    max-width: 110px;
+
+    &:last-child {
+      font-size: 12px;
+      color: #000000;
+      min-width: 141px;
+      margin-left: 42px;
+      @media only screen and (max-width: 768px) {
+        min-width: 100%;
+      }
+      @media only screen and (max-width: 991px) {
+        min-width: 100%;
+      }
+      @media only screen and (max-width: 1024px) {
+        margin-left: 42px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+    margin: auto auto;
+    border-style: groove;
+    border-width: 0.2px 0px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    margin-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  @media only screen and (max-width: 991px) {
+    text-align: center;
+    margin: auto auto;
+    border-style: groove;
+    border-width: 0.2px 0px;
+    border-style: solid;
+    border-color: #e5e5e5;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    a {
+      &:last-child {
+        margin-left: 0px !important;
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  // @media only screen and (max-width: 1024px) {
+
+  // }
+  .navlink {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
     text-align: center;
-  }
-  p {
-    color: #2bb65e;
-    font-size: 24px;
-    @media screen and (max-width: 767px) {
-      font-size: 20px;
+    margin-left: 32px;
+    color: black;
+    @media only screen and (max-width: 768px) {
+      // border: 10px solid black !important;
+      text-align: center;
+      margin: auto auto;
     }
-  }
-  h1 {
-    font-size: 48px;
-    line-height: 48px;
-    font-weight: 500;
-    line-height: 72px;
-    margin-top: 0.5em;
-    @media screen and (max-width: 767px) {
-      font-size: 32px;
-      line-height: 48px;
-    }
-  }
-  .desktopBtn {
-    width: 141px;
-    font-size: 11px;
-    padding: 10.5px 24px;
-    background-color: transparent;
-    border-radius: 4px;
-    border: 0.5px solid black;
-    cursor: pointer;
-    &:hover {
-      background-color: black;
-      color: white;
-      transition: 0.5s;
-    }
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
-}
-
-.imgContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  img {
-    width: 80%;
-  }
-  .mobileBtn {
-    display: none;
-  }
-  @media screen and (max-width: 767px) {
-    .mobileBtn {
-      display: inline-block;
-      margin: 10% 0 0;
-      width: 180px;
-      font-size: 10px;
-      padding: 12px 24px;
-      background-color: transparent;
-      border-radius: 4px;
-      border: 0.5px solid black;
-      max-width: 504px;
-      width: 92%;
+    @media only screen and (max-width: 1024px) {
+      text-align: center;
+      margin: auto auto;
+      margin-top: 10px;
     }
   }
 }

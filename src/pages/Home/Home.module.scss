@@ -1,8 +1,19 @@
 @import '../../scss/variables';
 @import '../../scss/utils';
 
+.home {
+  padding-top: 20px;
+  @include for-pc-screen {
+    padding-top: 40px;
+  }
+}
+.findLocation {
+  @include for-pc-screen {
+    margin-top: 20px;
+  }
+}
 .footer {
-  margin-top: 3em;
+  margin-top: 6em;
 }
 .calendar {
   margin-top: 2em;

@@ -1,26 +1,38 @@
-import React from "react"
-import ManReadBook from "../Header/man-reading-book.svg"
-import styles from "../Header/Header.module.scss"
+import logo from '../../assets/imgs/logo.png';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import styles from './Header.module.scss';
 
-const Header = () => {
+function Header() {
   return (
-    <section className={styles.container}>
-      <div className={styles.titleContainer}>
-        <p>Find Location</p>
-        <h1>
-          Find what you looking for could be an empty space to work or
-          amenities.
-        </h1>
-        {/* btn for desktop */}
-        <button className={styles.desktopBtn}>Get started</button>
-      </div>
-      <div className={styles.imgContainer}>
-        <img src={ManReadBook} alt='Man-read-book'></img>
-        {/* btn for mobile */}
-        <button className={styles.mobileBtn}>Get started</button>
-      </div>
-    </section>
-  )
+    <Navbar expand="lg" className={styles.Nav}>
+      {/* <Container> */}
+      <Navbar.Brand href="#logo">
+        <img src={logo} alt="logo"></img>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Nav className={styles.mobileNav}>
+          <br></br>
+          <Nav.Link href="#location" className={styles.navlink}>
+            Find Location
+          </Nav.Link>
+          <Nav.Link href="#calendar" className={styles.navlink}>
+            Calendar
+          </Nav.Link>
+          <Nav.Link href="#appointment" className={styles.navlink}>
+            Appointment
+          </Nav.Link>
+          <br></br>
+          <Nav.Link href="#bttn" className={styles.navLinkButton}>
+            Get started
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+      {/* </Container> */}
+    </Navbar>
+  );
 }
 
-export default Header
+export default Header;
