@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/imgs/logo.png';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -8,26 +9,24 @@ function Header() {
   return (
     <Navbar expand="lg" className={styles.Nav}>
       {/* <Container> */}
-      <Navbar.Brand href="#logo">
+      <Link to="/">
         <img src={logo} alt="logo"></img>
-      </Navbar.Brand>
+      </Link>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className={styles.mobileNav}>
           <br></br>
-          <Nav.Link href="#location" className={styles.navlink}>
+          <Link to="/location" className={styles.navlink}>
             Find Location
-          </Nav.Link>
-          <Nav.Link href="#calendar" className={styles.navlink}>
+          </Link>
+          <Link to="/calendar" className={styles.navlink}>
             Calendar
-          </Nav.Link>
-          <Nav.Link href="#appointment" className={styles.navlink}>
+          </Link>
+          <Link to="/appointment" className={styles.navlink}>
             Appointment
-          </Nav.Link>
+          </Link>
           <br></br>
-          <Nav.Link href="#bttn" className={styles.navLinkButton}>
-            Get started
-          </Nav.Link>
+          <Nav.Link className={styles.navLinkButton}>Get started</Nav.Link>
         </Nav>
       </Navbar.Collapse>
       {/* </Container> */}
