@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './Calendar.module.scss';
-import CalendarImage from './CalendarImage';
-const Calendar = ({ className }) => {
+import styles from './CalendarHero.module.scss';
+import CalendarHeroImage from './CalendarHeroImage';
+const CalendarHero = ({ className }) => {
   return (
     <div>
-      <div className={`${styles.calendar} ${className}`}>
+      <div className={`${styles.calendarHero} ${className}`}>
         <div>
-          <CalendarImage />
+          <CalendarHeroImage />
           {/* btn for mobile */}
           <button className={styles.button}>Get Started</button>
         </div>
@@ -23,4 +23,4 @@ const Calendar = ({ className }) => {
   );
 };
 
-export default Calendar;
+export default CalendarHero;

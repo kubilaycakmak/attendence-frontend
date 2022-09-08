@@ -1,10 +1,10 @@
 import React from 'react';
-import classes from './AppointmentHeader.module.scss';
+import classes from './AppointmentHero.module.scss';
 import imageMob from '../../images/img_for_appointment_mob.png';
 import imageWeb from '../../images/img_for_appointment_web.png';
 //import image from "../../images/img_for_appointment.svg"
 
-export const AppointmentHeader = ({ className }) => {
+export const AppointmentHero = ({ className }) => {
   return (
     <div className={`${classes.global_container} ${className}`}>
       <div>
@@ -31,4 +31,4 @@ export const AppointmentHeader = ({ className }) => {
   );
 };
 
-export default AppointmentHeader;
+export default AppointmentHero;

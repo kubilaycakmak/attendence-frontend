@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-.calendar {
+.calendarHero {
   display: flex;
   flex-direction: row;
   padding-top: 80px;
@@ -76,7 +76,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .calendar {
+  .calendarHero {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;

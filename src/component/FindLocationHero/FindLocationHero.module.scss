@@ -84,6 +84,11 @@
       border: 0.5px solid black;
       max-width: 504px;
       width: 92%;
+      &:hover {
+        background-color: black;
+        color: white;
+        transition: 0.5s;
+      }
     }
   }
 }

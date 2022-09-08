@@ -1,8 +1,8 @@
 import React from 'react';
 import ManReadBook from '../../assets/imgs/man-reading-book.svg';
-import styles from './FindLocation.module.scss';
+import styles from './FindLocationHero.module.scss';
 
-const FindLocation = ({ className }) => {
+const FindLocationHero = ({ className }) => {
   return (
     <section className={`${styles.container} ${className}`}>
       <div className={styles.titleContainer}>
@@ -23,4 +23,4 @@ const FindLocation = ({ className }) => {
   );
 };
 
-export default FindLocation;
+export default FindLocationHero;

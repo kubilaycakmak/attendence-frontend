@@ -7,7 +7,7 @@
     padding-top: 40px;
   }
 }
-.findLocation {
+.findLocationHero {
   @include for-pc-screen {
     margin-top: 20px;
   }
@@ -15,9 +15,9 @@
 .footer {
   margin-top: 6em;
 }
-.calendar {
+.calendarHero {
   margin-top: 2em;
 }
-.appointmentHeader {
+.appointmentHero {
   margin-top: 4.5em;
 }
