@@ -1,0 +1,77 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.formWrap {
+  h1 {
+    font-size: $FONT_SIZE_24;
+    font-weight: 600;
+    text-align: center;
+    @include for-pc-screen {
+      text-align: left;
+    }
+  }
+  .googleBtnWrap {
+    button {
+      border: 0.2px solid #000000 !important;
+      border-radius: 4px !important;
+      box-shadow: none !important;
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+    }
+    div {
+      height: 18px;
+      padding: 0 !important;
+    }
+    span {
+      font-size: $FONT_SIZE_10;
+    }
+  }
+  hr {
+    border-color: #0000004a;
+    border-width: 0.5px;
+    margin: 1.5em 0;
+  }
+  input,
+  button {
+    border-radius: 4px;
+    display: block;
+    font-size: $FONT_SIZE_10;
+    padding: 1em;
+    width: 100%;
+  }
+  input {
+    border: 0.2px solid #000000;
+    & + input {
+      margin-top: 1.2em;
+    }
+  }
+  button {
+    background: #000;
+    border: none;
+    color: #fff;
+    margin-top: 2em;
+    transition: opacity 100ms ease-out;
+    @include hover-opacity;
+  }
+  form {
+    button {
+      cursor: pointer;
+    }
+  }
+  .otherOptions {
+    margin-top: 0.8em;
+    a {
+      color: #00000099;
+      display: block;
+      font-weight: 600;
+      font-size: $FONT_SIZE_8;
+      line-height: 12px;
+      text-align: left;
+      text-decoration: none;
+      & + a {
+        margin-top: 1em;
+      }
+    }
+  }
+}

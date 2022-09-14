@@ -1,0 +1,17 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.findLocationHero {
+  @include for-pc-screen {
+    margin-top: 20px;
+  }
+}
+.footer {
+  margin-top: 6em;
+}
+.calendarHero {
+  margin-top: 2em;
+}
+.appointmentHero {
+  margin-top: 4.5em;
+}
