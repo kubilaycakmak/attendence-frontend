@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
+import AppointmentSuccessful from "./AppointmentSuccessful"
 import profileImg from "./profileImg.svg"
 import styles from "./AppointmentConfirmation.module.scss"
 
@@ -7,15 +8,19 @@ const AppointmentConfirmation = ({ user, id, date, duration }) => {
   const timestamp = new Date().getTime()
   const testDate = new Date(timestamp)
 
-  const clickHandler = () => {}
+  const [success, setSuccess] = useState("")
+
+  const clickHandler = () => {
+    setSuccess(!success)
+  }
 
   return (
     <>
       {id ? (
         <div className={styles.container}>
-          <h3>Confirm</h3>
+          {success ? <h3>Your Appointment Successfull!</h3> : <h3>Confirm</h3>}
           <div className={styles.imgTitleContainer}>
-            <img src={profileImg} alt='profileImg' />
+            {success ? "" : <img src={profileImg} alt='profileImg' />}
             <div className={styles.titleWrap}>
               <p>
                 <b>{user.fullName}</b>
@@ -29,14 +34,18 @@ const AppointmentConfirmation = ({ user, id, date, duration }) => {
             </div>
           </div>
           <div className={styles.detailBtnWrap}>
-            <h3>Review Appointment</h3>
+            {success ? "" : <h3>Review Appointment</h3>}
             <p>
               <b>Date</b>: {testDate.toString("en-CA")}
             </p>
             <p>
               <b>Duration</b>: {duration}
             </p>
-            <button onClick={clickHandler}>Submit</button>
+            {success ? (
+              <button>Home</button>
+            ) : (
+              <button onClick={clickHandler}>Submit</button>
+            )}
           </div>
         </div>
       ) : (
