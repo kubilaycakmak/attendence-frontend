@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import "./scss/global.scss";
 import App from "./App";
 import "./index.css";
-import store from "./store";
+import { store } from "./store";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -12,9 +12,9 @@ const root = createRoot(container);
 root.render(
   <>
     <React.StrictMode>
-      {/* <Provider store={store}> */}
-      <App />
-      {/* </Provider> */}
+      <Provider store={store}>
+        <App />
+      </Provider>
     </React.StrictMode>
   </>
 );
