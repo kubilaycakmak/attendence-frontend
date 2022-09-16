@@ -1,6 +1,5 @@
 import React from "react"
 import ProfileTabBtn from "./component/Profile-tab-btn/ProfileTabBtn"
-// import "./App.css"
 
 function App() {
   return (
