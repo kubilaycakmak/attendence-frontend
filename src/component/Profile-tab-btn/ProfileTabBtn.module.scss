@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  .notification {
+    position: relative;
+  }
   @media screen and (max-width: 767px) {
     flex-direction: column;
     padding: 20px;
@@ -17,8 +20,8 @@
   border-radius: 7px;
   border: 1px solid black;
   margin: 16px;
+  width: 180px;
   @media screen and (max-width: 767px) {
-    width: 100%;
     margin: 8px;
   }
 }
@@ -30,13 +33,29 @@
   border-radius: 7px;
   border: 1px solid black;
   margin: 16px;
+  width: 180px;
+
   @media screen and (max-width: 767px) {
-    width: 100%;
     margin: 8px;
   }
   &:hover {
     background-color: black;
     color: white;
     transition: 0.5s;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  padding: 2px 6px;
+  border-radius: 12%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  @media screen and (max-width: 767px) {
+    top: 0px;
+    right: -10px;
   }
 }
