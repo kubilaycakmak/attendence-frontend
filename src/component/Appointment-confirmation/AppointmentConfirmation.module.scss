@@ -18,12 +18,8 @@ h3 {
 }
 
 .titleWrap {
-  padding-left: 24px;
   p {
     font-size: 16px;
-  }
-  @media screen and (max-width: 767px) {
-    padding-left: 0%;
   }
 }
 
@@ -32,6 +28,9 @@ h3 {
   align-items: center;
   p {
     font-size: 14px;
+  }
+  img {
+    margin-right: 24px;
   }
   @media screen and (max-width: 767px) {
     flex-direction: column;

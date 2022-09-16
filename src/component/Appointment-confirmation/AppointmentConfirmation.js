@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import AppointmentSuccessful from "./AppointmentSuccessful"
 import profileImg from "./profileImg.svg"
 import styles from "./AppointmentConfirmation.module.scss"
 
