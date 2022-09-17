@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 .column {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -15,7 +18,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
-  line-height: 36px;
+  // line-height: 36px;
   margin-right: 12px;
 }
 .button {
@@ -35,4 +38,9 @@
   left: 840px;
 }
 .video {
+  width: 650px;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  left: 280px;
 }
