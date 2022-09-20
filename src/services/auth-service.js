@@ -9,3 +9,10 @@ export const register = (username, full_name, password, email, type) => {
     type,
   });
 };
+
+export const login = (email, password) => {
+  return axios.post(`${process.env.REACT_APP_URL}/api/auth/login`, {
+    email,
+    password,
+  });
+};

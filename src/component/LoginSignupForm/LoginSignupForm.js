@@ -3,8 +3,12 @@ import { GoogleLogin } from "react-google-login";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./LoginSignupForm.module.scss";
 import { register } from "../../services/auth-service";
+import { login } from "../../services/auth-service";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../reducers/auth";
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
+  const dispatch = useDispatch(authActions);
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,8 +26,8 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     // console.log(res);
   };
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
       await register(username, fullName, password, email, "student").then(
         (res) => {
           if (res.status === 401) {
@@ -40,7 +44,20 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       console.log(error.message);
     }
   };
-  const loginSubmit = (e) => {};
+  const loginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await login(email, password).then((res) => {
+        if (res.status === 201) {
+          dispatch.login();
+          console.log("logged in");
+          // navigate some where
+        }
+      });
+    } catch {
+      console.log("something went wrong");
+    }
+  };
   return (
     <div className={styles.formWrap}>
       <h1>{isLoginPage ? "Login" : "Register"}</h1>
@@ -56,7 +73,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
         />
       </div>
       <hr />
-      <form onSubmit={isLoginPage ? handleSubmit : loginSubmit}>
+      <form onSubmit={!isLoginPage ? handleSubmit : loginSubmit}>
         {!isLoginPage && (
           <input
             type="text"
