@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const registerSlice = createSlice({
-  name: "register",
-  initialState: { isRegistered: false },
+const authSlice = createSlice({
+  name: "login",
+  initialState: { isAuth: false },
   reducers: {
-    signup(state, action) {
+    login(state, action) {
       if (action.payload) {
-        state.isRegistered = true;
+        state.isAuth = true;
       }
     },
   },
 });
 
-export const registerActions = registerSlice.actions;
-export default registerSlice.reducer;
+export const authActions = authSlice.actions;
+export default authSlice.reducer;

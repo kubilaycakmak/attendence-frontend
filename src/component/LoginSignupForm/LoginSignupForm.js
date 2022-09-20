@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
 import { Link, useLocation } from "react-router-dom";
 import styles from "./LoginSignupForm.module.scss";
 import { register } from "../../services/auth-service";
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
+  const [username, setUsername] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const location = useLocation();
 
   const isLoginPage = location.pathname.includes("login");
@@ -18,19 +22,25 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     // console.log(res);
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await register(
-      "azar.b",
-      "azar barfi",
-      "123",
-      "azar@gmail.com",
-      "student"
-    ).then((res) => {
-      if (res.status === 200) {
-        // update redux
-      }
-    });
+    try {
+      e.preventDefault();
+      await register(username, fullName, password, email, "student").then(
+        (res) => {
+          if (res.status === 401) {
+            // add a failure modal later
+            throw new Error("user already existed");
+          }
+          if (res.status === 201) {
+            // add a success modal later
+            console.log("user added successfully");
+          }
+        }
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
   };
+  const loginSubmit = (e) => {};
   return (
     <div className={styles.formWrap}>
       <h1>{isLoginPage ? "Login" : "Register"}</h1>
@@ -46,9 +56,31 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
         />
       </div>
       <hr />
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Enter email addess" />
-        <input type="password" placeholder="Enter password" />
+      <form onSubmit={isLoginPage ? handleSubmit : loginSubmit}>
+        {!isLoginPage && (
+          <input
+            type="text"
+            placeholder="Enter username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        )}
+        {!isLoginPage && (
+          <input
+            type="text"
+            placeholder="Enter full name"
+            onChange={(e) => setFullName(e.target.value)}
+          />
+        )}
+        <input
+          type="email"
+          placeholder="Enter email address"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <button type="submit">{isLoginPage ? "SIGN IN" : "SIGN UP"}</button>
       </form>
       <div className={styles.otherOptions}>
@@ -60,7 +92,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           <>
             <Link to="/signup">If you don't have an account - register</Link>
             <Link to="/forgot-password">Forgot your password</Link>
-            <Link to="/guest">Contiune as guest</Link>
+            <Link to="/guest">Continue as guest</Link>
           </>
         )}
       </div>

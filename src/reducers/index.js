@@ -1,5 +1,5 @@
-import registerReducer from "./auth";
+import authReducer from "./auth";
 
 export const rootReducers = {
-  auth: registerReducer,
+  auth: authReducer,
 };
