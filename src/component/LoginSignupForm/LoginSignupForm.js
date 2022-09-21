@@ -6,8 +6,10 @@ import { register } from "../../services/auth-service";
 import { login } from "../../services/auth-service";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../reducers/auth";
+import { useNavigate } from "react-router-dom";
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch(authActions);
   const [username, setUsername] = useState("");
   const [fullName, setFullName] = useState("");
@@ -48,14 +50,15 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     e.preventDefault();
     try {
       await login(email, password).then((res) => {
-        if (res.status === 201) {
-          dispatch.login();
+        if (res.status === 200) {
+          dispatch(authActions.login());
           console.log("logged in");
           // navigate some where
+          navigate("/");
         }
       });
-    } catch {
-      console.log("something went wrong");
+    } catch (error) {
+      console.log(error.message);
     }
   };
   return (
