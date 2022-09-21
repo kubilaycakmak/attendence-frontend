@@ -6,14 +6,26 @@ import sampleVideo from './video.mp4'
 
 const Video = () => {
   const date = '29th August of 2022'
-  let like = 0
+  const [like, setLike] = useState(0)
   const [toggled, setToggled] = useState(false)
+
+  const handleLike = () => {
+    if (toggled) {
+      setToggled(false)
+      setLike(like - 1)
+    } else {
+      setToggled(true)
+      setLike(like + 1)
+    }
+  }
 
   return (
     <div className={styles.videoColumn}>
       <div className={styles.videoContainer}>
         <h2 className={styles.title}>Subject: {date}</h2>
-        <button className={styles.button}>😍</button>
+        <button className={styles.button} onClick={handleLike}>
+          😍
+        </button>
         <span className={styles.para}>{like} people loved it</span>
       </div>
       <div className={styles.video}>
