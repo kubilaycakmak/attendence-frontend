@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DefaultPlayer as VideoPlayer } from 'react-html5video'
 import 'react-html5video/dist/styles.css'
 import styles from './Video.module.scss'
@@ -6,17 +6,18 @@ import sampleVideo from './video.mp4'
 
 const Video = () => {
   const date = '29th August of 2022'
-  const like = 12
+  let like = 0
+  const [toggled, setToggled] = useState(false)
 
   return (
-    <div className='column'>
-      <div className='container'>
+    <div className={styles.videoColumn}>
+      <div className={styles.videoContainer}>
         <h2 className={styles.title}>Subject: {date}</h2>
         <button className={styles.button}>😍</button>
         <span className={styles.para}>{like} people loved it</span>
       </div>
       <div className={styles.video}>
-        <VideoPlayer autoPlay loop>
+        <VideoPlayer autoPlay loop className={styles.videoSource}>
           <source src={sampleVideo} type='video/mp4' />
         </VideoPlayer>
       </div>

@@ -5,21 +5,30 @@
   flex-direction: column;
 }
 
-.container {
-  position: relative;
+.videoContainer {
+  // position: relative;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
+
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
 }
 .title {
-  display: inline;
+  // position: relative;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   // line-height: 36px;
   margin-right: 12px;
+
+  width: 360px;
+  text-align: left;
+  margin-left: 280px;
 }
 .button {
   background: #000000;
@@ -43,4 +52,7 @@
   object-fit: contain;
   position: absolute;
   left: 280px;
+}
+.videoSource {
+  // overflow-x: hidden;
 }
