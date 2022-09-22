@@ -32,14 +32,13 @@
     }
   }
   h1 {
-    font-size: 48px;
-    line-height: 48px;
+    font-size: 36px;
+    line-height: 52px;
     font-weight: 500;
-    line-height: 72px;
     margin-top: 0.5em;
     @media screen and (max-width: 767px) {
-      font-size: 32px;
-      line-height: 48px;
+      font-size: 26px;
+      line-height: 36px;
     }
   }
   .desktopBtn {
