@@ -1,10 +1,13 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import './App.css';
-import Home from "./pages/Home/Home";
-import LoginSignup from "./pages/LoginSignup/LoginSignup";
-import AvatarMenu from "./component/AvatarMenu/AvatarMenu";
-import ReservationCardList from "./component/ReservationCardList/ReservationCardList";
+import Home from "./pages/Home/Home"
+import LoginSignup from "./pages/LoginSignup/LoginSignup"
+import AvatarMenu from "./component/AvatarMenu/AvatarMenu"
+import ReservationCardList from "./component/ReservationCardList/ReservationCardList"
+
+// import "./App.css"
+import ProfileHeader from "./component/Profile-header/ProfileHeader"
 
 function App() {
   // TODO: temp data
@@ -34,7 +37,7 @@ function App() {
       date: "Date: Thursday, 23, 2022 11:15am",
       duration: "Duration: 45 minutes",
     },
-  ];
+  ]
   // Location & Direction page
   const list2 = [
     {
@@ -65,23 +68,24 @@ function App() {
       description:
         "This class location is at first floor and next to elevator.",
     },
-  ];
+  ]
   return (
     <>
       <BrowserRouter>
-        <div className="App">
+        <div className='App'>
           {/* <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} /> */}
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register" element={<LoginSignup />} />
-            <Route path="/login" element={<LoginSignup />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/register' element={<LoginSignup />} />
+            <Route path='/login' element={<LoginSignup />} />
+            <Route path='/profile' element={<ProfileHeader />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
