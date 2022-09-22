@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 // import './App.css';
@@ -8,6 +9,12 @@ import ReservationCardList from "./component/ReservationCardList/ReservationCard
 
 // import "./App.css"
 import ProfileHeader from "./component/Profile-header/ProfileHeader"
+=======
+import React from 'react'
+
+import './App.css'
+import Sidebar from './component/Sidebar/Sidebar'
+>>>>>>> origin/sidebar
 
 function App() {
   // TODO: temp data
@@ -70,6 +77,7 @@ function App() {
     },
   ]
   return (
+<<<<<<< HEAD
     <>
       <BrowserRouter>
         <div className='App'>
@@ -85,6 +93,11 @@ function App() {
         </div>
       </BrowserRouter>
     </>
+=======
+    <div className='App'>
+      <Sidebar />
+    </div>
+>>>>>>> origin/sidebar
   )
 }
 
