@@ -22,8 +22,8 @@ function Header() {
           <Link to="/calendar" className={styles.navlink}>
             Calendar
           </Link>
-          <Link to="/appointment" className={styles.navlink}>
-            Appointment
+          <Link to="/login" className={styles.navlink}>
+            Login
           </Link>
           <br></br>
           <Nav.Link className={styles.navLinkButton}>Get started</Nav.Link>
