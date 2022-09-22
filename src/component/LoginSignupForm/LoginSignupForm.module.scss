@@ -1,5 +1,5 @@
-@import '../../scss/variables';
-@import '../../scss/utils';
+@import "../../scss/variables";
+@import "../../scss/utils";
 
 .formWrap {
   h1 {
@@ -73,5 +73,9 @@
         margin-top: 1em;
       }
     }
+  }
+  .message {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
   }
 }

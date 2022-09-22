@@ -15,6 +15,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const location = useLocation();
 
   const isLoginPage = location.pathname.includes("login");
@@ -33,17 +34,15 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       await register(username, fullName, password, email, "student").then(
         (res) => {
           if (res.status === 401) {
-            // add a failure modal later
             throw new Error("user already existed");
           }
           if (res.status === 201) {
-            // add a success modal later
-            console.log("user added successfully");
+            setMessage("user added successfully");
           }
         }
       );
     } catch (error) {
-      console.log(error.message);
+      setMessage(error.message);
     }
   };
   const loginSubmit = async (e) => {
@@ -52,8 +51,6 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       await login(email, password).then((res) => {
         if (res.status === 200) {
           dispatch(authActions.login());
-          console.log("logged in");
-          // navigate some where
           navigate("/");
         }
       });
@@ -102,6 +99,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">{isLoginPage ? "SIGN IN" : "SIGN UP"}</button>
+        <p className={styles.message}>{message}</p>
       </form>
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
