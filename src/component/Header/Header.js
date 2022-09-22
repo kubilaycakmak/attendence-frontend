@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import logo from '../../assets/imgs/logo.png';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import styles from './Header.module.scss';
+import { Link } from "react-router-dom";
+import logo from "../../assets/imgs/logo.png";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import styles from "./Header.module.scss";
 
 function Header() {
   return (
@@ -16,17 +16,19 @@ function Header() {
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className={styles.mobileNav}>
           <br></br>
-          <Link to="/location" className={styles.navlink}>
+          {/* <Link to="/location" className={styles.navlink}>
             Find Location
-          </Link>
-          <Link to="/calendar" className={styles.navlink}>
+          </Link> */}
+          {/* <Link to="/calendar" className={styles.navlink}>
             Calendar
-          </Link>
+          </Link> */}
           <Link to="/login" className={styles.navlink}>
             Login
           </Link>
           <br></br>
-          <Nav.Link className={styles.navLinkButton}>Get started</Nav.Link>
+          <Nav.Link href="/register" className={styles.navLinkButton}>
+            Get started
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
       {/* </Container> */}
