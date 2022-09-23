@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, BrowserRouter, Path, Routes, Route } from "react-router-dom";
 import styles from "./LoginSignupForm.module.scss";
 import { register } from "../../services/auth-service";
 import { login } from "../../services/auth-service";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../reducers/auth";
 import { useNavigate } from "react-router-dom";
+import ForgetPassword from "../ForgetPassword/ForgetPassword";
+import NewPassword from "../NewPassword/NewPassword";
+//import Home from "../../pages/Home";
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
   const navigate = useNavigate();
@@ -101,6 +104,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
         <button type="submit">{isLoginPage ? "SIGN IN" : "SIGN UP"}</button>
         <p className={styles.message}>{message}</p>
       </form>
+      {/* <BrowserRouter> */}
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
           <>
@@ -114,6 +118,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           </>
         )}
       </div>
+      {/* </BrowserRouter> */}
     </div>
   );
 };

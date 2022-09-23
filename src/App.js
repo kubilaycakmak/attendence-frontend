@@ -5,6 +5,8 @@ import Home from "./pages/Home/Home";
 import LoginSignup from "./pages/LoginSignup/LoginSignup";
 import AvatarMenu from "./component/AvatarMenu/AvatarMenu";
 import ReservationCardList from "./component/ReservationCardList/ReservationCardList";
+import ForgetPassword from './component/ForgetPassword/ForgetPassword'
+import NewPassword from './component/NewPassword/NewPassword'
 
 function App() {
   // TODO: temp data
@@ -77,6 +79,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<LoginSignup />} />
             <Route path="/login" element={<LoginSignup />} />
+            <Route path="/forgot-password" element={<ForgetPassword />}/>
+            <Route path="/new-password" element={<NewPassword />}/>
+              {/* <Route path="guest" element={<Home/>}/> */}
           </Routes>
         </div>
       </BrowserRouter>
@@ -84,4 +89,4 @@ function App() {
   );
 }
 
-export default App;
+export default App
