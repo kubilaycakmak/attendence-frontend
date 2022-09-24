@@ -1,20 +1,14 @@
-<<<<<<< HEAD
 import React from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-// import './App.css';
 import Home from "./pages/Home/Home"
 import LoginSignup from "./pages/LoginSignup/LoginSignup"
 import AvatarMenu from "./component/AvatarMenu/AvatarMenu"
 import ReservationCardList from "./component/ReservationCardList/ReservationCardList"
+// import ProfileHeader from "./component/Profile-header/ProfileHeader"
+import Profile from "./pages/Profile/Profile"
 
-// import "./App.css"
-import ProfileHeader from "./component/Profile-header/ProfileHeader"
-=======
-import React from 'react'
-
-import './App.css'
-import Sidebar from './component/Sidebar/Sidebar'
->>>>>>> origin/sidebar
+import "./App.css"
+import Sidebar from "./component/Sidebar/Sidebar"
 
 function App() {
   // TODO: temp data
@@ -77,7 +71,6 @@ function App() {
     },
   ]
   return (
-<<<<<<< HEAD
     <>
       <BrowserRouter>
         <div className='App'>
@@ -88,16 +81,11 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/register' element={<LoginSignup />} />
             <Route path='/login' element={<LoginSignup />} />
-            <Route path='/profile' element={<ProfileHeader />}></Route>
+            <Route path='/profile' element={<Profile />}></Route>
           </Routes>
         </div>
       </BrowserRouter>
     </>
-=======
-    <div className='App'>
-      <Sidebar />
-    </div>
->>>>>>> origin/sidebar
   )
 }
 
