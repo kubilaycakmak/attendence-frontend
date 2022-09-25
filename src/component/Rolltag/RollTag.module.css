@@ -1,0 +1,85 @@
+.Teacher_tag_body {
+  width: 75px;
+  height: 32px;
+  background: #AE7D00;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.Teacher_tag_body p {
+  font-family: 'Poppins';
+  text-align: center;
+  margin: 8px auto;
+  font-size: 12px;
+  font-family: 'Poppins';
+  color: white;
+}
+
+.Cordinator_tag_body {
+  width: 75px;
+  height: 32px;
+  background: #0711FD;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.Cordinator_tag_body p {
+  font-family: 'Poppins';
+  text-align: center;
+  margin: 8px auto;
+  font-size: 12px;
+  font-family: 'Poppins';
+  color: white;
+}
+
+.Student_tag_body {
+  width: 75px;
+  height: 32px;
+  background: #E3AD20;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.Student_tag_body p {
+  font-family: 'Poppins';
+  text-align: center;
+  margin: 8px auto;
+  font-size: 12px;
+  font-family: 'Poppins';
+  color: white;
+}
+
+.Co-op-manager_tag_body {
+  width: 75px;
+  height: 32px;
+  background: #494948;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.Co-op-manager_tag_body p {
+  font-family: 'Poppins';
+  text-align: center;
+  margin: 8px auto;
+  font-size: 12px;
+  font-family: 'Poppins';
+  color: white;
+}
+
+.TA_tag_body {
+  width: 75px;
+  height: 32px;
+  background: #000000;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.TA_tag_body p {
+  font-family: 'Poppins';
+  text-align: center;
+  margin: 8px auto;
+  font-size: 12px;
+  font-family: 'Poppins';
+  color: white;
+}
+/*# sourceMappingURL=RollTag.module.css.map */
