@@ -77,6 +77,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<LoginSignup />} />
             <Route path="/login" element={<LoginSignup />} />
+            {/* <Route path="/avatar" element={<AvatarMenu />} /> */}
           </Routes>
         </div>
       </BrowserRouter>
