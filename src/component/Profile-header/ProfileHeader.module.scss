@@ -1,8 +1,9 @@
 .bigContainer {
   height: auto;
   display: flex;
-  margin-left: 25%;
-  padding: 54px;
+  // justify-content: flex-start;
+  margin-left: 250px;
+  padding: 48px;
   .img {
     height: auto;
     @media screen and (max-width: 767px) {
@@ -15,7 +16,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    width: 420px;
+    
     @media screen and (max-width: 767px) {
       padding-left: 0px;
       margin-top: 16px;
@@ -31,6 +34,8 @@
 }
 
 .titleContainer {
+  width: 100%;
+  flex-wrap: nowrap;
   .title {
     font-size: 24px;
   }
@@ -38,6 +43,8 @@
 
 .tagContainer {
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .linkContainer {
@@ -46,5 +53,6 @@
   a {
     text-decoration: none;
     color: #000;
+    margin-right: 6px;
   }
 }

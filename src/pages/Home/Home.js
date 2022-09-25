@@ -9,7 +9,7 @@ import styles from './Home.module.scss';
 const Home = () => {
   return (
     <div className={styles.home}>
-      <Header className={styles.nav} />
+      {/* <Header className={styles.nav} /> */}
       <FindLocationHero className={styles.findLocationHero} />
       <CalendarHero className={styles.calendarHero} />
       <AppointmentHero className={styles.appointmentHero} />

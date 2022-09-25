@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import './App.css';
 import Home from "./pages/Home/Home";
 import LoginSignup from "./pages/LoginSignup/LoginSignup";
 import AvatarMenu from "./component/AvatarMenu/AvatarMenu";
-import ReservationCardList from "./component/ReservationCardList/ReservationCardList";
 import ForgetPassword from './component/ForgetPassword/ForgetPassword'
 import NewPassword from './component/NewPassword/NewPassword'
 import Profile from "./pages/Profile/Profile"
-
+import NotFoundPage from './pages/NotFoundPage'
+import Header from "./component/Header/Header"
 function App() {
+  const state = useSelector(state=>state)
   // TODO: temp data
   // Profile page
   const list1 = [
@@ -69,10 +70,18 @@ function App() {
         "This class location is at first floor and next to elevator.",
     },
   ]
+
+  useEffect(() => {
+    console.log(state.auth.isAuth);
+  }, [state])
+  
+
   return (
     <>
       <BrowserRouter>
         <div className='App'>
+          
+          {state.auth.isAuth ? <AvatarMenu /> : <Header />}
           {/* <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} /> */}
@@ -81,8 +90,9 @@ function App() {
             <Route path="/register" element={<LoginSignup />} />
             <Route path="/login" element={<LoginSignup />} />
             <Route path="/forgot-password" element={<ForgetPassword />}/>
-            <Route path="/new-password" element={<NewPassword />}/>
+            <Route path="/new-password/:id" element={<NewPassword />}/>
             <Route path='/profile' element={<Profile />}></Route>
+            <Route path="*" element={<NotFoundPage />} />
               {/* <Route path="guest" element={<Home/>}/> */}
           </Routes>
         </div>

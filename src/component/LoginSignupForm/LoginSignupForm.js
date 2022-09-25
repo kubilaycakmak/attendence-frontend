@@ -40,7 +40,8 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
             throw new Error("user already existed");
           }
           if (res.status === 201) {
-            setMessage("user added successfully");
+            // setMessage("* Please check your email!");
+            navigate("/login")
           }
         }
       );
@@ -54,7 +55,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       await login(email, password).then((res) => {
         if (res.status === 200) {
           dispatch(authActions.login());
-          navigate("/");
+          navigate("/profile");
         }
       });
     } catch (error) {
@@ -80,28 +81,28 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
         {!isLoginPage && (
           <input
             type="text"
-            placeholder="Enter username"
+            placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
         )}
         {!isLoginPage && (
           <input
             type="text"
-            placeholder="Enter full name"
+            placeholder="Full Name"
             onChange={(e) => setFullName(e.target.value)}
           />
         )}
         <input
           type="email"
-          placeholder="Enter email address"
+          placeholder="Email address"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Enter password"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isLoginPage ? "SIGN IN" : "SIGN UP"}</button>
+        <button type="submit">{isLoginPage ? "Sign In" : "Sign Up"}</button>
         <p className={styles.message}>{message}</p>
       </form>
       {/* <BrowserRouter> */}

@@ -3,8 +3,6 @@ import classes from './RollTag.module.scss';
 
  const RollTag = ({role}) => {
 const [roleName,setRoleName] = useState([]);
-console.log(role);   
-console.log(classes);
 
 useEffect(()=>{
     if(role === "Co-op Manager"){
@@ -15,7 +13,6 @@ useEffect(()=>{
 
 },[])
    
-console.log(roleName);
 
     return (
         <>

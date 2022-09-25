@@ -16,15 +16,15 @@ function Header() {
       <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
         <Nav className={styles.mobileNav}>
           <br></br>
-          {/* <Link to="/location" className={styles.navlink}>
+          <Link to="/location" className={styles.navlink}>
             Find Location
-          </Link> */}
-          {/* <Link to="/calendar" className={styles.navlink}>
-            Calendar
-          </Link> */}
-          <Link to="/login" className={styles.navlink}>
-            Login
           </Link>
+          <Link to="/calendar" className={styles.navlink}>
+            Calendar
+          </Link>
+          {/* <Link to="/login" className={styles.navlink}>
+            Login
+          </Link> */}
           <br></br>
           <Nav.Link href="/register" className={styles.navLinkButton}>
             Get started

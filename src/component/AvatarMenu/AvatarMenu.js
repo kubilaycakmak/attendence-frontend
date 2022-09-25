@@ -10,7 +10,7 @@ const AvatarMenu = () => {
   const dispatch = useDispatch(authActions);
   // TODO: temp data
   const tempUserInfo = {
-    user_name: "ryosomatani",
+    user_name: "johndoe",
     profile_image: "/profile.png",
   };
   const [isMenuShown, setIsMenuShown] = useState(false);

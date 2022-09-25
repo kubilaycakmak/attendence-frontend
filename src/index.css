@@ -18,3 +18,7 @@ code {
 #active{
   color: white !important;
 }
+p{
+  margin-bottom: 0 !important;
+  
+}

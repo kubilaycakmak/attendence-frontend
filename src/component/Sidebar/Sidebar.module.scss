@@ -2,16 +2,18 @@
 
 .Sidebar {
   position: fixed;
-  height: 900px;
-  width: 25%;
+  height: 100%;
+  width: 250px;
   background-color: black;
   left: 0px;
   top: 0px;
   bottom: 0px;
+  display: flex;
+  flex-direction: column;
   p {
-    position: absolute;
-    top: 500px;
-    right: 120px;
+    width: 100%;
+    text-align: center;
+    // right: 120px;
     font-family: "Poppins";
     font-style: normal;
     font-weight: 500;
