@@ -7,6 +7,7 @@ import AvatarMenu from "./component/AvatarMenu/AvatarMenu";
 import ReservationCardList from "./component/ReservationCardList/ReservationCardList";
 import ForgetPassword from './component/ForgetPassword/ForgetPassword'
 import NewPassword from './component/NewPassword/NewPassword'
+import Profile from "./pages/Profile/Profile"
 
 function App() {
   // TODO: temp data
@@ -36,7 +37,7 @@ function App() {
       date: "Date: Thursday, 23, 2022 11:15am",
       duration: "Duration: 45 minutes",
     },
-  ];
+  ]
   // Location & Direction page
   const list2 = [
     {
@@ -67,11 +68,11 @@ function App() {
       description:
         "This class location is at first floor and next to elevator.",
     },
-  ];
+  ]
   return (
     <>
       <BrowserRouter>
-        <div className="App">
+        <div className='App'>
           {/* <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} /> */}
@@ -81,12 +82,13 @@ function App() {
             <Route path="/login" element={<LoginSignup />} />
             <Route path="/forgot-password" element={<ForgetPassword />}/>
             <Route path="/new-password" element={<NewPassword />}/>
+            <Route path='/profile' element={<Profile />}></Route>
               {/* <Route path="guest" element={<Home/>}/> */}
           </Routes>
         </div>
       </BrowserRouter>
     </>
-  );
+  )
 }
 
 export default App

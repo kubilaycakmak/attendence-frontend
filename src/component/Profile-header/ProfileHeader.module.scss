@@ -1,0 +1,50 @@
+.bigContainer {
+  height: auto;
+  display: flex;
+  margin-left: 25%;
+  padding: 54px;
+  .img {
+    height: auto;
+    @media screen and (max-width: 767px) {
+      margin-top: 24%;
+    }
+  }
+  .contentWrapper {
+    height: auto;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 767px) {
+      padding-left: 0px;
+      margin-top: 16px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    margin: auto;
+    margin-left: 0%;
+    padding-left: 0px;
+    padding: 0px;
+  }
+}
+
+.titleContainer {
+  .title {
+    font-size: 24px;
+  }
+}
+
+.tagContainer {
+  display: flex;
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: space-between;
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+}
