@@ -9,7 +9,7 @@ export const AppointmentHero = ({ className }) => {
     <div className={`${classes.global_container} ${className}`}>
       <div>
         <div className={classes.appointment_wrapper}>
-          <p>Appoinment</p>
+          <p>Appointment</p>
         </div>
         <div className={classes.sentence_wrapper}>
           <h1>Request a meeting from our professional team.</h1>
