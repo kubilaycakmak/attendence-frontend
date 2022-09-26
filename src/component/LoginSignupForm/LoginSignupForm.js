@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
 import { Link, useLocation, BrowserRouter, Path, Routes, Route } from "react-router-dom";
 import styles from "./LoginSignupForm.module.scss";
 import { register } from "../../services/auth-service";
@@ -66,7 +66,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     <div className={styles.formWrap}>
       <h1>{isLoginPage ? "Login" : "Register"}</h1>
       <div className={styles.googleBtnWrap}>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText={
             isLoginPage ? "Sign in with Google" : "Sign up with Google"
@@ -74,7 +74,10 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           onSuccess={handleGoogleSuccess}
           onFailure={handleGoogleFailure}
           cookiePolicy={"single_host_origin"}
-        />
+        /> */}
+        <button disabled={true} className={styles.tempGoogle}>{
+            isLoginPage ? "Sign in with Google" : "Sign up with Google"
+          }</button>
       </div>
       <hr />
       <form onSubmit={!isLoginPage ? handleSubmit : loginSubmit}>
@@ -113,7 +116,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           </>
         ) : (
           <>
-            <Link to="/signup">If you don't have an account - register</Link>
+            <Link to="/register">If you don't have an account - register</Link>
             <Link to="/forgot-password">Forgot your password</Link>
             <Link to="/guest">Continue as guest</Link>
           </>
