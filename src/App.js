@@ -12,10 +12,7 @@ import Confirm from './component/Appointment Sidebar/Confirm.js'
 function App() {
   return (
     <div className="App">
-  
-    
         <Routes>
-         
            <Route exact path="/" element={<AppointmentSidebar/>}>
            </Route>
            <Route exact path="/appointment" element={<Appointment/>}>
