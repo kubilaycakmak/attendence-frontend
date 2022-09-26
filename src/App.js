@@ -81,7 +81,7 @@ function App() {
       <BrowserRouter>
         <div className='App'>
           
-          {state.auth.isAuth ? <AvatarMenu /> : <Header />}
+          {state.auth.isAuth ? window.innerWidth > 768 ? <AvatarMenu /> : <Header /> : <Header />}
           {/* <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} /> */}

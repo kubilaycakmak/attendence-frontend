@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import logo from "../../assets/imgs/logo.png";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -6,6 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import styles from "./Header.module.scss";
 
 function Header() {
+  const state = useSelector(state=>state)
   return (
     <Navbar expand="lg" className={styles.Nav}>
       {/* <Container> */}
@@ -25,10 +27,14 @@ function Header() {
           {/* <Link to="/login" className={styles.navlink}>
             Login
           </Link> */}
+          
           <br></br>
-          <Nav.Link href="/register" className={styles.navLinkButton}>
+          { state.auth.isAuth ? <Nav.Link href="/login" className={styles.navLinkButton}>
+            Logout
+          </Nav.Link> : <Nav.Link href="/register" className={styles.navLinkButton}>
             Get started
-          </Nav.Link>
+          </Nav.Link>}
+          
         </Nav>
       </Navbar.Collapse>
       {/* </Container> */}

@@ -23,7 +23,7 @@ const Sidebar = () => {
         })}
        
       </ul>
-      <p className='logo'>attendance</p>
+      {window.innerWidth > 768 ? <p className='logo'>attendance</p> : ""}
     </div>
   )
 }
