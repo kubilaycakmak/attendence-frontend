@@ -1,0 +1,62 @@
+.card_wrapper {
+  padding: 10px;
+}
+
+.card_wrapper .card_body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 232px;
+  height: 341px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.card_wrapper .card_body .img_wrapper {
+  display: block;
+  width: 200px;
+  height: 145px;
+  border-radius: 8px;
+  background-color: aquamarine;
+  margin: 16px auto;
+}
+
+.card_wrapper .card_body .name_wrapper {
+  text-align: left;
+  margin-left: 16px;
+}
+
+.card_wrapper .card_body .name_wrapper h1 {
+  font-family: 'Poppins';
+  font-size: 14px;
+}
+
+.card_wrapper .card_body .tag_wrapper {
+  text-align: left;
+  margin-left: 16px;
+}
+
+.card_wrapper .card_body .description_wrapper {
+  text-align: left;
+  margin-left: 16px;
+  overflow: scroll;
+}
+
+.card_wrapper .card_body .description_wrapper p {
+  font-family: 'Poppins';
+  font-size: 12px;
+}
+
+.card_wrapper .card_body .btn_wrapper {
+  text-align: center;
+}
+
+.card_wrapper .card_body .btn_wrapper .card_btn {
+  width: 200px;
+  height: 32px;
+  background-color: #000000;
+  border-radius: 4px;
+  font-size: 12px;
+  color: white;
+}
+/*# sourceMappingURL=AppointmentCard.module.css.map */

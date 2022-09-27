@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import FilterView from "./component/Staff-filter/FilterView";
-
+import AppointmentCard from "./component/AppointmentCard/AppointmentCard";
+import userDatas from "./component/AppointmentCard/userData.json";
+import "./reset.scss";
 import './App.css';
 
 export function App() {
@@ -106,7 +108,9 @@ export function App() {
     // }
   }, [filtered])
 
+ 
   return (
+    <>
     <>
     <div className="App">
       <FilterView 
@@ -114,7 +118,22 @@ export function App() {
         filteredRole={filtered}
         onClickFunction={onClickFunction}
       />
+    {
+     userDatas.map((userData)=>
+      (
+      <AppointmentCard
+        id={userData.id}
+        photo={userData.photo}
+        full_name={userData.full_name}
+        role={userData.role}
+        description={userData.description}
+        />
+        )
+        
+          )
+    }
     </div>
+    </>
     </>
   );
 }
