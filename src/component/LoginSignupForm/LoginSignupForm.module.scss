@@ -1,6 +1,20 @@
 @import "../../scss/variables";
 @import "../../scss/utils";
 
+.tempGoogle{
+  height: 36px !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding-left: 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white !important;
+  color: black !important;
+  // padding: 0 16px !important;
+}
+
 .formWrap {
   h1 {
     font-size: $FONT_SIZE_24;
@@ -65,7 +79,8 @@
       color: #00000099;
       display: block;
       font-weight: 600;
-      font-size: $FONT_SIZE_8;
+      // font-size: $FONT_SIZE_8;
+      font-size: 12px;
       line-height: 12px;
       text-align: left;
       text-decoration: none;

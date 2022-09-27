@@ -1,12 +1,15 @@
 import React, { useState } from "react";
-import { GoogleLogin } from "react-google-login";
-import { Link, useLocation } from "react-router-dom";
+// import { GoogleLogin } from "react-google-login";
+import { Link, useLocation, BrowserRouter, Path, Routes, Route } from "react-router-dom";
 import styles from "./LoginSignupForm.module.scss";
 import { register } from "../../services/auth-service";
 import { login } from "../../services/auth-service";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../reducers/auth";
 import { useNavigate } from "react-router-dom";
+import ForgetPassword from "../ForgetPassword/ForgetPassword";
+import NewPassword from "../NewPassword/NewPassword";
+//import Home from "../../pages/Home";
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
   const navigate = useNavigate();
@@ -37,7 +40,8 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
             throw new Error("user already existed");
           }
           if (res.status === 201) {
-            setMessage("user added successfully");
+            // setMessage("* Please check your email!");
+            navigate("/login")
           }
         }
       );
@@ -51,7 +55,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       await login(email, password).then((res) => {
         if (res.status === 200) {
           dispatch(authActions.login());
-          navigate("/");
+          navigate("/profile");
         }
       });
     } catch (error) {
@@ -62,7 +66,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     <div className={styles.formWrap}>
       <h1>{isLoginPage ? "Login" : "Register"}</h1>
       <div className={styles.googleBtnWrap}>
-        <GoogleLogin
+        {/* <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText={
             isLoginPage ? "Sign in with Google" : "Sign up with Google"
@@ -70,37 +74,41 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           onSuccess={handleGoogleSuccess}
           onFailure={handleGoogleFailure}
           cookiePolicy={"single_host_origin"}
-        />
+        /> */}
+        <button disabled={true} className={styles.tempGoogle}>{
+            isLoginPage ? "Sign in with Google" : "Sign up with Google"
+          }</button>
       </div>
       <hr />
       <form onSubmit={!isLoginPage ? handleSubmit : loginSubmit}>
         {!isLoginPage && (
           <input
             type="text"
-            placeholder="Enter username"
+            placeholder="username"
             onChange={(e) => setUsername(e.target.value)}
           />
         )}
         {!isLoginPage && (
           <input
             type="text"
-            placeholder="Enter full name"
+            placeholder="Full Name"
             onChange={(e) => setFullName(e.target.value)}
           />
         )}
         <input
           type="email"
-          placeholder="Enter email address"
+          placeholder="Email address"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Enter password"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isLoginPage ? "SIGN IN" : "SIGN UP"}</button>
+        <button type="submit">{isLoginPage ? "Sign In" : "Sign Up"}</button>
         <p className={styles.message}>{message}</p>
       </form>
+      {/* <BrowserRouter> */}
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
           <>
@@ -108,12 +116,13 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           </>
         ) : (
           <>
-            <Link to="/signup">If you don't have an account - register</Link>
+            <Link to="/register">If you don't have an account - register</Link>
             <Link to="/forgot-password">Forgot your password</Link>
             <Link to="/guest">Continue as guest</Link>
           </>
         )}
       </div>
+      {/* </BrowserRouter> */}
     </div>
   );
 };

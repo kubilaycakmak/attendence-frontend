@@ -1,5 +1,5 @@
-@import '../../scss/variables';
-@import '../../scss/utils';
+@import "../../scss/variables";
+@import "../../scss/utils";
 
 .login {
   @include for-mobile-screen {
@@ -7,10 +7,9 @@
   }
   @include for-pc-screen {
     align-items: center;
-    background: url(../../assets/imgs/graduating-1.png) no-repeat 100% 100% /
-      900px;
+    background: url(../../assets/imgs/graduating-1.png) no-repeat 100%;
     display: flex;
-    height: calc(100vh - 84px);
+    height: calc(100vh - 5px);
   }
   .container {
     margin: 0 auto;

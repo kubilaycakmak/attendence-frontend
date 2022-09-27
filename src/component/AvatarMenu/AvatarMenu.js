@@ -1,12 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './AvatarMenu.module.scss';
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import styles from "./AvatarMenu.module.scss";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { authActions } from "../../reducers/auth";
 
 const AvatarMenu = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch(authActions);
   // TODO: temp data
   const tempUserInfo = {
-    user_name: 'ryosomatani',
-    profile_image: '/profile.png',
+    user_name: "johndoe",
+    profile_image: "/profile.png",
   };
   const [isMenuShown, setIsMenuShown] = useState(false);
   const menu = useRef();
@@ -14,12 +19,19 @@ const AvatarMenu = () => {
     setIsMenuShown((prev) => !prev);
   };
   useEffect(() => {
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
       if (!menu.current.contains(e.target)) {
         setIsMenuShown(false);
       }
     });
   }, []);
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    dispatch(authActions.logout());
+    console.log("logout");
+    navigate("/");
+  };
 
   return (
     <div className={styles.avatarMenu} ref={menu}>
@@ -29,7 +41,7 @@ const AvatarMenu = () => {
       </div>
       <div
         className={`${styles.avatarMenu__menuWrap} ${
-          isMenuShown ? styles.isShown : ''
+          isMenuShown ? styles.isShown : ""
         }`}
       >
         <ul className={styles.avatarMenu__menu}>
@@ -44,6 +56,9 @@ const AvatarMenu = () => {
           </li>
           <li>
             <Link to="/reservations">My Reservations</Link>
+          </li>
+          <li>
+            <Link onClick={logoutHandler}>Logout</Link>
           </li>
         </ul>
       </div>

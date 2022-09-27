@@ -16,3 +16,16 @@ export const login = (email, password) => {
     password,
   });
 };
+
+export const forget = (email) => {
+  return axios.post(`${process.env.REACT_APP_URL}/api/auth/forget-password`, {
+    email,
+  });
+};
+
+export const newPassword = (id, password) => {
+  return axios.post(`${process.env.REACT_APP_URL}/api/auth/new-password`, {
+    id,
+    password
+  });
+};

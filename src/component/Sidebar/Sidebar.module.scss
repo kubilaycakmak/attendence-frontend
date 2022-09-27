@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.Sidebar {
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background-color: black;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  p {
+    width: 100%;
+    text-align: center;
+    // right: 120px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    border: 0.3px solid rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.SidebarList {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  // text-align: left;
+  color: gray;
+  margin-top: 50px;
+  position: relative;
+
+  .row {
+    width: max-content;
+    height: 50px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:hover {
+      cursor: pointer;
+      color: white;
+    }
+  }
+}
+// p {
+//   position: absolute;
+//   top: 500px;
+//   right: 120px;
+//   font-family: "Poppins";
+//   font-style: normal;
+//   font-weight: 500;
+//   font-size: 16px;
+//   line-height: 24px;
+//   color: #ffffff;
+//   border: 0.3px solid rgba(0, 0, 0, 0.6);
+//   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+// }
+@media screen and (max-width: 768px) {
+  .Sidebar {
+    width: 100%;
+    height: 64px;
+    left: 0px;
+  }
+
+  .SidebarList {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: -32px;
+    align-items: center;
+    justify-content: space-evenly;
+    left: -30px;
+    p {
+      display: none;
+    }
+  }
+}

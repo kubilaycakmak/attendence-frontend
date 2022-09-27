@@ -6,15 +6,15 @@
   cursor: pointer;
   overflow: hidden;
   position: absolute;
-  top: 0;
+  top: 16px;
   transition: opacity 100ms ease;
-  right: 0;
+  right: 64px;
   max-width: 172px;
   min-width: 130px;
   width: 35%;
   z-index: 10;
   @include for-pc-screen {
-    width: 172px;
+    width: auto;
   }
   &__icon,
   &__menu {

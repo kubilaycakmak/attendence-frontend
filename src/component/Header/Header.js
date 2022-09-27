@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import logo from '../../assets/imgs/logo.png';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import styles from './Header.module.scss';
+import { Link } from "react-router-dom";
+import logo from "../../assets/imgs/logo.png";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import styles from "./Header.module.scss";
 
 function Header() {
   return (
@@ -22,11 +22,13 @@ function Header() {
           <Link to="/calendar" className={styles.navlink}>
             Calendar
           </Link>
-          <Link to="/login" className={styles.navlink}>
+          {/* <Link to="/login" className={styles.navlink}>
             Login
-          </Link>
+          </Link> */}
           <br></br>
-          <Nav.Link className={styles.navLinkButton}>Get started</Nav.Link>
+          <Nav.Link href="/register" className={styles.navLinkButton}>
+            Get started
+          </Nav.Link>
         </Nav>
       </Navbar.Collapse>
       {/* </Container> */}
