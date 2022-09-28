@@ -6,10 +6,11 @@
     margin-top: 16%;
   }
   @include for-pc-screen {
-    align-items: center;
     background: url(../../assets/imgs/graduating-1.png) no-repeat 100%;
+    background-position: right bottom;
     display: flex;
-    height: calc(100vh - 5px);
+    align-items: center;
+    height: 100vh;
   }
   .container {
     margin: 0 auto;
