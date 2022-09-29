@@ -5,23 +5,19 @@ import logo from './logo.png';
 
 function AppointmentSidebar() {
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = ();
   const [isConfirmPage, setIsConfirmPage] = useState(false);
   const [isConfirmedPage, setIsConfirmedPage] = useState(false);
 
   useEffect(() => {
-    console.log("search params",searchParams.getAll("status"));
+    // console.log("search params",searchParams.getAll("status"));
     if(searchParams.getAll("status")[0] === "confirm") {
       setIsConfirmPage(true);
     } else if(searchParams.getAll("status")[0] === "confirmed"){
       setIsConfirmedPage(true);
     }
   }, [searchParams])
-  
-  useEffect (() =>{
-    console.log(isConfirmedPage)
-  },[isConfirmedPage]
-  )
+ 
   return (
     <div className={styles.container}>
         <ul className={styles.sidebarList}>
