@@ -13,15 +13,8 @@ function App() {
   return (
     <div className="App">
         <Routes>
-           <Route exact path="/" element={<AppointmentSidebar/>}>
-           </Route>
-           <Route exact path="/appointment" element={<Appointment/>}>
-           </Route>
-          <Route exact path="/appointment?status=confirm" element={<Confirm/>}>
+          <Route exact path="/appointment" element={<AppointmentSidebar/>}>
           </Route>
-           {/* Do I NEED THE COMPONENTS SEPERATELY. AND TO LOCATE THEM IN THE EXACT PATH. BC THE WARNING SAYS NO ROUTES MATCHED LOCATION FOR, FOR EXAMPLE /appointment%3Fstatus=confirm?statu <Route  exact path="/appointment/:status". How to navigate from component buttons to these links? element={<AppointmentSidebar/>}>
-           </Route> */}
-           
         </Routes>
       
   

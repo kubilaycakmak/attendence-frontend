@@ -1,40 +1,39 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import styles from './AppointmentSidebar.module.scss';
 import logo from './logo.png';
-import { SidebarData } from './SidebarData';
 
 function AppointmentSidebar() {
 
-  const { params } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [isConfirmPage, setIsConfirmPage] = useState(false);
+  const [isConfirmedPage, setIsConfirmedPage] = useState(false);
 
   useEffect(() => {
-    console.log(params);
-  }, [])
+    console.log("search params",searchParams.getAll("status"));
+    if(searchParams.getAll("status")[0] === "confirm") {
+      setIsConfirmPage(true);
+    } else if(searchParams.getAll("status")[0] === "confirmed"){
+      setIsConfirmedPage(true);
+    }
+  }, [searchParams])
   
-  // const title = params.title;
-
+  useEffect (() =>{
+    console.log(isConfirmedPage)
+  },[isConfirmedPage]
+  )
   return (
     <div className={styles.container}>
         <ul className={styles.sidebarList}>
-            {SidebarData.map((val, key) => {
-                return (
-                     <li 
-                        key={key}
-                        className={styles.row}
-                        //onClick={()=> {
-                           // window.location.pathname = val.link
-                      // } }
-                      >
-
-                     <div>{val.title}</div>
-                     </li>
-                )
-            })}
-            <img src={logo} className={styles.logo} alt='logo'></img>
+          <li className={styles.l1}> 👈🏻 Back To List </li>   
+          <li  className={isConfirmPage  || isConfirmedPage ? styles.isConfirmPage : ""}> '1 - Select Date and Hour' </li>
+          <li className={isConfirmPage  || isConfirmedPage ? styles.isConfirmPage : ""}> 2 - Confirm </li>
+          <li className={isConfirmedPage ? styles.isConfirmedPage  : ""}> 👍🏼 Done</li>
+          <img src={logo} className={styles.logo} alt='logo'></img>
        </ul>
     </div>
   )
 }
 
-export default AppointmentSidebar
+export default AppointmentSidebar;
+
