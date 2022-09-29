@@ -22,7 +22,7 @@ function AppointmentSidebar() {
     <div className={styles.container}>
         <ul className={styles.sidebarList}>
           <li className={styles.l1}> 👈🏻 Back To List </li>   
-          <li  className={isConfirmPage  || isConfirmedPage ? styles.isConfirmPage : ""}> '1 - Select Date and Hour' </li>
+          <li className={styles.l2}> '1 - Select Date and Hour' </li>
           <li className={isConfirmPage  || isConfirmedPage ? styles.isConfirmPage : ""}> 2 - Confirm </li>
           <li className={isConfirmedPage ? styles.isConfirmedPage  : ""}> 👍🏼 Done</li>
           <img src={logo} className={styles.logo} alt='logo'></img>
