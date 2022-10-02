@@ -1,5 +1,5 @@
 import {React, useState} from "react";
-import RollTag from "../Rolltag/RollTag";
+import RollTag from "../Role-tag/Roletag";
 //import userData from "./userData.json";
 import classes from './AppointmentCard.module.scss';
 
