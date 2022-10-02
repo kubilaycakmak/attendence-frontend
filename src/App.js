@@ -39,40 +39,22 @@ export function App() {
     if(filtered.length == 0) setFiltered(["All"])
 
     if(filtered.includes("All")){
-      setUsers(data);
+      setUsers(userDatas);
     }else{
       
       let unique = [];
       let arr = [];
       
-      for(let i = 0; i < data.length; i++){
-        for(let j = 0; j < data[i].role.length; j++) {
-          if(filtered.includes(data[i].role[j])){
-            arr.push(data[i])
+      for(let i = 0; i < userDatas.length; i++){
+        for(let j = 0; j < userDatas[i].role.length; j++) {
+          if(filtered.includes(userDatas[i].role[j])){
+            arr.push(userDatas[i])
             unique = [...new Set(arr)];
           }
         }
       }
       setUsers(unique);
     }
-    
-    // console.log(filtered);
-    // if(filtered.includes("All")){
-    //   newArray.push(...users);
-    // }else if(!filtered.includes("All")) {
-    //   setUsers([]);
-    //   let arr = users.map((item, index) => {
-    //       item.role.forEach((role, index) => {
-    //           if(filtered.includes(role)){
-    //               // setUsers(item)
-    //               //return item
-    //               newArray.push(item)
-    //               // setUsers((prev) => [...prev, item])
-    //           }
-    //       })
-    //   })
-      // setUsers(arr);
-    // }
   }, [filtered])
 
  
@@ -94,6 +76,7 @@ export function App() {
         full_name={userData.full_name}
         role={userData.role}
         description={userData.description}
+        filteredRole={filtered}
         />
         )
         

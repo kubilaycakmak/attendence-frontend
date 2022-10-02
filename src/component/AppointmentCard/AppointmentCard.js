@@ -1,9 +1,9 @@
 import {React, useState} from "react";
-import RollTag from "../Role-tag/Roletag";
+import RoleTag from "../Role-tag/Roletag";
 //import userData from "./userData.json";
 import classes from './AppointmentCard.module.scss';
 
- const AppointmentCard = ({id,photo,full_name,role,description}) => {
+ const AppointmentCard = ({id,photo,full_name,role,description,filteredRole}) => {
     console.log(classes)
     console.log("ri",role)
     return (
@@ -19,9 +19,10 @@ import classes from './AppointmentCard.module.scss';
                     <div className={classes.tag_wrapper}>
                     {role.map(el =>{
                         return( 
-                        <RollTag 
+                        <RoleTag 
                             role={el}
-                        />
+                            activeList={filteredRole}
+                         />
                         )
                     })
                 }
