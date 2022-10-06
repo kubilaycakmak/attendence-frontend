@@ -33,7 +33,7 @@ const Time = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <form className={styles.container}>
-        <h3 className={styles.title}>2 - Select Hour</h3>
+        <h3 className={styles.title}>3 - Select Hour</h3>
         <div className={styles.wrapper}>
           <label>Start Time</label>
           <br />
