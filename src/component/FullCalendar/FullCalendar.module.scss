@@ -1,0 +1,11 @@
+.fullCalendar {
+  margin-left: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .fullCalendar {
+    left: auto;
+    right: auto;
+    margin: 0px 70px !important;
+  }
+}
