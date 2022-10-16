@@ -15,3 +15,11 @@ code {
 #active{
   color: white !important;
 }
+
+.fc .fc-daygrid-more-link{
+  background: lightblue;
+  top:-20px;
+}
+.fc-daygrid-more-link fc-more-link::after{
+  content:' '
+}

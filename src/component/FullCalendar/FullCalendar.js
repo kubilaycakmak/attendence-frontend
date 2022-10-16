@@ -64,7 +64,7 @@ const FullCalendarComponent = () => {
   return (
     <div className={styles2.fullCalendar}>
       <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        plugins={[dayGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'
         selectable={true}
         editable={true}
@@ -88,7 +88,7 @@ const FullCalendarComponent = () => {
         headerToolbar={{
           left: 'prev,next today',
           center: 'title',
-          right: 'dayGridMonth,timeGridWeek',
+          right: 'dayGridMonth',
         }}
         firstDay={1}
         buttonText={{
@@ -99,9 +99,8 @@ const FullCalendarComponent = () => {
           next: 'Next',
           month: 'Month',
           today: 'Today',
-          week: 'Week',
         }}
-        // eventBackgroundColor={'lightblue'}
+        eventBackgroundColor={'lightblue'}
         // eventBorderColor={'purple'}
       />
     </div>
