@@ -1,20 +1,16 @@
-import React from 'react';
-import { BrowserRouter as Router,
-  Routes,
-  Route,
-} from 'react-router-dom';
-import './App.css';
-import AppointmentSidebar from './component/Appointment Sidebar/AppointmentSidebar';
+import React from "react"
+import ProfileTabBtn from "./component/Profile-tab-btn/ProfileTabBtn"
+import Form from "./component/Profile-tab-btn/Form/Form"
+import AppointmentCalendar from "./component/appointment-calendar/AppointmentCalendar"
+import "./App.css"
 
 function App() {
   return (
-    <div className="App">
-        <Routes>
-           <Route exact path="/appointment" element={<AppointmentSidebar/>}>
-          </Route>
-        </Routes>
+    <div className='App'>
+      {/* <ProfileTabBtn /> */}
+      <AppointmentCalendar />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

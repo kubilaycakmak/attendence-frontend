@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .tabContainer {
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      padding: 20px;
+    }
+  }
+  .notification {
+    position: relative;
+  }
+}
+
+.active {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 36px;
+  background-color: black;
+  color: white;
+  border-radius: 7px;
+  border: 1px solid black;
+  margin: 16px;
+  width: 180px;
+  @media screen and (max-width: 767px) {
+    margin: 8px;
+  }
+}
+
+.inActive {
+  cursor: pointer;
+  font-size: 18px;
+  padding: 12px 36px;
+  background-color: transparent;
+  border-radius: 7px;
+  border: 1px solid black;
+  margin: 16px;
+  width: 180px;
+
+  @media screen and (max-width: 767px) {
+    margin: 8px;
+  }
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 4px;
+  padding: 2px 6px;
+  border-radius: 12%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  @media screen and (max-width: 767px) {
+    top: 0px;
+    right: -10px;
+  }
+}
+.formWrap {
+  @media screen and (max-width: 767px) {
+    width: 50%;
+  }
+}
