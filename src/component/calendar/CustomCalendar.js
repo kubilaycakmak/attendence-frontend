@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import "../appointment-calendar/CustomCalendar.scss"
 import Calendar from "react-calendar"
+import "../appointment-calendar/CustomCalendar.css"
 
 const CustomCalendar = () => {
   const [date, setDate] = useState(new Date())
@@ -54,9 +54,10 @@ const CustomCalendar = () => {
   }
 
   return (
-    <div className='outerCalendar'>
-      <Calendar onChange={onChange} value={date} />
-    </div>
+      <div className="div">
+        <h2 className="h2">Select a Date & Time</h2>
+        <Calendar onChange={onChange} value={date} />
+      </div>
   )
 }
 

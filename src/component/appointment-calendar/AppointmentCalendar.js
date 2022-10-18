@@ -1,7 +1,6 @@
-import { useState } from "react"
-
+import React,{ useState } from "react"
 import AppointmentBtn from "./AppointmentBtn"
-import CustomCalendar from "../calendar/CustomCalendar"
+import CustomCalendar from "../Calendar/CustomCalendar"
 
 const AppointmentCalendar = () => {
   const [date, setDate] = useState(new Date())
@@ -55,9 +54,7 @@ const AppointmentCalendar = () => {
   return (
     <>
       <div>
-        <div>
           <CustomCalendar />
-        </div>
         <div>
           <AppointmentBtn />
         </div>
