@@ -1,12 +1,10 @@
-import { useState } from "react"
+import React, { useState } from "react"
+import "../appointment-calendar/CustomCalendar.scss"
+import Calendar from "react-calendar"
 
-import AppointmentBtn from "./AppointmentBtn"
-import CustomCalendar from "../calendar/CustomCalendar"
-
-const AppointmentCalendar = () => {
+const CustomCalendar = () => {
   const [date, setDate] = useState(new Date())
   const [time, setTime] = useState()
-
   const data = {
     month: 10,
     date: 1,
@@ -46,24 +44,20 @@ const AppointmentCalendar = () => {
     ],
   }
 
-  const submitHandler = () => {
-    const timeStamp = date.getTime()
-    console.log(timeStamp)
-    console.log(time)
+  const onChange = (date) => {
+    setDate(date)
+  }
+
+  const clickHandler = (e) => {
+    // console.log("e>>", e.target.textContent)
+    setTime(e.target.textContent)
   }
 
   return (
-    <>
-      <div>
-        <div>
-          <CustomCalendar />
-        </div>
-        <div>
-          <AppointmentBtn />
-        </div>
-      </div>
-    </>
+    <div className='outerCalendar'>
+      <Calendar onChange={onChange} value={date} />
+    </div>
   )
 }
 
-export default AppointmentCalendar
+export default CustomCalendar

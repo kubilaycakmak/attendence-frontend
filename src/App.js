@@ -3,6 +3,7 @@ import ProfileTabBtn from "./component/Profile-tab-btn/ProfileTabBtn"
 import Form from "./component/Profile-tab-btn/Form/Form"
 import AppointmentCalendar from "./component/appointment-calendar/AppointmentCalendar"
 import "./App.css"
+import "react-calendar/dist/Calendar.css"
 
 function App() {
   return (
