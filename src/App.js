@@ -67,21 +67,6 @@ export function App() {
         filteredRole={filtered}
         onClickFunction={onClickFunction}
       />
-    {
-     userDatas.map((userData)=>
-      (
-      <AppointmentCard
-        id={userData.id}
-        photo={userData.photo}
-        full_name={userData.full_name}
-        role={userData.role}
-        description={userData.description}
-        filteredRole={filtered}
-        />
-        )
-        
-          )
-    }
     </div>
     </>
     </>

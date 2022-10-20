@@ -2,6 +2,7 @@ import {React, useEffect, useState} from "react";
 import { useStore } from "react-redux";
 import RoleTag from "../Role-tag/Roletag";
 import classes from './FilterView.module.scss';
+import AppointmentCard from "../AppointmentCard/AppointmentCard";
 
 const FilterView = ({userData, onClickFunction, filteredRole}) => {
     const [filtered, setFiltered] = useState(["All"])
@@ -10,6 +11,11 @@ const FilterView = ({userData, onClickFunction, filteredRole}) => {
 
     return (
         <>
+         <div className={classes.upperContainer}>
+          <div className={classes.titleWrapper}>
+            <h1 className={classes.filterTitle}>Co-op & TA</h1>
+          </div>
+          <div className={classes.tagsWrapper}>
             <h1 className={classes.filterText}>Filter with:</h1>
             {roleName.map((el,index)=>{
                 return(
@@ -21,11 +27,23 @@ const FilterView = ({userData, onClickFunction, filteredRole}) => {
                     
             )
             })}
+          </div>
+          </div>
+          <div className={classes.cardsWrapper}>
             {userData?.map((user, id) => {
                 let text = "hello";
                 text.toUpperCase()
-                return (<p className={classes[`user:${id}`]}>{user.role}</p>)
+                // return (<p className={classes[`user:${id}`]}>{user.role}</p>)
+                return  <AppointmentCard
+                            id={user.id}
+                            photo={user.photo}
+                            full_name={user.full_name}
+                            role={user.role}
+                            description={user.description}
+                            filteredRole={filtered}
+                        />
             })}
+          </div>
         </>
     )
 }

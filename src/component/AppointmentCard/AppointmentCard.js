@@ -22,6 +22,7 @@ import classes from './AppointmentCard.module.scss';
                         <RoleTag 
                             role={el}
                             activeList={filteredRole}
+                            style={{opacity: 1}}
                          />
                         )
                     })

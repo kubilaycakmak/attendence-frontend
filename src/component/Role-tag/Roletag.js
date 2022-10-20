@@ -2,7 +2,7 @@ import {React, useEffect, useState} from "react";
 import classes from './RoleTag.module.scss';
 import AppointmentCard from "../AppointmentCard/AppointmentCard";
 
-const RoleTag = ({role, onClickHandler, activeList}) => {
+const RoleTag = ({role, onClickHandler, activeList, style}) => {
 const [roleName,setRoleName] = useState([]);
 
 
@@ -19,7 +19,7 @@ useEffect(()=>{
 
     return (
         <>
-            <div style={activeList.includes(role) ? {opacity: 1} : {opacity: 0.6}} 
+            <div style={style ? style : activeList.includes(role) ? {opacity: 1} : {opacity: 0.6}} 
                   className={classes[`${roleName}_tag_body`]}  onClick={()=>onClickHandler(role)}>
                 <p>{role}</p>
             </div>
