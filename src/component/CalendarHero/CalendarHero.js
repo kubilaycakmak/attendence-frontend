@@ -12,10 +12,10 @@ const CalendarHero = ({ className }) => {
         </div>
         <div>
           <h2 className={styles.title}>Calendar</h2>
-          <p className={styles.description}>
+          <h1 className={styles.description}>
             See Class’s availability for work in empty space also you can
             request an event.
-          </p>
+          </h1>
           <button className={styles.button}>Get Started</button>
         </div>
       </div>
