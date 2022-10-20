@@ -18,7 +18,14 @@ code {
 
 .fc .fc-daygrid-more-link{
   background: lightblue;
-  top:-20px;
+  
+  /* top:-20px; */
+}
+.fc .fc-daygrid-more-link::content{
+  content: " ";
+}
+.fc-daygrid-more-link fc-more-link::content{
+  content:' '
 }
 .fc-daygrid-more-link fc-more-link::after{
   content:' '

@@ -86,8 +86,8 @@ const FullCalendarComponent = () => {
           console.log('event is deleted')
         }}
         headerToolbar={{
-          left: 'prev,next today',
-          center: 'title',
+          // left: 'prev,next today',
+          // center: 'title',
           right: 'dayGridMonth',
         }}
         firstDay={1}
