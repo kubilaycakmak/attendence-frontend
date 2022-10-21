@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import listPlugin from '@fullcalendar/list'
-import { styles } from '@material-ui/pickers/views/Calendar/Calendar'
 import styles2 from './FullCalendar.module.scss'
 import { useState } from 'react'
 
@@ -54,13 +51,14 @@ const FullCalendarComponent = () => {
       })
     }
   }
-
   useEffect(() => {
     console.log(`events: ${events}`)
   }, [events])
+
   const handleEvents = (events) => {
     setEvents(events)
   }
+  
   return (
     <div className={styles2.fullCalendar}>
       <h3 className={styles2.title}>Get a reservation</h3>
