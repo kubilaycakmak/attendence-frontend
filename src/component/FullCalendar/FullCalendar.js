@@ -63,6 +63,7 @@ const FullCalendarComponent = () => {
   }
   return (
     <div className={styles2.fullCalendar}>
+      <h3 className={styles2.title}>Get a reservation</h3>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'

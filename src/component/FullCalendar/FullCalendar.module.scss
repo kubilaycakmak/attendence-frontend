@@ -1,7 +1,14 @@
 .fullCalendar {
   margin-left: 300px;
 }
-
+.title {
+  text-align: left;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 36px;
+}
 @media screen and (max-width: 768px) {
   .fullCalendar {
     left: auto;
