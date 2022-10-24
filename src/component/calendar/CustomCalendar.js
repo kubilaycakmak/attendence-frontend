@@ -49,7 +49,7 @@ const CustomCalendar = () => {
   }
 
   const clickHandler = (e) => {
-    // console.log("e>>", e.target.textContent)
+    console.log("e>>", e.target.textContent)
     setTime(e.target.textContent)
   }
 

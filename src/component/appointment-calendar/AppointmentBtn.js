@@ -49,7 +49,8 @@ const AppointmentBtn = () => {
   }
 
   const clickHandler = (e) => {
-    // console.log("e>>", e.target.textContent)
+    console.log("e>>", e.target.textContent)
+    console.log("date", date)
     setTime(e.target.textContent)
   }
 
