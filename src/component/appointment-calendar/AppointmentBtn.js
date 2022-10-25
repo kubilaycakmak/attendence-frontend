@@ -1,56 +1,17 @@
-import React, { useState } from "react"
-// import styles from "./AppointmentBtn.scss"
+import React, { useEffect, useState } from "react"
 import styles from "./AppointmentCalendar.module.scss"
-const AppointmentBtn = () => {
-  const [date, setDate] = useState(new Date())
+
+const AppointmentBtn = ({ resData, date }) => {
   const [time, setTime] = useState()
 
-  const data = {
-    month: 10,
-    date: 1,
-    options: [
-      {
-        time: "9:00 AM",
-        isAvailable: true,
-      },
-      {
-        time: "10:00 AM",
-        isAvailable: true,
-      },
-      {
-        time: "11:00 AM",
-        isAvailable: true,
-      },
-      {
-        time: "12:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "1:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "2:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "3:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "4:00 PM",
-        isAvailable: false,
-      },
-    ],
-  }
-
-  const onChange = (date) => {
-    setDate(date)
-  }
+  useEffect(() => {
+    console.log("resData", resData)
+    console.log("date", date)
+  }, [])
 
   const clickHandler = (e) => {
-    console.log("e>>", e.target.textContent)
-    console.log("date", date)
+    // console.log("e>>", e.target.textContent)
+    // console.log("date", date)
     setTime(e.target.textContent)
   }
 
@@ -60,24 +21,86 @@ const AppointmentBtn = () => {
     console.log(time)
   }
   return (
+    // <div>
+    //   {resData &&
+    //     resData.map((monthArr, index) => {
+    //       {
+    //         monthArr.map((dateObj, i) => {
+    //           // console.log("dateObj", dateObj)
+    //           // var time = { options: { dateObj } }
+    //           // console.log("options", dateObj.options)
+    //           dateObj.options.map((option, index) => {
+    //             return (
+    //               <li key={index} className={styles.li}>
+    //                 <button
+    //                   disabled={!option.isAvailable}
+    //                   onClick={clickHandler}
+    //                   className={
+    //                     option.time === time ? styles.active : styles.inActive
+    //                   }>
+    //                   {option.time}
+    //                 </button>
+    //               </li>
+    //             )
+    //           })
+    //           // return (
+    //           // <li key={i} className={styles.li}>
+    //           //   <button
+    //           //     disabled={!dateObj.isAvailable}
+    //           //     onClick={clickHandler}
+    //           //     className={
+    //           //       dateObj.time === time ? styles.active : styles.inActive
+    //           //     }>
+    //           //     {/* {time.options.options} */}
+    //           //   </button>
+    //           // </li>
+    //           // )
+    //         })
+    //       }
+    //     })}
+    //   <li className={styles.li}>
+    //     <button onClick={submitHandler} className={styles.submitBtn}>
+    //       Continue
+    //     </button>
+    //   </li>
+    // </div>
+
     <div>
-      {data.options.map((i, index) => {
+      {resData.map((data, index) => {
         return (
-          <li key={index} className={styles.li}>
-            <button
-              disabled={!i.isAvailable}
-              onClick={clickHandler}
-              className={i.time === time ? styles.active : styles.inActive}>
-              {i.time}
-            </button>
-          </li>
+          <div>
+            {data.map((date, index2) => {
+              // console.log(date)
+              return (
+                <div>
+                  {date.options.map((option, index3) => {
+                    let dateTemp = date.date + "/" + date.month + "/" + "2022"
+                    console.log(date)
+                    // if(date.date + "-" + date.mont == dateTemp){
+
+                    // }
+                    console.log(dateTemp)
+                    return (
+                      <li key={index3} className={styles.li}>
+                        <button
+                          disabled={!option.isAvailable}
+                          onClick={clickHandler}
+                          className={
+                            option.time === time
+                              ? styles.active
+                              : styles.inActive
+                          }>
+                          {option.time}
+                        </button>
+                      </li>
+                    )
+                  })}
+                </div>
+              )
+            })}
+          </div>
         )
       })}
-      <li className={styles.li}>
-        <button onClick={submitHandler} className={styles.submitBtn}>
-          Continue
-        </button>
-      </li>
     </div>
   )
 }

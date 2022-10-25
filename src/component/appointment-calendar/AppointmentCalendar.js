@@ -1,66 +1,28 @@
-import { useState } from "react"
-
+import React, { useState, useEffect } from "react"
 import AppointmentBtn from "./AppointmentBtn"
 import CustomCalendar from "../calendar/CustomCalendar"
+import axios from "axios"
 
-const AppointmentCalendar = () => {
-  const [date, setDate] = useState(new Date())
-  const [time, setTime] = useState()
+const AppointmentCalendar = (props) => {
+  const [resData, setResData] = useState()
+  const [date, setDate] = useState(null)
 
-  const data = {
-    month: 10,
-    date: 1,
-    options: [
-      {
-        time: "9:00 AM",
-        isAvailable: true,
-      },
-      {
-        time: "10:00 AM",
-        isAvailable: true,
-      },
-      {
-        time: "11:00 AM",
-        isAvailable: true,
-      },
-      {
-        time: "12:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "1:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "2:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "3:00 PM",
-        isAvailable: true,
-      },
-      {
-        time: "4:00 PM",
-        isAvailable: false,
-      },
-    ],
-  }
-
-  const submitHandler = () => {
-    const timeStamp = date.getTime()
-    console.log(timeStamp)
-    console.log(time)
-  }
+  useEffect(() => {
+    const url = "https://jsonblob.com/api/jsonBlob/1031676754045190144"
+    axios
+      .get(url)
+      .then((res) => {
+        console.log("res", res)
+        setResData(res.data)
+      })
+      .catch((error) => console.error(`Error:${error}`))
+  }, [])
 
   return (
     <>
       <div>
-        <div>
-          <CustomCalendar />
-        </div>
-        <div>
-          <AppointmentBtn />
-        </div>
+        <CustomCalendar resData={resData} date={date} setDate={setDate} />
+        <div>{resData && <AppointmentBtn resData={resData} date={date} />}</div>
       </div>
     </>
   )
