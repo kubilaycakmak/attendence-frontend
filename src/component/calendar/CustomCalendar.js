@@ -1,13 +1,14 @@
-import React, { useState } from "react"
+import moment from "moment/moment"
+import React from "react"
 import Calendar from "react-calendar"
 import "../appointment-calendar/CustomCalendar.css"
 
 const CustomCalendar = ({ date, setDate }) => {
-  // const [date, setDate] = useState(new Date())
-
   const onChange = (date) => {
-    console.log(date)
+    // console.log("date from calen>>>>>>", date)
+    // let dateTemp = moment(date).format("DD/MM/YYYY")
     setDate(date)
+    // console.log("dateTemp from calen>>", dateTemp)
   }
 
   return (
