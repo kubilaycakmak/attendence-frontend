@@ -1,0 +1,90 @@
+.title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  text-align: left;
+  margin-left: 300px;
+}
+
+.cartContainer {
+  width: 232px;
+  height: 287px;
+  border: 0.5px solid #000000;
+  border-radius: 8px;
+  margin-left: 300px;
+
+  .classImage {
+    margin-top: 16px;
+    margin-bottom: 15px;
+    width: 200px;
+    height: 117.31px;
+  }
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .teacherImage {
+    width: 46px;
+    height: 46px;
+    margin-left: 16px;
+  }
+  .info {
+    margin-top: -25px;
+    margin-left: 10px;
+
+    .subtitle {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: left;
+    }
+    .subtitle2 {
+      font-family: 'Poppins';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: left;
+      margin-top: -25px;
+    }
+  }
+
+  .dateRange {
+    font-family: 'Poppins';
+    font-style: normal !important;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: -15px;
+    text-align: left;
+    margin-left: 16px;
+  }
+
+  .text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-left: 16px;
+    text-align: left;
+    margin-top: -15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    text-align: center;
+    margin-left: 0px !important;
+  }
+  .cartContainer {
+    left: auto;
+    right: auto;
+    margin: 0px 70px !important;
+  }
+}
