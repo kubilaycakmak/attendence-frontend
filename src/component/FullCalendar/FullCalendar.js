@@ -3,9 +3,10 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import styles2 from './FullCalendar.module.scss'
+import ReservationCart from '../ReservationCart/ReservationCart'
 import { useState } from 'react'
 
-const FullCalendarComponent = () => {
+const FullCalendarComponent = (data) => {
   const [events, setEvents] = useState([])
   const initialEvents = [
     {
@@ -55,13 +56,22 @@ const FullCalendarComponent = () => {
     console.log(`events: ${events}`)
   }, [events])
 
+  useEffect(() => {
+    console.log(`data:`, data)
+  }, [data])
+
   const handleEvents = (events) => {
     setEvents(events)
   }
-  
+
   return (
     <div className={styles2.fullCalendar}>
       <h3 className={styles2.title}>Get a reservation</h3>
+      {data.data &&
+        data.data.map((item, index) => {
+          return <ReservationCart {...item} />
+        })}
+
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'

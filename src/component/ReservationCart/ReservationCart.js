@@ -2,12 +2,20 @@ import React from 'react'
 import image from './resim.png'
 import image2 from './resim2.png'
 import styles from './ReservationCart.module.scss'
-const ReservationCart = () => {
+const ReservationCart = ({
+  end_date,
+  end_time,
+  room_id,
+  start_date,
+  start_time,
+  status,
+}) => {
   return (
     <div>
-      <h3 className={styles.title}>Reservations</h3>
+      {/* <h3 className={styles.title}>Reservations</h3> */}
       <div className={styles.cartContainer}>
-        <img src={image} alt='image' className={styles.classImage} />
+        <div>{status}</div>
+        <img src={image} alt='image1' className={styles.classImage} />
         <div className={styles.infoContainer}>
           <img src={image2} alt='image2' className={styles.teacherImage} />
           <div className={styles.info}>
