@@ -1,8 +1,21 @@
 import React, { useState } from 'react'
 import styles from './Week.module.scss'
-const Week = () => {
+const Week = ({ callback, weeklyInput }) => {
   const [weekly, setWeekly] = useState(false)
+  const [input, setInput] = useState(0)
   //   const [selected, setSelected] = useState(0)
+
+  const handleClick = (week) => {
+    console.log(week)
+    // eslint-disable-next-line no-unused-expressions
+    callback(week)
+    setWeekly(week)
+  }
+
+  const handleInput = (val) => {
+    setInput(val)
+    weeklyInput(val)
+  }
 
   return (
     <div className={styles.container}>
@@ -11,13 +24,13 @@ const Week = () => {
         <div className={styles.buttonContainer}>
           <button
             className={weekly ? styles.activeButton : styles.button}
-            onClick={() => setWeekly(true)}
+            onClick={() => handleClick(true)}
           >
             Weekly
           </button>
           <button
             className={!weekly ? styles.activeButton : styles.button}
-            onClick={() => setWeekly(false)}
+            onClick={() => handleClick(false)}
           >
             Non-Weekly
           </button>
@@ -33,6 +46,8 @@ const Week = () => {
               max='52'
               className={styles.input}
               placeholder='up to 52'
+              value={input}
+              onChange={(e) => handleInput(e.target.value)}
             />
           </div>
         )}

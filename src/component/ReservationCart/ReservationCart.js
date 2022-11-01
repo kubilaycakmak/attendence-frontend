@@ -9,12 +9,11 @@ const ReservationCart = ({
   start_date,
   start_time,
   status,
+  type,
 }) => {
   return (
-    <div>
-      {/* <h3 className={styles.title}>Reservations</h3> */}
+    <div className={styles.cart}>
       <div className={styles.cartContainer}>
-        <div>{status}</div>
         <img src={image} alt='image1' className={styles.classImage} />
         <div className={styles.infoContainer}>
           <img src={image2} alt='image2' className={styles.teacherImage} />
@@ -24,7 +23,8 @@ const ReservationCart = ({
           </div>
         </div>
         <h6 className={styles.dateRange}>
-          <strong>Date range: </strong>8:30 AM to 12:30 PM
+          <strong>Date range: </strong>
+          {start_time} AM to {end_time} PM
         </h6>
         <h6 className={styles.text}>
           I occupaid this classroom for M2-0922 class.

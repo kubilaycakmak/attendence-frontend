@@ -1,5 +1,19 @@
 .fullCalendar {
-  margin-left: 300px;
+  // margin-left: 300px;
+}
+.title2 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 48px;
+  text-align: left;
+  // margin-left: 300px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
 }
 .title {
   text-align: left;
