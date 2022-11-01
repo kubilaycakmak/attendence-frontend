@@ -1,0 +1,46 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.emailForm {
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3em;
+  @include for-mobile-screen {
+  }
+  @include for-pc-screen {
+    align-items: center;
+  }
+  input {
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em;
+    width: 78%;
+    &::placeholder {
+      color: #0000002b;
+    }
+    @include for-pc-screen {
+      padding: 0.4em;
+    }
+  }
+  button {
+    background: #4a4a4a;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: $FONT_SIZE_10;
+    margin-left: 5px;
+    padding: 0.5em 0;
+    transition: background 150ms ease-in;
+    width: 20%;
+    &:hover {
+      background: darken(#4a4a4a, 20%);
+    }
+    @include for-pc-screen {
+      padding: 0.6em 0;
+      width: 6.5em;
+    }
+  }
+}

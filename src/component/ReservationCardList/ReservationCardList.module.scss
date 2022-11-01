@@ -1,0 +1,33 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.reservationCardList {
+  display: flex;
+  gap: 1em;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  @include for-pc-screen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  div {
+    @include for-mobile-screen {
+      min-width: 90%;
+    }
+    &:first-of-type {
+      @include for-mobile-screen {
+        margin-left: 1em;
+      }
+    }
+    &:last-of-type {
+      @include for-mobile-screen {
+        margin-right: 1em;
+      }
+    }
+  }
+}
