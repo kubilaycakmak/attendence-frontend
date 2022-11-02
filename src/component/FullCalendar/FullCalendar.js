@@ -93,7 +93,7 @@ const FullCalendarComponent = (data) => {
   }
 
   return (
-    <div style={{ marginLeft: '300px' }}>
+    <div className={styles2.containerForBoth}>
       <h3 className={styles2.title2}>Reservations</h3>
       <div className={styles2.cart}>
         {result.data &&

@@ -1,6 +1,7 @@
-.fullCalendar {
-  // margin-left: 300px;
+.containerForBoth {
+  margin-left: 300px;
 }
+
 .title2 {
   font-family: 'Poppins';
   font-style: normal;
@@ -8,7 +9,6 @@
   font-size: 32px;
   line-height: 48px;
   text-align: left;
-  // margin-left: 300px;
 }
 
 .cart {
@@ -24,9 +24,21 @@
   line-height: 36px;
 }
 @media screen and (max-width: 768px) {
-  .fullCalendar {
+  .containerForBoth {
     left: auto;
     right: auto;
-    margin: 0px 70px !important;
+    margin: 0 70px;
+  }
+  .cart {
+    display: flex;
+    flex-direction: column !important;
+    left: auto !important;
+    right: auto !important;
+    margin: auto auto;
+  }
+  .fullCalendar {
+    left: auto !important;
+    right: auto !important;
+    margin: auto !important;
   }
 }

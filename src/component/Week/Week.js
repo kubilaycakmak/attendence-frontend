@@ -7,7 +7,6 @@ const Week = ({ callback, weeklyInput }) => {
 
   const handleClick = (week) => {
     console.log(week)
-    // eslint-disable-next-line no-unused-expressions
     callback(week)
     setWeekly(week)
   }
