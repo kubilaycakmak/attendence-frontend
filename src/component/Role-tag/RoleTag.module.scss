@@ -1,0 +1,69 @@
+.Teacher_tag_body {
+    margin-top: 10px;
+    width: fit-content;
+    padding: 0 12px;
+    height: 32px;
+    background: #AE7D00;
+    margin-right: 6px;
+    border-radius: 4px;
+    display: inline-block;
+
+    & p {
+        font-family: 'Poppins';
+        text-align: center;
+        margin: 10px auto;
+        font-size: 12px;
+        font-family: 'Poppins';
+        color: white;
+
+    }
+}
+
+.Co-opManager_tag_body {
+    margin-top: 10px;
+width: fit-content;
+padding: 0 12px;
+height: 32px;
+background: #494948;
+margin-right: 6px;
+border-radius: 4px;
+display: inline-block;
+
+
+& p {
+    font-family: 'Poppins';
+    text-align: center;
+    margin: 10px auto;
+    font-size: 12px;
+    font-family: 'Poppins';
+    color: white;
+
+}
+}
+
+.TA_tag_body, .All_tag_body {
+    margin-top: 10px;
+width: fit-content;
+padding: 0 12px;
+height: 32px;
+background: #000000;
+margin-right: 6px;
+border-radius: 4px;
+display: inline-block;
+
+
+& p {
+    font-family: 'Poppins';
+    text-align: center;
+    margin: 10px auto;
+    font-size: 12px;
+    font-family: 'Poppins';
+    color: white;
+
+    }
+}
+
+.clicked {
+    opacity: 0.65 !important;
+    // border: 1px solid black !important;
+}
