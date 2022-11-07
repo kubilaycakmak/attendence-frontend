@@ -59,11 +59,11 @@ const FullCalendarComponent = (data) => {
   }
 
   const handleDateClick = (e) => {
-    console.log(e)
+    // console.log(e)
   }
 
   const handleEventClick = (clickInfo) => {
-    console.log(clickInfo.event.title)
+    // console.log(clickInfo.event.title)
     clickInfo.event.remove()
   }
 
@@ -81,11 +81,11 @@ const FullCalendarComponent = (data) => {
     }
   }
   useEffect(() => {
-    console.log(`events: ${events}`)
+    // console.log(`events: ${events}`)
   }, [events])
 
   useEffect(() => {
-    console.log(`data:`, data)
+    // console.log(`data:`, data)
   }, [data])
 
   const handleEvents = (events) => {
@@ -96,8 +96,8 @@ const FullCalendarComponent = (data) => {
     <div className={styles2.containerForBoth}>
       <h3 className={styles2.title2}>Reservations</h3>
       <div className={styles2.cart}>
-        {result.data &&
-          result.data.map((item, index) => {
+        {data.data &&
+          data.data.map((item, index) => {
             return <ReservationCart {...item} />
           })}
       </div>
@@ -118,13 +118,13 @@ const FullCalendarComponent = (data) => {
           select={handleDateSelect}
           eventsSet={handleEvents}
           eventAdd={(e) => {
-            console.log('A new event added', e)
+            // console.log('A new event added', e)
           }}
           eventChange={(e) => console.log('event change')}
           eventDragStart={(e) => console.log('event is started to drag')}
           eventDragStop={(e) => console.log('event is stopped to drag')}
           eventRemove={(e) => {
-            console.log('event is deleted')
+            // console.log('event is deleted')
           }}
           headerToolbar={{
             // left: 'prev,next today',

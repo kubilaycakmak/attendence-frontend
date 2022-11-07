@@ -10,6 +10,7 @@ const ReservationCart = ({
   start_time,
   status,
   type,
+  user,
 }) => {
   return (
     <div className={styles.cart}>
@@ -17,17 +18,19 @@ const ReservationCart = ({
         <img src={image} alt='image1' className={styles.classImage} />
         <div className={styles.infoContainer}>
           <img src={image2} alt='image2' className={styles.teacherImage} />
-          <div className={styles.info}>
-            <h5 className={styles.subtitle}>Kubilay Cakmak</h5>
-            <h5 className={styles.subtitle2}>Teacher</h5>
-          </div>
+          {user && (
+            <div className={styles.info} key={user.user_id}>
+              <h5 className={styles.subtitle}>{user.full_name}</h5>
+              <h5 className={styles.subtitle2}>{user.role}</h5>
+            </div>
+          )}
         </div>
         <h6 className={styles.dateRange}>
           <strong>Date range: </strong>
           {start_time} AM to {end_time} PM
         </h6>
         <h6 className={styles.text}>
-          I occupaid this classroom for M2-0922 class.
+          <strong>Status:</strong> {status}
         </h6>
       </div>
     </div>

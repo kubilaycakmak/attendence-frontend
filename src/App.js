@@ -11,29 +11,34 @@ import ReservationCart from './component/ReservationCart/ReservationCart'
 
 function App() {
   const [data, setData] = useState([])
-
+  const [roomData, setRoomData] = useState({})
   useEffect(() => {
     getReservationsById('6335e24c64e8a6df4ed2223f')
+    getRoomById('6335e24c64e8a6df4ed2223f')
   }, [])
 
+  // useEffect(() => {
+
+  // }, [])
+
   const callBackForWeeklyInfomation = (val) => {
-    console.log('App.java', val)
+    // console.log('App.java', val)
   }
 
   const weeklyInput = (weeklyValue) => {
-    console.log('weekly input', weeklyValue)
+    // console.log('weekly input', weeklyValue)
   }
 
   const startTime = (startTime) => {
-    console.log('start time:', startTime)
+    // console.log('start time:', startTime)
   }
 
   const endTime = (endTime) => {
-    console.log('endTime:', endTime)
+    // console.log('endTime:', endTime)
   }
 
-  const getReservationsById = (id) => {
-    axios
+  const getReservationsById = async (id) => {
+    await axios
       .get(
         `https://attendance-backend-dev.herokuapp.com/api/rooms/${id}/reservations`,
         {
@@ -48,11 +53,24 @@ function App() {
         setData(data.data)
       })
   }
+  const getRoomById = async (id) => {
+    await axios
+      .get(`https://attendance-backend-dev.herokuapp.com/api/rooms/${id}`, {
+        headers: {
+          Authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
+        },
+      })
+      .then((data) => {
+        console.log('Room data: ', data.data)
+        setRoomData(data.data.room)
+      })
+  }
 
   return (
     <div className='App'>
       <Sidebar />
-      <RoomCart data={data} />
+      <RoomCart data={data} room={roomData} />
       <FullCalendar data={data} />
       <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
       <Time startTimeProps={startTime} endTimeProps={endTime} />
