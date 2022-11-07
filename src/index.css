@@ -14,6 +14,7 @@ code {
     monospace;
 }
 
-/* Calendar Custom Css Begin */
+#active{
+  color: white !important;
+}
 
-/* Calender Custom Css End */

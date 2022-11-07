@@ -5,11 +5,14 @@ import AppointmentCalendar from './component/appointment-calendar/AppointmentCal
 import FilterView from './component/Staff-filter/FilterView';
 import AppointmentCard from './component/AppointmentCard/AppointmentCard';
 import userDatas from './component/AppointmentCard/userData.json';
+import Sidebar from './component/Sidebar/Sidebar'
+import Time from './component/Time/Time'
+import Week from './component/Week/Week'
 import './reset.scss';
 import './App.css';
 import 'react-calendar/dist/Calendar.css';
 
-export function App() {
+function App() {
   const [filtered, setFiltered] = useState(['All']);
   const [users, setUsers] = useState([]);
 
@@ -61,13 +64,16 @@ export function App() {
 
   return (
     <div className="App">
+            <Sidebar />
+      <Week />
+      <Time />
       <FilterView
         userData={users}
         filteredRole={filtered}
         onClickFunction={onClickFunction}
       />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
