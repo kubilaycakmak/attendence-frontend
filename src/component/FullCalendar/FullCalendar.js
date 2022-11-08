@@ -8,6 +8,12 @@ import { useState } from 'react'
 
 const FullCalendarComponent = (data) => {
   const [events, setEvents] = useState([])
+  const [finalData, setFinalData] = useState({
+    startDate: '',
+    endDate: '',
+    startTime: '',
+    endTime: '',
+  })
   const initialEvents = [
     {
       id: 1,
