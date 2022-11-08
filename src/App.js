@@ -14,6 +14,7 @@ import userDatas from './component/AppointmentCard/userData.json';
 import Sidebar from './component/Sidebar/Sidebar'
 import Time from './component/Time/Time'
 import Week from './component/Week/Week'
+import Video from './component/Video/Video'
 import './reset.scss';
 import './App.css';
 import 'react-calendar/dist/Calendar.css';
@@ -142,6 +143,7 @@ function App() {
             <Route path='/profile' element={<Profile />}></Route>
           </Routes>
           <Sidebar />
+            <Video />
             <Week />
             <Time />
             <FilterView
