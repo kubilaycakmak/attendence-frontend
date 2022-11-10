@@ -8,28 +8,28 @@ import styles from './Header.module.scss';
 function Header() {
   return (
     <Navbar expand="lg" className={styles.Nav}>
-      {/* <Container> */}
-      <Link to="/">
-        <img src={logo} alt="logo"></img>
-      </Link>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-        <Nav className={styles.mobileNav}>
-          <br></br>
-          <Link to="/location" className={styles.navlink}>
-            Find Location
-          </Link>
-          <Link to="/calendar" className={styles.navlink}>
-            Calendar
-          </Link>
-          <Link to="/login" className={styles.navlink}>
-            Login
-          </Link>
-          <br></br>
-          <Nav.Link className={styles.navLinkButton}>Get started</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-      {/* </Container> */}
+      <Container>
+        <Link to="/">
+          <img src={logo} alt="logo"></img>
+        </Link>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className={styles.mobileNav}>
+            <br></br>
+            <Link to="/location" className={styles.navlink}>
+              Find Location
+            </Link>
+            <Link to="/calendar" className={styles.navlink}>
+              Calendar
+            </Link>
+            <Link to="/login" className={styles.navlink}>
+              Login
+            </Link>
+            <br></br>
+            <Nav.Link className={styles.navLinkButton}>Get started</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 }

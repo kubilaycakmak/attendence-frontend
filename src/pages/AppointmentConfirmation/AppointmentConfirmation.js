@@ -1,17 +1,16 @@
-import React, { useState } from "react"
-import profileImg from "./profileImg.svg"
-import styles from "./AppointmentConfirmation.module.scss"
+import React, { useState } from 'react';
+import profileImg from './profileImg.svg';
+import styles from './AppointmentConfirmation.module.scss';
 
 const AppointmentConfirmation = ({ user, id, date, duration }) => {
   // dummy date
-  const timestamp = new Date().getTime()
-  const testDate = new Date(timestamp)
-
-  const [success, setSuccess] = useState("")
+  const timestamp = new Date().getTime();
+  const testDate = new Date(timestamp);
+  const [success, setSuccess] = useState('');
 
   const clickHandler = () => {
-    setSuccess(!success)
-  }
+    setSuccess(!success);
+  };
 
   return (
     <>
@@ -19,7 +18,7 @@ const AppointmentConfirmation = ({ user, id, date, duration }) => {
         <div className={styles.container}>
           {success ? <h3>Your Appointment Successfull!</h3> : <h3>Confirm</h3>}
           <div className={styles.imgTitleContainer}>
-            {success ? "" : <img src={profileImg} alt='profileImg' />}
+            {success ? '' : <img src={profileImg} alt="profileImg" />}
             <div className={styles.titleWrap}>
               <p>
                 <b>{user.fullName}</b>
@@ -33,9 +32,9 @@ const AppointmentConfirmation = ({ user, id, date, duration }) => {
             </div>
           </div>
           <div className={styles.detailBtnWrap}>
-            {success ? "" : <h3>Review Appointment</h3>}
+            {success ? '' : <h3>Review Appointment</h3>}
             <p>
-              <b>Date</b>: {testDate.toString("en-CA")}
+              <b>Date</b>: {testDate.toString('en-CA')}
             </p>
             <p>
               <b>Duration</b>: {duration}
@@ -56,7 +55,7 @@ const AppointmentConfirmation = ({ user, id, date, duration }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default AppointmentConfirmation
+export default AppointmentConfirmation;
