@@ -74,17 +74,17 @@ const FullCalendarComponent = (data) => {
   }
 
   const handleDateSelect = (selectInfo) => {
-    let title = prompt('Please enter event title')
+    // let title = prompt('Please enter event title')
     let calendarApi = selectInfo.view.calendar
     calendarApi.unselect()
-    if (title) {
-      calendarApi.addEvent({
-        title,
-        start: selectInfo.startStr,
-        end: selectInfo.endStr,
-        allDay: selectInfo.allDay,
-      })
-    }
+    // if (title) {
+    calendarApi.addEvent({
+      // title,
+      start: selectInfo.startStr,
+      end: selectInfo.endStr,
+      allDay: selectInfo.allDay,
+    })
+    // }
   }
   useEffect(() => {
     // console.log(`events: ${events}`)
