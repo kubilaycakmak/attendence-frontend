@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .Sidebar {
   position: fixed;
@@ -8,11 +8,11 @@
   left: 0px;
   top: 0px;
   bottom: 0px;
-  p {
+  .Logo {
     position: absolute;
     top: 500px;
     right: 120px;
-    font-family: "Poppins";
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -30,12 +30,13 @@
   // text-align: left;
   color: gray;
   margin-top: 50px;
+  padding-left: 15%;
   position: relative;
 
   .row {
     width: max-content;
     height: 50px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -47,7 +48,7 @@
     }
   }
 }
-p {
+.Logo {
   position: absolute;
   top: 500px;
   right: 120px;

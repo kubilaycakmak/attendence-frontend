@@ -1,7 +1,7 @@
-import React from 'react'
-import styles from './Sidebar.module.scss'
-import { SidebarData } from './SidebarData'
-import attendance from './attendance.png'
+import React from 'react';
+import styles from './Sidebar.module.scss';
+import { SidebarData } from './SidebarData';
+import attendance from './attendance.png';
 
 const Sidebar = () => {
   return (
@@ -13,18 +13,18 @@ const Sidebar = () => {
               key={key}
               id={window.location.pathname === val.link ? 'active' : ''}
               onClick={() => {
-                window.location.pathname = val.link
+                window.location.pathname = val.link;
               }}
               className={styles.row}
             >
               <div>{val.title}</div>
             </li>
-          )
+          );
         })}
-        <p className='logo'>attendance</p>
+        <p className={styles.Logo}>attendance</p>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
