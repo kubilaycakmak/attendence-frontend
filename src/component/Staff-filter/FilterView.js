@@ -12,7 +12,7 @@ const FilterView = ({ userData, onClickFunction, filteredRole }) => {
     <>
       <div className={classes.upperContainer}>
         <div className={classes.titleWrapper}>
-          <h1 className={classes.filterTitle}>Co-op & TA</h1>
+          <h1 className={classes.filterTitle}>Make Appointments</h1>
         </div>
         <div className={classes.tagsWrapper}>
           <h1 className={classes.filterText}>Filter with:</h1>

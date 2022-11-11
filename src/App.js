@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import Profile from './pages/Profile/Profile';
-import StaffList from './pages/StaffList/StaffList';
+import MakeAppointments from './pages/MakeAppointments/MakeAppointments';
+import MakeRoomReservations from './pages/MakeRoomReservations/MakeRoomReservations';
 import AppointmentConfirmation from './pages/AppointmentConfirmation/AppointmentConfirmation';
 import './App.css';
 
@@ -23,22 +24,27 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <div className="App">
-          {/* <AvatarMenu />
+        {/* <AvatarMenu />
           <ReservationCardList list={list1} isForReserved={true} />
           <ReservationCardList list={list2} /> */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/register" element={<LoginSignup />} />
-            <Route path="/login" element={<LoginSignup />} />
-            <Route path="/profile" element={<Profile />}></Route>
-            <Route path="/staff-list" element={<StaffList />}></Route>
-            <Route
-              path="/appointment/confirm"
-              element={<AppointmentConfirmation {...data} />}
-            ></Route>
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/register" element={<LoginSignup />} />
+          <Route path="/login" element={<LoginSignup />} />
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route
+            path="/make-room-reservations"
+            element={<MakeRoomReservations />}
+          ></Route>
+          <Route
+            path="/make-appointments"
+            element={<MakeAppointments />}
+          ></Route>
+          <Route
+            path="/appointment/confirm"
+            element={<AppointmentConfirmation {...data} />}
+          ></Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );

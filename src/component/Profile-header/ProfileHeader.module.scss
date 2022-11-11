@@ -1,13 +1,15 @@
 .bigContainer {
   height: auto;
   display: flex;
-  margin-left: 25%;
-  padding: 54px;
+  padding: 54px 54px 54px 0;
   .img {
     height: auto;
     @media screen and (max-width: 767px) {
       margin-top: 24%;
     }
+  }
+  h3 {
+    margin-top: 1.5rem;
   }
   .contentWrapper {
     height: auto;
@@ -38,11 +40,13 @@
 
 .tagContainer {
   display: flex;
+  margin-top: 0.6rem;
 }
 
 .linkContainer {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.6rem;
   a {
     text-decoration: none;
     color: #000;

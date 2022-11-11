@@ -34,7 +34,7 @@ const AvatarMenu = () => {
       >
         <ul className={styles.avatarMenu__menu}>
           <li>
-            <Link to="/location">Location & Direction</Link>
+            <Link to="/location">Make Room Reservations</Link>
           </li>
           <li>
             <Link to="/profile">Profile</Link>

@@ -2,16 +2,16 @@
 
 .Sidebar {
   position: fixed;
-  height: 900px;
-  width: 25%;
+  height: 100%;
+  width: 250px;
   background-color: black;
   left: 0px;
   top: 0px;
   bottom: 0px;
   .Logo {
     position: absolute;
-    top: 500px;
-    right: 120px;
+    bottom: 50px;
+    left: 0;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -20,6 +20,8 @@
     color: #ffffff;
     border: 0.3px solid rgba(0, 0, 0, 0.6);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 100%;
   }
 }
 
@@ -27,14 +29,11 @@
   height: 100%;
   width: 100%;
   list-style: none;
-  // text-align: left;
   color: gray;
-  margin-top: 50px;
-  padding-left: 15%;
+  padding: 80px 0 0 15%;
   position: relative;
 
   .row {
-    width: max-content;
     height: 50px;
     font-family: 'Poppins', sans-serif;
     font-style: normal;
@@ -46,20 +45,13 @@
       cursor: pointer;
       color: white;
     }
+    a {
+      color: inherit;
+      display: inline-block;
+      width: 100%;
+      text-decoration: none;
+    }
   }
-}
-.Logo {
-  position: absolute;
-  top: 500px;
-  right: 120px;
-  font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  color: #ffffff;
-  border: 0.3px solid rgba(0, 0, 0, 0.6);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 @media screen and (max-width: 1010px) {
   .Sidebar {

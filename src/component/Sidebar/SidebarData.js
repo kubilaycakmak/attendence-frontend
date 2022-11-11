@@ -1,18 +1,14 @@
 export const SidebarData = [
   {
-    title: 'Location & Direction',
-    link: '/location&direction',
+    title: 'Make Room Reservations',
+    link: '/make-room-reservations',
   },
   {
-    title: 'Classes',
-    link: '/classes',
-  },
-  {
-    title: 'Co-op & TA',
-    link: '/co-op&TA',
+    title: 'Make Appointments',
+    link: '/make-appointments',
   },
   {
     title: 'Profile',
     link: '/profile',
   },
-]
+];

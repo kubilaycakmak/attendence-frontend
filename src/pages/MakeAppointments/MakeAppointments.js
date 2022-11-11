@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import Sidebar from '../../component/Sidebar/Sidebar';
 import FilterView from '../../component/Staff-filter/FilterView';
 import userDatas from '../../component/AppointmentCard/userData.json';
-// import 'react-calendar/dist/Calendar.css';
-// import '../../App.css';
-import styles from './StaffList.module.scss';
+import styles from './MakeAppointments.module.scss';
 
-const StaffList = () => {
+const MakeAppointments = () => {
   const [filtered, setFiltered] = useState(['All']);
   const [users, setUsers] = useState([]);
 
@@ -56,13 +55,18 @@ const StaffList = () => {
 
   return (
     <>
-      <FilterView
-        userData={users}
-        filteredRole={filtered}
-        onClickFunction={onClickFunction}
-      />
+      <div className={styles.wrapper}>
+        <Sidebar />
+        <div className={styles.mainContent}>
+          <FilterView
+            userData={users}
+            filteredRole={filtered}
+            onClickFunction={onClickFunction}
+          />
+        </div>
+      </div>
     </>
   );
 };
 
-export default StaffList;
+export default MakeAppointments;

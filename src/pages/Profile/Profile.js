@@ -8,8 +8,10 @@ const Profile = () => {
   return (
     <div className={styles.wrapper}>
       <Sidebar />
-      <ProfileHeader className={styles.header} />
-      <Video />
+      <div className={styles.mainContent}>
+        <ProfileHeader className={styles.header} />
+        <Video />
+      </div>
     </div>
   );
 };
