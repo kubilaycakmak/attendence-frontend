@@ -6,7 +6,7 @@ import styles2 from './FullCalendar.module.scss'
 import ReservationCart from '../ReservationCart/ReservationCart'
 import { useState } from 'react'
 
-const FullCalendarComponent = (data) => {
+const FullCalendarComponent = (data, startDateF, endDateF) => {
   const [events, setEvents] = useState([])
   const [finalData, setFinalData] = useState({
     startDate: '',
@@ -78,12 +78,23 @@ const FullCalendarComponent = (data) => {
     let calendarApi = selectInfo.view.calendar
     calendarApi.unselect()
     // if (title) {
+
     calendarApi.addEvent({
       // title,
       start: selectInfo.startStr,
       end: selectInfo.endStr,
       allDay: selectInfo.allDay,
     })
+    // let tempObj = {
+    //   startDate: selectInfo.startStr,
+    //   endDate: selectInfo.endStr,
+    // }
+
+    // setFinalData(tempObj)
+    console.log(data)
+    data.startDateF(selectInfo.startStr)
+    data.endDateF(selectInfo.endStr)
+    // console.log(selectInfo)
     // }
   }
   useEffect(() => {
@@ -152,6 +163,9 @@ const FullCalendarComponent = (data) => {
           // eventBorderColor={'purple'}
         />
       </div>
+
+      {/* <h1>{finalData.startDate}</h1>
+      <h1>{finalData.endDate}</h1> */}
     </div>
   )
 }

@@ -23,12 +23,22 @@ const ReservationPage = () => {
   }
 
   const startTime = (startTime) => {
+    // console.log(start);
     // console.log('start time:', startTime)
   }
 
   const endTime = (endTime) => {
     // console.log('endTime:', endTime)
   }
+
+  const startDate = (startDate) => {
+    console.log('startDate:', startDate)
+  }
+
+  const endDate = (endDate) => {
+    console.log('enddate:', endDate)
+  }
+
   const getReservationsById = async (id) => {
     await axios
       .get(
@@ -62,7 +72,7 @@ const ReservationPage = () => {
     <div>
       <Sidebar />
       <RoomCart data={data} room={roomData} />
-      <FullCalendar data={data} />
+      <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
       <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
       <Time startTimeProps={startTime} endTimeProps={endTime} />
     </div>
