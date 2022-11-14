@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .Sidebar {
@@ -22,6 +24,9 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     text-align: center;
     width: 100%;
+    @include for-mobile-screen {
+      display: none;
+    }
   }
 }
 
@@ -59,17 +64,17 @@
     height: 64px;
     left: 0px;
   }
-
   .SidebarList {
     display: flex;
     flex-direction: row;
-    position: absolute;
-    top: -32px;
     align-items: center;
     justify-content: space-evenly;
-    left: -30px;
+    padding: 0;
     p {
       display: none;
+    }
+    .row {
+      height: unset;
     }
   }
 }
