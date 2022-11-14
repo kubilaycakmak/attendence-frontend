@@ -9,6 +9,7 @@ import NewPassword from './component/NewPassword/NewPassword'
 import Profile from "./pages/Profile/Profile"
 import NotFoundPage from './pages/NotFoundPage'
 import Header from "./component/Header/Header"
+
 function App() {
   const state = useSelector(state=>state)
   // TODO: temp data
@@ -70,11 +71,6 @@ function App() {
         "This class location is at first floor and next to elevator.",
     },
   ]
-
-  useEffect(() => {
-    console.log(state.auth.isAuth);
-  }, [state])
-  
 
   return (
     <>

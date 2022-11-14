@@ -18,14 +18,15 @@ export const login = (email, password) => {
 };
 
 export const forget = (email) => {
-  return axios.post(`${process.env.REACT_APP_URL}/api/auth/forget-password`, {
+  return axios.post(`${process.env.REACT_APP_URL}/api/auth/forgot-password`, {
     email,
   });
 };
 
-export const newPassword = (id, password) => {
+export const newPassword = (id, password, token) => {
   return axios.post(`${process.env.REACT_APP_URL}/api/auth/new-password`, {
     id,
-    password
+    password,
+    token
   });
 };

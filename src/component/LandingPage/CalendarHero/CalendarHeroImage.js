@@ -1,5 +1,5 @@
 import React from 'react';
-import calendar from '../../assets/imgs/calendar.png';
+import calendar from '../../../assets/imgs/calendar.png';
 import styles from './CalendarHeroImage.module.scss';
 
 const CalendarHeroImage = () => {

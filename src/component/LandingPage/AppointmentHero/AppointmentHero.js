@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './AppointmentHero.module.scss';
-import imageMob from '../../images/img_for_appointment_mob.png';
-import imageWeb from '../../images/img_for_appointment_web.png';
+import imageMob from '../../../images/img_for_appointment_mob.png';
+import imageWeb from '../../../images/img_for_appointment_web.png';
 //import image from "../../images/img_for_appointment.svg"
 
 export const AppointmentHero = ({ className }) => {

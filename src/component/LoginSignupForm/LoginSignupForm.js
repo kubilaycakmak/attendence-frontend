@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { GoogleLogin } from "react-google-login";
 import { Link, useLocation, BrowserRouter, Path, Routes, Route } from "react-router-dom";
 import styles from "./LoginSignupForm.module.scss";
@@ -9,7 +9,6 @@ import { authActions } from "../../reducers/auth";
 import { useNavigate } from "react-router-dom";
 import ForgetPassword from "../ForgetPassword/ForgetPassword";
 import NewPassword from "../NewPassword/NewPassword";
-//import Home from "../../pages/Home";
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
   const navigate = useNavigate();
@@ -24,13 +23,10 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
   const isLoginPage = location.pathname.includes("login");
   const handleGoogleSuccess = (res) => {
     if (!isLoginPage) googleSignupCallback();
-    // logics for success
-    // console.log(res);
   };
   const handleGoogleFailure = (res) => {
-    // logics for failure
-    // console.log(res);
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -49,12 +45,13 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       setMessage(error.message);
     }
   };
+
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
       await login(email, password).then((res) => {
         if (res.status === 200) {
-          dispatch(authActions.login());
+          dispatch(authActions.login(res.data));
           navigate("/profile");
         }
       });
@@ -62,6 +59,16 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      navigate("/profile");
+      dispatch(authActions.login(user));
+    }
+  }, [])
+  
+
   return (
     <div className={styles.formWrap}>
       <h1>{isLoginPage ? "Login" : "Register"}</h1>
@@ -112,17 +119,16 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
           <>
-            <Link to="/login">If you have an account already please login</Link>
+            <Link to="/login">Do you have an account? Sign in!</Link>
           </>
         ) : (
           <>
-            <Link to="/register">If you don't have an account - register</Link>
-            <Link to="/forgot-password">Forgot your password</Link>
-            <Link to="/guest">Continue as guest</Link>
+            <Link to="/register">If you don't have an account, Sign up!</Link>
+            <Link to="/forgot-password">Forgot your password ?</Link>
+            {/* <Link to="/guest">Continue as guest</Link> */}
           </>
         )}
       </div>
-      {/* </BrowserRouter> */}
     </div>
   );
 };
