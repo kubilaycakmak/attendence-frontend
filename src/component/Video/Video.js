@@ -1,23 +1,22 @@
-import React, { useState } from 'react'
-import { DefaultPlayer as VideoPlayer } from 'react-html5video'
-import 'react-html5video/dist/styles.css'
-import styles from './Video.module.scss'
-import sampleVideo from './video.mp4'
+import React, { useState } from 'react';
+import { DefaultPlayer as VideoPlayer } from 'react-html5video';
+import 'react-html5video/dist/styles.css';
+import styles from './Video.module.scss';
 
-const Video = () => {
-  const date = '29th August of 2022'
-  const [like, setLike] = useState(0)
-  const [toggled, setToggled] = useState(false)
+const Video = ({ src }) => {
+  const date = '29th August of 2022';
+  const [like, setLike] = useState(0);
+  const [toggled, setToggled] = useState(false);
 
   const handleLike = () => {
     if (toggled) {
-      setToggled(false)
-      setLike(like - 1)
+      setToggled(false);
+      setLike(like - 1);
     } else {
-      setToggled(true)
-      setLike(like + 1)
+      setToggled(true);
+      setLike(like + 1);
     }
-  }
+  };
 
   return (
     <div className={styles.videoColumn}>
@@ -30,11 +29,11 @@ const Video = () => {
       </div>
       <div className={styles.video}>
         <VideoPlayer autoPlay loop className={styles.videoSource}>
-          <source src={sampleVideo} type='video/mp4' />
+          <source src={src} type="video/mp4" />
         </VideoPlayer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Video
+export default Video;

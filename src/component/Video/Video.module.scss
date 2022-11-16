@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 .column {
   display: flex;
@@ -5,21 +7,29 @@
 }
 
 .videoContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
   width: 100%;
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
+  @include for-mobile-screen {
+    text-align: center;
+  }
+  @include for-pc-screen {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }
 .title {
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
-  text-align: left;
+  font-size: 18px;
+  @include for-mobile-screen {
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  @include for-pc-screen {
+    font-size: 24px;
+  }
 }
 .button {
   background: #000000;
@@ -27,9 +37,16 @@
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
-  margin-left: 15px;
-  padding: 12px 12px;
+  padding: 6px 6px;
+  transition: transform 150ms ease-out;
   line-height: 1;
+  @include for-pc-screen {
+    margin-left: 15px;
+    padding: 12px 12px;
+  }
+  &:hover {
+    transform: scale(1.07);
+  }
 }
 .para {
   font-family: 'Poppins';
@@ -42,13 +59,12 @@
   left: 840px;
 }
 .video {
-  width: 650px;
+  max-width: 650px;
   height: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   object-fit: contain;
-  // position: absolute;
-  left: 280px;
-}
-.videoSource {
-  // overflow-x: hidden;
+  width: 100%;
+  @include for-mobile-screen {
+    margin: 10px auto 0;
+  }
 }

@@ -2,8 +2,10 @@
 @import '../../scss/utils';
 
 .mainContent {
-  @include for-pc-screen {
-    padding-left: 4%;
+  max-width: 1400px;
+  padding: 90px 4% 4%;
+  @include for-pc-lg-screen {
+    padding: 4%;
     position: fixed;
     left: 250px;
     width: calc(100% - 250px);

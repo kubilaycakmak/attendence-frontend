@@ -1,18 +1,13 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
 .upperContainer {
-  margin-bottom: 49px;
-  @media screen and (min-width: 960px) {
+  text-align: center;
+  @include for-pc-lg-screen {
     text-align: left;
   }
   & .titleWrapper {
-    margin-top: 50px;
     margin-bottom: 30px;
-
-    @media screen and (min-width: 960px) {
-      margin-top: 100px;
-      margin-bottom: 13px;
-      padding-left: 5%;
-    }
-
     & .filterTitle {
       font-size: 36px;
     }
@@ -25,11 +20,10 @@
     font-size: 12px;
     margin-bottom: 10px;
 
-    @media screen and (min-width: 960px) {
+    @include for-pc-lg-screen {
       display: inline;
       margin: none;
       text-align: left;
-      padding-left: 5%;
     }
   }
   > div {
@@ -38,30 +32,10 @@
 }
 
 .cardsWrapper {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-
-  @media screen and (min-width: 540px) {
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 232px);
-    grid-auto-rows: auto;
-    gap: 20px;
-    font-family: sans-serif;
-    padding-top: 30px;
-  }
-
-  @media screen and (min-width: 960px) {
-    padding-left: 4%;
-    margin: 0 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 232px);
-    grid-auto-rows: auto;
-    gap: 20px;
-    font-family: sans-serif;
-    padding-top: 30px;
-    justify-content: start;
-  }
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: auto;
+  gap: 20px;
+  font-family: sans-serif;
 }

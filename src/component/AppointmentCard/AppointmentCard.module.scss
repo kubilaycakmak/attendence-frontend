@@ -4,37 +4,34 @@
 .card_wrapper {
   & .card_body {
     box-sizing: border-box;
-    width: 232px;
-    height: 341px;
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 8px;
+    padding: 5%;
 
     & .img_wrapper {
       display: block;
-      margin: 16px auto 20px;
       text-align: center;
       & .prof_img {
-        width: 200px;
-        height: 145px;
+        height: 160px;
         object-fit: cover;
+        object-position: top;
         border-radius: 8px;
+        width: 100%;
       }
     }
 
     & .name_wrapper {
       text-align: left;
-      margin-left: 16px;
       h1 {
         font-family: 'Poppins';
         font-size: 14px;
-        margin-bottom: 8px;
+        margin: 0.5rem 0;
       }
     }
 
     & .tag_wrapper {
       text-align: left;
-      margin-left: 16px;
       // & .tag_body {
       //     width: 75px;
       //     height: 32px;
@@ -56,9 +53,9 @@
 
     & .description_wrapper {
       text-align: left;
-      margin: 8px 16px 20px 16px;
       overflow: scroll;
       height: 22px;
+      margin-top: 10px;
       word-wrap: break-word;
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
@@ -77,16 +74,16 @@
 
     & .btn_wrapper {
       text-align: center;
-      margin-top: 8px;
+      margin-top: 15px;
       & .card_btn {
         border: none;
         cursor: pointer;
-        width: 200px;
-        height: 32px;
         background-color: #000000;
         border-radius: 4px;
         font-size: 12px;
         color: white;
+        padding: 10px;
+        width: 100%;
         @include hover-opacity;
       }
     }
