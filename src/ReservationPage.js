@@ -6,37 +6,60 @@ import Time from './component/Time/Time'
 import Week from './component/Week/Week'
 import axios from 'axios'
 import RoomCart from './component/RoomCart/RoomCart'
+import moment from 'moment'
 
 const ReservationPage = () => {
   const [data, setData] = useState([])
   const [roomData, setRoomData] = useState({})
+  const [duration, setDuration] = useState('')
+  const [weekly, setWeekly] = useState(false)
+  const [startingTime, setStartingTime] = useState('')
+  const [endingTime, setEndingTime] = useState('')
+  const [startingDate, setStartingDate] = useState('')
+  const [endingDate, setEndingDate] = useState('')
+
   useEffect(() => {
     getReservationsById('6335e24c64e8a6df4ed2223f')
     getRoomById('6335e24c64e8a6df4ed2223f')
   }, [])
+
   const callBackForWeeklyInfomation = (val) => {
+    setDuration(val)
+
     // console.log('App.java', val)
+    // let duration = {
+    //   duration: val,
+    // }
+    // setData((prev) => [...prev, duration])
+
+    // console.log(data)
   }
 
   const weeklyInput = (weeklyValue) => {
+    setWeekly(weeklyValue)
     // console.log('weekly input', weeklyValue)
   }
 
   const startTime = (startTime) => {
+    setStartingTime(startTime)
     // console.log(start);
     // console.log('start time:', startTime)
   }
 
   const endTime = (endTime) => {
+    setEndingTime(endTime)
     // console.log('endTime:', endTime)
   }
 
   const startDate = (startDate) => {
-    console.log('startDate:', startDate)
+    setStartingDate(startDate)
+    // console.log('startDate:', startDate)
   }
 
   const endDate = (endDate) => {
-    console.log('enddate:', endDate)
+    let tempDate = moment(endDate).subtract(1, 'days')
+    setEndingDate(tempDate)
+    // console.log('enddate:', endDate)
   }
 
   const getReservationsById = async (id) => {
@@ -68,6 +91,37 @@ const ReservationPage = () => {
         setRoomData(data.data.room)
       })
   }
+  const postData = async (e) => {
+    const requestBody = {
+      room_id: '6335e24c64e8a6df4ed2223f',
+      type: duration ? 'weekly' : 'non_weekly',
+      start_date: startingDate,
+      end_date: endingDate,
+      start_time: startingTime,
+      end_time: endingTime,
+      duration: weekly ? weekly : null,
+    }
+    console.log(requestBody)
+    e.preventDefault()
+    await axios
+      .post(
+        `https://attendance-backend-dev.herokuapp.com/api/rooms/reservations`,
+        requestBody,
+        {
+          headers: {
+            Authorization:
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
+          },
+          // room_id: null,
+        }
+      )
+      .then((res) => {
+        if (res.status === 201) {
+          // navigate client to confirm
+        }
+      })
+      .catch((err) => console.log(err))
+  }
   return (
     <div>
       <Sidebar />
@@ -75,6 +129,7 @@ const ReservationPage = () => {
       <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
       <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
       <Time startTimeProps={startTime} endTimeProps={endTime} />
+      <button onClick={postData}>Next </button>
     </div>
   )
 }

@@ -11,24 +11,24 @@ const Time = ({ startTimeProps, endTimeProps }) => {
   const [endTime, setEndTime] = useState(null)
   const [error, setError] = useState('')
 
-  const handleDate = (e) => {
-    console.log(e)
-    e.preventDefault()
-    let start = moment(startTime)
-    let end = moment(endTime)
+  // const handleDate = (e) => {
+  //   console.log(e)
+  //   e.preventDefault()
+  //   let start = moment(startTime)
+  //   let end = moment(endTime)
 
-    if (!startTime && !endTime) {
-      return setError('You should select a start and end time')
-    }
-    if (start === end) {
-      return setError('Start and End time can not be equal.')
-    }
-    if (start.isAfter(end)) {
-      return setError('Start time can not be after End time')
-    } else {
-      return setError('')
-    }
-  }
+  //   if (!startTime && !endTime) {
+  //     return setError('You should select a start and end time')
+  //   }
+  //   if (start === end) {
+  //     return setError('Start and End time can not be equal.')
+  //   }
+  //   if (start.isAfter(end)) {
+  //     return setError('Start time can not be after End time')
+  //   } else {
+  //     return setError('')
+  //   }
+  // }
 
   const handleStartTime = (val) => {
     setStartTime(val)
@@ -66,9 +66,6 @@ const Time = ({ startTimeProps, endTimeProps }) => {
           />
         </div>
         {error && <div>{error}</div>}
-        <button className={styles.button} onClick={(e) => handleDate(e)}>
-          Next
-        </button>
       </form>
     </LocalizationProvider>
   )
