@@ -58,19 +58,19 @@
     }
   }
 }
-@media screen and (max-width: 960px) {
-  .Sidebar{
+@media screen and (max-width: 959px) {
+  .Sidebar {
     width: 200px;
-   
-    a{
-      font-size: .8em;
+
+    a {
+      font-size: 0.8em;
     }
   }
-  .SidebarList{
-    padding-left:  10%;
-    }
+  .SidebarList {
+    padding-left: 10%;
+  }
 }
-@media screen and (max-width: 768px) {
+@include for-mobile-screen {
   .Sidebar {
     width: 100%;
     height: 64px;
@@ -78,14 +78,15 @@
   }
   .SidebarList {
     overflow-x: scroll;
-    width: 70%;
+    width: 90%;
+    max-width: 450px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0;
     gap: 2rem;
-    margin:0 auto;
-    li{
+    margin: 0 auto;
+    li {
       flex-shrink: 0;
     }
     p {
@@ -95,8 +96,7 @@
       height: unset;
     }
   }
-  .Logo{
+  .Logo {
     display: none;
   }
 }
-

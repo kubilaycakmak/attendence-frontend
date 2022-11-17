@@ -4,7 +4,7 @@
 .mainContent {
   max-width: 1400px;
   padding: 90px 4% 4%;
-  @include for-pc-lg-screen {
+  @include for-pc-screen {
     padding: 4%;
     position: fixed;
     left: 250px;

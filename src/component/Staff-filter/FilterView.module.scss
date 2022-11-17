@@ -38,4 +38,7 @@
   grid-auto-rows: auto;
   gap: 20px;
   font-family: sans-serif;
+  > div {
+    max-width: 420px;
+  }
 }
