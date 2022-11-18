@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from '../../component/Sidebar/Sidebar';
 import FilterView from '../../component/Staff-filter/FilterView';
 import userDatas from '../../component/AppointmentCard/userData.json';
 import styles from './MakeAppointments.module.scss';
@@ -56,7 +55,6 @@ const MakeAppointments = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <Sidebar />
         <div className={styles.mainContent}>
           <FilterView
             userData={users}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import Profile from './pages/Profile/Profile';
@@ -10,6 +11,7 @@ import './App.css';
 
 function App() {
   // TODO: temp data
+  const user = {};
   const data = {
     user: {
       fullName: 'Joe Doe',
@@ -24,26 +26,23 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <AvatarMenu />
-          <ReservationCardList list={list1} isForReserved={true} />
-          <ReservationCardList list={list2} /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
-          <Route path="/profile" element={<Profile />}></Route>
-          <Route
-            path="/make-room-reservations"
-            element={<MakeRoomReservations />}
-          ></Route>
-          <Route
-            path="/make-appointments"
-            element={<MakeAppointments />}
-          ></Route>
-          <Route
-            path="/appointment/confirm"
-            element={<AppointmentConfirmation {...data} />}
-          ></Route>
+          {/* Protected routes */}
+          <Route element={<ProtectedRoutes user={user} />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route
+              path="/make-room-reservations"
+              element={<MakeRoomReservations />}
+            />
+            <Route path="/make-appointments" element={<MakeAppointments />} />
+            <Route
+              path="/appointment/confirm"
+              element={<AppointmentConfirmation {...data} />}
+            />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>

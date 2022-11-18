@@ -34,16 +34,16 @@ const AvatarMenu = () => {
       >
         <ul className={styles.avatarMenu__menu}>
           <li>
-            <Link to="/location">Make Room Reservations</Link>
+            <Link to="/make-room-reservations">Make Room Reservations</Link>
           </li>
           <li>
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/appointments">My Appointments</Link>
+            <Link to="/profile">My Appointments</Link>
           </li>
           <li>
-            <Link to="/reservations">My Reservations</Link>
+            <Link to="/profile">My Reservations</Link>
           </li>
         </ul>
       </div>
