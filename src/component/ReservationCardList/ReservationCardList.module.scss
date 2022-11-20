@@ -1,11 +1,103 @@
-@import '../../scss/variables';
-@import '../../scss/utils';
+@import "../../scss/variables";
+@import "../../scss/utils";
+
+.titleContainer {
+  margin: 12px 24px;
+  display: flex;
+  align-items: center;
+  @include for-mobile-screen {
+    justify-content: space-between;
+  }
+  button {
+    cursor: pointer;
+    height: 40px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0px 24px;
+    margin-left: 16px;
+    @include for-mobile-screen {
+      height: 30px;
+      padding: 0px 12px;
+    }
+    &:hover {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      transition: 0.5s;
+    }
+  }
+  .bigTitle {
+    font-size: 24px;
+    @include for-mobile-screen {
+      font-size: 16px;
+    }
+  }
+}
+.filterBtnContainer {
+  display: flex;
+  background-color: #f0f0f0;
+  padding: 16px 32px;
+  border-radius: 32px;
+  margin: 24px;
+  button {
+    margin-left: 8px;
+    cursor: pointer;
+  }
+
+  @include for-mobile-screen {
+    margin: 12px;
+    padding: 12px 24px;
+  }
+  .active {
+    border: none;
+    border-radius: 16px;
+    color: white;
+    background-color: black;
+    font-size: 14px;
+    height: 32px;
+    padding: 0px 12px;
+    @include for-mobile-screen {
+      font-size: 12px;
+    }
+  }
+  .inActive {
+    border: none;
+    border-radius: 16px;
+    color: black;
+    background-color: white;
+    font-size: 13px;
+    font-weight: bold;
+    height: 32px;
+    padding: 0px 12px;
+    &:hover {
+      background-color: #cdcdcd;
+    }
+    @include for-mobile-screen {
+      font-size: 12px;
+    }
+  }
+}
+
+.floorTitle {
+  font-size: $FONT_SIZE_24;
+  font-weight: 600;
+  @include for-mobile-screen {
+    font-size: $FONT_SIZE_16;
+  }
+}
 
 .reservationCardList {
+  margin: 0px 4rem;
   display: flex;
-  gap: 1em;
+  gap: 1.5em;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
+  @include for-mobile-screen {
+    margin: 0px 2rem;
+    flex-direction: column;
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -13,20 +105,19 @@
   scrollbar-width: none;
   @include for-pc-screen {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1.6fr));
   }
+
   div {
     @include for-mobile-screen {
-      min-width: 90%;
+      min-width: 60%;
     }
     &:first-of-type {
       @include for-mobile-screen {
-        margin-left: 1em;
       }
     }
     &:last-of-type {
       @include for-mobile-screen {
-        margin-right: 1em;
       }
     }
   }
