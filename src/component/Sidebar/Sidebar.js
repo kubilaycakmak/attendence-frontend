@@ -1,9 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styles from "./Sidebar.module.scss";
-import { SidebarData } from "./SidebarData";
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styles from './Sidebar.module.scss';
+import { SidebarData } from './SidebarData';
 
 const Sidebar = () => {
+  const { pathname } = useLocation();
+
   return (
     <div className={styles.Sidebar}>
       <ul className={styles.SidebarList}>
@@ -11,7 +14,7 @@ const Sidebar = () => {
           return (
             <li
               key={key}
-              id={window.location.pathname === val.link ? "active" : ""}
+              id={pathname === val.link ? 'active' : ''}
               className={styles.row}
             >
               <Link to={val.link}>{val.title}</Link>

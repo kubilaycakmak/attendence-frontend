@@ -37,13 +37,13 @@ const AvatarMenu = () => {
             <Link to="/make-room-reservations">Make Room Reservations</Link>
           </li>
           <li>
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile?tab=information">Profile</Link>
           </li>
           <li>
-            <Link to="/profile">My Appointments</Link>
+            <Link to="/profile?tab=appointments">My Appointments</Link>
           </li>
           <li>
-            <Link to="/profile">My Reservations</Link>
+            <Link to="/profile?tab=reservations">My Reservations</Link>
           </li>
         </ul>
       </div>

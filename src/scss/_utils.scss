@@ -19,3 +19,9 @@
     opacity: 0.75;
   }
 }
+@mixin hover-scale-up {
+  transition: transform 200ms ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
