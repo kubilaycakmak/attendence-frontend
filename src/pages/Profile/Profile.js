@@ -2,6 +2,7 @@ import React from 'react';
 import styles from '../Profile/Profile.module.scss';
 import ProfileHeader from '../../component/Profile-header/ProfileHeader';
 import Video from '../../component/Video/Video';
+import ProfileForm from '../../component/ProfileForm/ProfileForm';
 
 const Profile = () => {
   // TODO: temp data
@@ -14,10 +15,11 @@ const Profile = () => {
       <div className={styles.mainContent}>
         <ProfileHeader />
         <div className={styles.videoList}>
-          {videos.map((src) => (
-            <Video src={src} />
+          {videos.map((src, i) => (
+            <Video src={src} key={i} />
           ))}
         </div>
+        <ProfileForm />
       </div>
     </div>
   );
