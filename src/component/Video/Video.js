@@ -3,9 +3,8 @@ import { DefaultPlayer as VideoPlayer } from 'react-html5video';
 import 'react-html5video/dist/styles.css';
 import styles from './Video.module.scss';
 
-const Video = ({ src }) => {
-  const date = '29th August of 2022';
-  const [like, setLike] = useState(0);
+const Video = ({ url, likes, title }) => {
+  const [like, setLike] = useState(likes.length);
   const [toggled, setToggled] = useState(false);
 
   const handleLike = () => {
@@ -21,7 +20,7 @@ const Video = ({ src }) => {
   return (
     <div className={styles.videoColumn}>
       <div className={styles.videoContainer}>
-        <h2 className={styles.title}>Subject: {date}</h2>
+        <h2 className={styles.title}>Subject: {title}</h2>
         <button className={styles.button} onClick={handleLike}>
           😍
         </button>
@@ -29,7 +28,7 @@ const Video = ({ src }) => {
       </div>
       <div className={styles.video}>
         <VideoPlayer autoPlay loop className={styles.videoSource}>
-          <source src={src} type="video/mp4" />
+          <source src={url} type="video/mp4" />
         </VideoPlayer>
       </div>
     </div>

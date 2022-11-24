@@ -9,7 +9,21 @@ const Profile = () => {
   const [userData, setUserData] = useState(null);
   useEffect(() => {
     fetchProfileInfo().then((data) => {
-      console.log('data', data);
+      // TODO: temp video data
+      data.user.videos = [
+        {
+          url: 'https://www.youtube.com/embed/1Q8fG0TtVAY',
+          title: 'This is the title 1',
+          likes: ['userid1', 'userid2', 'userid3'],
+          _id: 'videoid1videoid1videoid1videoid1',
+        },
+        {
+          url: 'https://www.youtube.com/embed/1Q8fG0TtVAY',
+          title: 'This is the title 2',
+          likes: ['userid4', 'userid5'],
+          _id: 'videoid2videoid2videoid2videoid2',
+        },
+      ];
       setUserData(data);
     });
   }, []);
@@ -26,8 +40,8 @@ const Profile = () => {
           <div className={styles.mainContent}>
             <ProfileHeader />
             <div className={styles.videoList}>
-              {videos.map((src, i) => (
-                <Video src={src} key={i} />
+              {userData.user.videos?.map((video) => (
+                <Video {...video} />
               ))}
             </div>
             <ProfileForm profileData={userData} />
