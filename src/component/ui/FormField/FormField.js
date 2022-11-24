@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './ProfileFormField.module.scss';
+import styles from './FormField.module.scss';
 
-const ProfileFormField = ({
+const FormField = ({
   type,
   id,
   labelText,
@@ -34,4 +34,4 @@ const ProfileFormField = ({
   );
 };
 
-export default ProfileFormField;
+export default FormField;

@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import ProfileFormField from '../ProfileFormField/ProfileFormField';
+import FormField from '../ui/FormField/FormField';
 import styles from './ProfileForm.module.scss';
 
 const ProfileForm = ({ profileData }) => {
@@ -28,7 +28,7 @@ const ProfileForm = ({ profileData }) => {
           };
         }
         const targetIndex = state[arrKey].findIndex(
-          (item) => item.id === arrItemObjId
+          (item) => item._id === arrItemObjId
         );
         // replace with new object
         state[arrKey].splice(targetIndex, 1, {
@@ -96,7 +96,7 @@ const ProfileForm = ({ profileData }) => {
       <div className={styles.sectionWrap}>
         <section>
           <h3># Information</h3>
-          <ProfileFormField
+          <FormField
             id="username"
             type="text"
             labelText="Username"
@@ -104,7 +104,7 @@ const ProfileForm = ({ profileData }) => {
             value={state.username}
             handleChange={updateValue}
           />
-          <ProfileFormField
+          <FormField
             id="fullName"
             type="text"
             labelText="Full Name"
@@ -112,7 +112,7 @@ const ProfileForm = ({ profileData }) => {
             value={state.fullName}
             handleChange={updateValue}
           />
-          <ProfileFormField
+          <FormField
             id="password"
             type="password"
             labelText="Password"
@@ -120,7 +120,7 @@ const ProfileForm = ({ profileData }) => {
             value={state.password}
             handleChange={updateValue}
           />
-          <ProfileFormField
+          <FormField
             id="currentProgram"
             type="text"
             labelText="Current Program"
@@ -131,7 +131,7 @@ const ProfileForm = ({ profileData }) => {
         </section>
         <section>
           <h3># Social</h3>
-          <ProfileFormField
+          <FormField
             id="discord"
             type="text"
             labelText="Discord"
@@ -139,7 +139,7 @@ const ProfileForm = ({ profileData }) => {
             value={state.discord}
             handleChange={updateValue}
           />
-          <ProfileFormField
+          <FormField
             id="slack"
             type="text"
             labelText="Slack"
@@ -147,7 +147,7 @@ const ProfileForm = ({ profileData }) => {
             value={state.slack}
             handleChange={updateValue}
           />
-          <ProfileFormField
+          <FormField
             id="linkedin"
             type="text"
             labelText="LinkedIn"
@@ -160,7 +160,7 @@ const ProfileForm = ({ profileData }) => {
           <h3># Videos</h3>
           {state.videos?.map((video) => (
             <div className={styles.videoFieldGroup} key={video._id}>
-              <ProfileFormField
+              <FormField
                 id={video.title}
                 type="text"
                 labelText="Title"
@@ -171,7 +171,7 @@ const ProfileForm = ({ profileData }) => {
                 arrItemObjKey="title"
                 handleChange={updateValue}
               />
-              <ProfileFormField
+              <FormField
                 id={video.url}
                 type="text"
                 labelText="URL"
