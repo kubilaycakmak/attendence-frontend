@@ -3,7 +3,17 @@ import { v4 as uuidv4 } from 'uuid';
 import ProfileFormField from '../ProfileFormField/ProfileFormField';
 import styles from './ProfileForm.module.scss';
 
-const ProfileForm = () => {
+const ProfileForm = ({ profileData }) => {
+  console.log('PORT', process.env.PORT);
+  const {
+    username,
+    full_name,
+    password,
+    current_program,
+    social: { discord, slack, linkedin },
+    videos,
+  } = profileData.user;
+  console.log('profileData.user', profileData.user);
   const reducer = (state, action) => {
     const {
       type,
@@ -32,14 +42,14 @@ const ProfileForm = () => {
     }
   };
   const [state, dispatch] = useReducer(reducer, {
-    username: '',
-    fullName: '',
-    password: '',
-    currentProgram: '',
-    discord: '',
-    slack: '',
-    linkedIn: '',
-    videos: [],
+    username,
+    fullName: full_name,
+    password,
+    currentProgram: current_program,
+    discord,
+    slack,
+    linkedin,
+    videos: videos?.length ? videos : [],
   });
   const updateValue = ({
     field,
@@ -58,7 +68,7 @@ const ProfileForm = () => {
       type: 'UPDATE_VALUE',
       value: {
         field: 'videos',
-        value: [...state.videos, { id: uuidv4(), title: '', url: '' }],
+        value: [...state.videos, { _id: uuidv4(), title: '', url: '' }],
       },
     });
   };
@@ -67,14 +77,15 @@ const ProfileForm = () => {
     console.log('submitted values:', state);
     // TODO: compare with original values and send only updated fields
   };
+  console.log('state', state);
 
   useEffect(() => {
-    if (!state.videos.length) {
+    if (!state.videos?.length) {
       dispatch({
         type: 'UPDATE_VALUE',
         value: {
           field: 'videos',
-          value: [...state.videos, { id: uuidv4(), title: '', url: '' }],
+          value: [...state.videos, { _id: uuidv4(), title: '', url: '' }],
         },
       });
     }
@@ -137,18 +148,18 @@ const ProfileForm = () => {
             handleChange={updateValue}
           />
           <ProfileFormField
-            id="linkedIn"
+            id="linkedin"
             type="text"
             labelText="LinkedIn"
-            name="linkedIn"
-            value={state.LinkedIn}
+            name="linkedin"
+            value={state.linkedin}
             handleChange={updateValue}
           />
         </section>
         <section>
           <h3># Videos</h3>
-          {state.videos.map((video) => (
-            <div className={styles.videoFieldGroup} key={video.id}>
+          {state.videos?.map((video) => (
+            <div className={styles.videoFieldGroup} key={video._id}>
               <ProfileFormField
                 id={video.title}
                 type="text"
@@ -156,7 +167,7 @@ const ProfileForm = () => {
                 name={video.title}
                 value={video.title}
                 arrKey="videos"
-                arrItemObjId={video.id}
+                arrItemObjId={video._id}
                 arrItemObjKey="title"
                 handleChange={updateValue}
               />
@@ -167,7 +178,7 @@ const ProfileForm = () => {
                 name={video.url}
                 value={video.url}
                 arrKey="videos"
-                arrItemObjId={video.id}
+                arrItemObjId={video._id}
                 arrItemObjKey="url"
                 handleChange={updateValue}
               />
