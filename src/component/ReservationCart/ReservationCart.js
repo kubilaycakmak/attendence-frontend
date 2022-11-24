@@ -27,7 +27,7 @@ const ReservationCart = ({
         </div>
         <h6 className={styles.dateRange}>
           <strong>Date range: </strong>
-          {start_time} AM to {end_time} PM
+          {start_time} to {end_time}
         </h6>
         <h6 className={styles.text}>
           <strong>Status:</strong> {status}

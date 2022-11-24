@@ -41,23 +41,26 @@ const ReservationPage = () => {
   }
 
   const startTime = (startTime) => {
-    setStartingTime(startTime)
-    // console.log(start);
+    let tempTime = moment(startTime).format('LT')
+    setStartingTime(tempTime)
+    //     "start_time": "12:00",
     // console.log('start time:', startTime)
   }
 
   const endTime = (endTime) => {
-    setEndingTime(endTime)
+    let tempTime = moment(endTime).format('LT')
+    setEndingTime(tempTime)
     // console.log('endTime:', endTime)
   }
 
   const startDate = (startDate) => {
-    setStartingDate(startDate)
+    let tempDate = moment(startDate).format('L')
+    setStartingDate(tempDate)
     // console.log('startDate:', startDate)
   }
 
   const endDate = (endDate) => {
-    let tempDate = moment(endDate).subtract(1, 'days')
+    let tempDate = moment(endDate).subtract(1, 'days').format('L')
     setEndingDate(tempDate)
     // console.log('enddate:', endDate)
   }
