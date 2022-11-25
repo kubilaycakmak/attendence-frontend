@@ -13,3 +13,19 @@ export const fetchProfileInfo = async () => {
 
   return data;
 };
+
+export const sendVideoLike = async (videoId, isLike) => {
+  const options = {
+    method: 'GET',
+    url: `${process.env.REACT_APP_URL}/api/users/videos/${videoId}/like`,
+    params: {
+      isLike,
+    },
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+  };
+  const { data } = await axios(options);
+
+  return data;
+};

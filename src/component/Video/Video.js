@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import { sendVideoLike } from '../../services/user-service';
 import { DefaultPlayer as VideoPlayer } from 'react-html5video';
 import 'react-html5video/dist/styles.css';
 import styles from './Video.module.scss';
 
-const Video = ({ url, likes, title }) => {
-  const [like, setLike] = useState(likes.length);
+const Video = ({ _id, url, likes, title }) => {
+  const [likesCount, setLikesCount] = useState(likes.length);
   const [toggled, setToggled] = useState(false);
 
-  const handleLike = () => {
+  const handleLike = async () => {
+    sendVideoLike(_id, !toggled);
     if (toggled) {
       setToggled(false);
-      setLike(like - 1);
+      setLikesCount(likesCount - 1);
     } else {
       setToggled(true);
-      setLike(like + 1);
+      setLikesCount(likesCount + 1);
     }
   };
 
@@ -24,7 +26,7 @@ const Video = ({ url, likes, title }) => {
         <button className={styles.button} onClick={handleLike}>
           😍
         </button>
-        <span className={styles.para}>{like} people loved it</span>
+        <span className={styles.para}>{likesCount} people loved it</span>
       </div>
       <div className={styles.video}>
         <VideoPlayer autoPlay loop className={styles.videoSource}>
