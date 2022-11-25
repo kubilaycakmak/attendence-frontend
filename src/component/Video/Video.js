@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { sendVideoLike } from '../../services/user-service';
-import 'react-html5video/dist/styles.css';
 import styles from './Video.module.scss';
 
 const Video = ({ _id, url, likes, title }) => {
