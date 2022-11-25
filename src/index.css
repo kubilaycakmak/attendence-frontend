@@ -49,3 +49,8 @@ code {
   place-content: center;
   content: "Click & Delete" !important;
 }
+
+.lkjDVC{
+  border:solid 0.3px black !important;
+  min-height:126px !important;
+}

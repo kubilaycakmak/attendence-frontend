@@ -1,0 +1,92 @@
+.titleContainer {
+  text-align: left;
+  margin-left: 300px;
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+
+.header {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 54px;
+}
+.button {
+  background: #151515;
+  border-radius: 4px;
+  width: 82px;
+  height: 39px;
+  color: white;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  position: absolute;
+  left: 280px;
+  bottom: 30px;
+}
+.fileUploader {
+  text-align: left;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
+.title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 15px;
+}
+.roomTitle {
+  text-align: left;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
+.input {
+  background: #ffffff;
+  border: 0.3px solid #000000;
+  border-radius: 4px;
+  width: 320px;
+  height: 32px;
+  padding: 5px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+}
+.roomDesc {
+  text-align: left;
+  margin-left: 300px;
+  margin-bottom: 30px;
+
+  .roomDescInput {
+    background: #ffffff;
+    border: 0.3px solid #000000;
+    border-radius: 4px;
+    width: 320px;
+    height: 64px;
+    padding: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+.type {
+  text-align: left;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
+
+.totalSeat {
+  text-align: left;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
+.roomFloor {
+  text-align: left;
+  margin-left: 300px;
+  margin-bottom: 30px;
+}
