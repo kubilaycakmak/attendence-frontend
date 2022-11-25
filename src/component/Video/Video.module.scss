@@ -6,6 +6,9 @@
   flex-direction: column;
 }
 
+.videoMainWrap {
+  max-width: 675px;
+}
 .videoContainer {
   width: 100%;
   @include for-mobile-screen {
@@ -59,12 +62,20 @@
   left: 840px;
 }
 .video {
-  max-width: 650px;
-  height: auto;
+  height: 0;
+  overflow: hidden;
   margin-top: 10px;
-  object-fit: contain;
+  padding-top: 56.25%;
+  position: relative;
   width: 100%;
   @include for-mobile-screen {
     margin: 10px auto 0;
+  }
+  iframe {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 }

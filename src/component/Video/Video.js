@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { sendVideoLike } from '../../services/user-service';
-import { DefaultPlayer as VideoPlayer } from 'react-html5video';
 import 'react-html5video/dist/styles.css';
 import styles from './Video.module.scss';
 
@@ -20,7 +19,7 @@ const Video = ({ _id, url, likes, title }) => {
   };
 
   return (
-    <div className={styles.videoColumn}>
+    <div className={styles.videoMainWrap}>
       <div className={styles.videoContainer}>
         <h2 className={styles.title}>Subject: {title}</h2>
         <button className={styles.button} onClick={handleLike}>
@@ -29,9 +28,13 @@ const Video = ({ _id, url, likes, title }) => {
         <span className={styles.para}>{likesCount} people loved it</span>
       </div>
       <div className={styles.video}>
-        <VideoPlayer autoPlay loop className={styles.videoSource}>
-          <source src={url} type="video/mp4" />
-        </VideoPlayer>
+        <iframe
+          src={url}
+          title={title}
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
   );
