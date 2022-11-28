@@ -9,6 +9,7 @@
   font-size: 32px;
   line-height: 48px;
   text-align: left;
+  margin-bottom: 24px;
 }
 
 .cart {
@@ -22,12 +23,18 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 36px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 @media screen and (max-width: 768px) {
   .containerForBoth {
     left: auto;
     right: auto;
     margin: 0 70px;
+  }
+
+  .title2 {
+    text-align: center;
   }
   .cart {
     display: flex;
@@ -40,5 +47,8 @@
     left: auto !important;
     right: auto !important;
     margin: auto !important;
+  }
+  .title {
+    text-align: center;
   }
 }
