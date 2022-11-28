@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
 import Sidebar from '../../component/Sidebar/Sidebar';
+import FormField from '../../component/ui/FormField/FormField';
 import style from './ClassroomAdd.module.scss';
 
 const fileTypes = ['JPG', 'PNG', 'GIF'];
@@ -27,6 +28,7 @@ const ClassroomAdd = () => {
         </div>
         <div className={style.roomTitle}>
           <h3 className={style.title}>Room's title</h3>
+          {/* <FormField /> */}
           <input type="text" className={style.input} />
         </div>
         <div className={style.roomDesc}>
