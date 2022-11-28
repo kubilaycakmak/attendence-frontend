@@ -1,17 +1,16 @@
 import React, { useEffect, useReducer } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { updateProfileInfo } from '../../services/user-service';
 import FormField from '../ui/FormField/FormField';
 import styles from './ProfileForm.module.scss';
 
 const ProfileForm = ({ profileData }) => {
-  console.log('PORT', process.env.PORT);
+  const { videos } = profileData;
   const {
-    username,
     full_name,
     password,
     current_program,
     social: { discord, slack, linkedin },
-    videos,
   } = profileData.user;
   console.log('profileData.user', profileData.user);
   const reducer = (state, action) => {
@@ -42,10 +41,9 @@ const ProfileForm = ({ profileData }) => {
     }
   };
   const [state, dispatch] = useReducer(reducer, {
-    username,
-    fullName: full_name,
+    full_name,
     password,
-    currentProgram: current_program,
+    current_program,
     discord,
     slack,
     linkedin,
@@ -72,10 +70,23 @@ const ProfileForm = ({ profileData }) => {
       },
     });
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('submitted values:', state);
     // TODO: compare with original values and send only updated fields
+
+    const data = {
+      full_name: state.full_name,
+      password: state.password,
+      current_program: state.current_program,
+      social: {
+        discord: state.discord,
+        slack: state.slack,
+        linkedin: state.linkedin,
+      },
+      videos: state.videos,
+    };
+    await updateProfileInfo(data);
   };
   console.log('state', state);
 
@@ -97,19 +108,11 @@ const ProfileForm = ({ profileData }) => {
         <section>
           <h3># Information</h3>
           <FormField
-            id="username"
-            type="text"
-            labelText="Username"
-            name="username"
-            value={state.username}
-            handleChange={updateValue}
-          />
-          <FormField
-            id="fullName"
+            id="full_name"
             type="text"
             labelText="Full Name"
-            name="fullName"
-            value={state.fullName}
+            name="full_name"
+            value={state.full_name}
             handleChange={updateValue}
           />
           <FormField
@@ -121,11 +124,11 @@ const ProfileForm = ({ profileData }) => {
             handleChange={updateValue}
           />
           <FormField
-            id="currentProgram"
+            id="current_program"
             type="text"
             labelText="Current Program"
-            name="currentProgram"
-            value={state.currentProgram}
+            name="current_program"
+            value={state.current_program}
             handleChange={updateValue}
           />
         </section>
@@ -158,12 +161,12 @@ const ProfileForm = ({ profileData }) => {
         </section>
         <section>
           <h3># Videos</h3>
-          {state.videos?.map((video) => (
+          {state.videos?.map((video, index) => (
             <div className={styles.videoFieldGroup} key={video._id}>
               <FormField
                 id={video.title}
                 type="text"
-                labelText="Title"
+                labelText={`Title ${index + 1}`}
                 name={video.title}
                 value={video.title}
                 arrKey="videos"
@@ -174,7 +177,7 @@ const ProfileForm = ({ profileData }) => {
               <FormField
                 id={video.url}
                 type="text"
-                labelText="URL"
+                labelText={`URL ${index + 1}`}
                 name={video.url}
                 value={video.url}
                 arrKey="videos"

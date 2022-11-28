@@ -14,6 +14,20 @@ export const fetchProfileInfo = async () => {
   return data;
 };
 
+export const updateProfileInfo = async (data) => {
+  const options = {
+    method: 'PUT',
+    url: `${process.env.REACT_APP_URL}/api/users/information-update`,
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+    data,
+  };
+  const res = await axios(options);
+
+  return res;
+};
+
 export const sendVideoLike = async (videoId, isLike) => {
   const options = {
     method: 'GET',
