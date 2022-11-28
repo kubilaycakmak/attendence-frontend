@@ -7,8 +7,8 @@ import ReservationPage from './ReservationPage'
 function App() {
   return (
     <div className='App'>
-      {/* <ReservationPage />*/}
-      <ClassroomAdd />
+      <ReservationPage />
+      {/* <ClassroomAdd /> */}
     </div>
   )
 }

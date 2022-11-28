@@ -90,3 +90,10 @@
   margin-left: 300px;
   margin-bottom: 30px;
 }
+@media screen and (max-width: 768px) {
+  .titleContainer {
+    left: auto;
+    right: auto;
+    margin: 10px auto;
+  }
+}
