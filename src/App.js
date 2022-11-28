@@ -7,6 +7,7 @@ import Profile from './pages/Profile/Profile';
 import MakeAppointments from './pages/MakeAppointments/MakeAppointments';
 import MakeRoomReservations from './pages/MakeRoomReservations/MakeRoomReservations';
 import AppointmentConfirmation from './pages/AppointmentConfirmation/AppointmentConfirmation';
+import ReservationPage from './pages/ReservationPage/ReservationPage';
 import './App.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           {/* Protected routes */}
           <Route element={<ProtectedRoutes user={user} />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/reservation" element={<ReservationPage />} />
             <Route
               path="/make-room-reservations"
               element={<MakeRoomReservations />}

@@ -6,28 +6,38 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker'
 import styles from './Time.module.scss'
 import moment from 'moment'
 
-const Time = () => {
+const Time = ({ startTimeProps, endTimeProps }) => {
   const [startTime, setStartTime] = useState(null)
   const [endTime, setEndTime] = useState(null)
   const [error, setError] = useState('')
 
-  const handleDate = (e) => {
-    console.log(e)
-    e.preventDefault()
-    let start = moment(startTime)
-    let end = moment(endTime)
+  // const handleDate = (e) => {
+  //   console.log(e)
+  //   e.preventDefault()
+  //   let start = moment(startTime)
+  //   let end = moment(endTime)
 
-    if (!startTime && !endTime) {
-      return setError('You should select a start and end time')
-    }
-    if (start === end) {
-      return setError('Start and End time cannot be equal.')
-    }
-    if (start.isAfter(end)) {
-      return setError('Start time cannot be after End time')
-    } else {
-      return setError('')
-    }
+  //   if (!startTime && !endTime) {
+  //     return setError('You should select a start and end time')
+  //   }
+  //   if (start === end) {
+  //     return setError('Start and End time can not be equal.')
+  //   }
+  //   if (start.isAfter(end)) {
+  //     return setError('Start time can not be after End time')
+  //   } else {
+  //     return setError('')
+  //   }
+  // }
+
+  const handleStartTime = (val) => {
+    setStartTime(val)
+    startTimeProps(val)
+  }
+
+  const handleEndTime = (val) => {
+    setEndTime(val)
+    endTimeProps(val)
   }
 
   return (
@@ -40,7 +50,7 @@ const Time = () => {
           <TimePicker
             label='Start Time'
             value={startTime}
-            onChange={setStartTime}
+            onChange={(e) => handleStartTime(e)}
             renderInput={(params) => <TextField {...params} />}
             className={styles.input}
           />
@@ -51,14 +61,11 @@ const Time = () => {
           <TimePicker
             label='End Time'
             value={endTime}
-            onChange={setEndTime}
+            onChange={(e) => handleEndTime(e)}
             renderInput={(params) => <TextField {...params} />}
           />
         </div>
         {error && <div>{error}</div>}
-        <button className={styles.button} onClick={(e) => handleDate(e)}>
-          Next
-        </button>
       </form>
     </LocalizationProvider>
   )

@@ -20,3 +20,43 @@ code {
   color: white !important;
 }
 
+/* Full calendar css selectors */
+
+.fc .fc-daygrid-more-link{
+  background: lightblue;
+  
+  /* top:-20px; */
+}
+.fc .fc-daygrid-more-link::content{
+  content: " ";
+}
+.fc-daygrid-more-link fc-more-link::content{
+  content:' '
+}
+.fc-daygrid-more-link fc-more-link::after{
+  content:' '
+}
+.fc .fc-toolbar-title{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.fc-daygrid-event.fc-event-start {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 12px 16px;
+}
+
+.fc-daygrid-event.fc-event-start::after{
+
+  place-content: center;
+  content: "Click & Delete" !important;
+}
+
+.lkjDVC{
+  border:solid 0.3px black !important;
+  min-height:126px !important;
+}
