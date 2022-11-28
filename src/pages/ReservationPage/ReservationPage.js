@@ -127,7 +127,6 @@ const ReservationPage = () => {
   };
   return (
     <div>
-      <Sidebar />
       <RoomCart data={data} room={roomData} />
       <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
       <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
