@@ -12,7 +12,6 @@ const ProfileForm = ({ profileData }) => {
     current_program,
     social: { discord, slack, linkedin },
   } = profileData.user;
-  console.log('profileData.user', profileData.user);
   const reducer = (state, action) => {
     const {
       type,
@@ -49,6 +48,7 @@ const ProfileForm = ({ profileData }) => {
     linkedin,
     videos: videos?.length ? videos : [],
   });
+
   const updateValue = ({
     field,
     arrKey,
@@ -61,6 +61,7 @@ const ProfileForm = ({ profileData }) => {
       value: { field, arrKey, arrItemObjId, arrItemObjKey, value },
     });
   };
+
   const addVideoField = () => {
     dispatch({
       type: 'UPDATE_VALUE',
@@ -70,25 +71,30 @@ const ProfileForm = ({ profileData }) => {
       },
     });
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('submitted values:', state);
     // TODO: compare with original values and send only updated fields
-
-    const data = {
-      full_name: state.full_name,
-      password: state.password,
-      current_program: state.current_program,
-      social: {
-        discord: state.discord,
-        slack: state.slack,
-        linkedin: state.linkedin,
-      },
-      videos: state.videos,
+    const dataToCompareWith = {
+      ...profileData.user,
+      ...profileData.user.social,
+      ...profileData.videos,
     };
-    await updateProfileInfo(data);
+    console.log('dataToCompareWith', dataToCompareWith);
+    // send only fields that are updated by user
+    const updatedFields = { social: {} };
+    Object.keys(state).forEach((key) => {
+      if (state[key] !== dataToCompareWith[key]) {
+        if (['slack', 'discord', 'linkedin'].includes(key)) {
+          updatedFields.social[key] = state[key];
+          return;
+        }
+        updatedFields[key] = dataToCompareWith[key];
+      }
+    });
+
+    await updateProfileInfo(updatedFields);
   };
-  console.log('state', state);
 
   useEffect(() => {
     if (!state.videos?.length) {
