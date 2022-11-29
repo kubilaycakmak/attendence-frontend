@@ -1,10 +1,11 @@
-import React, { useEffect, useReducer } from 'react';
+import { LoadingContext } from '../../contexts/LoadingContext';
 import { v4 as uuidv4 } from 'uuid';
 import { updateProfileInfo } from '../../services/user-service';
 import FormField from '../ui/FormField/FormField';
 import styles from './ProfileForm.module.scss';
 
 const ProfileForm = ({ profileData }) => {
+  const { setIsLoadingShown } = useContext(LoadingContext);
   const { videos } = profileData;
   const {
     full_name,
@@ -74,6 +75,7 @@ const ProfileForm = ({ profileData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoadingShown(true);
     // TODO: compare with original values and send only updated fields
     const dataToCompareWith = {
       ...profileData.user,
@@ -94,6 +96,7 @@ const ProfileForm = ({ profileData }) => {
     });
 
     await updateProfileInfo(updatedFields);
+    setIsLoadingShown(false);
   };
 
   useEffect(() => {

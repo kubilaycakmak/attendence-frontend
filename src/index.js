@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { LoadingProvider } from './contexts/LoadingContext';
 import { Provider } from 'react-redux';
 import './scss/global.scss';
 import App from './App';
@@ -11,9 +12,11 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <App />
-    {/* </Provider> */}
+    <LoadingProvider>
+      {/* <Provider store={store}> */}
+      <App />
+      {/* </Provider> */}
+    </LoadingProvider>
   </React.StrictMode>
 );
 

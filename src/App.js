@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
+import Loading from './component/Loading/Loading';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import Profile from './pages/Profile/Profile';
 import MakeAppointments from './pages/MakeAppointments/MakeAppointments';
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <div className="App">
+      <Loading />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

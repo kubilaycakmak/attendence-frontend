@@ -1,0 +1,15 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.loading {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
