@@ -1,3 +1,4 @@
+import React, { useEffect, useReducer, useContext } from 'react';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { v4 as uuidv4 } from 'uuid';
 import { updateProfileInfo } from '../../services/user-service';
@@ -84,14 +85,14 @@ const ProfileForm = ({ profileData }) => {
     };
     console.log('dataToCompareWith', dataToCompareWith);
     // send only fields that are updated by user
-    const updatedFields = { social: {} };
+    const updatedFields = {};
     Object.keys(state).forEach((key) => {
       if (state[key] !== dataToCompareWith[key]) {
         if (['slack', 'discord', 'linkedin'].includes(key)) {
-          updatedFields.social[key] = state[key];
+          updatedFields.social = { ...updatedFields.social, [key]: state[key] };
           return;
         }
-        updatedFields[key] = dataToCompareWith[key];
+        updatedFields[key] = state[key];
       }
     });
 

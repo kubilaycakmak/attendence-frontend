@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchProfileInfo } from '../../services/user-service';
 import styles from '../Profile/Profile.module.scss';
 import ProfileHeader from '../../component/Profile-header/ProfileHeader';
