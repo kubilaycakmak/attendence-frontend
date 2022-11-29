@@ -8,6 +8,7 @@ const fileTypes = ['JPG', 'PNG', 'GIF'];
 
 const ClassroomAdd = () => {
   const [file, setFile] = useState(null);
+
   const handleChange = (file) => {
     setFile(file);
   };
@@ -28,24 +29,23 @@ const ClassroomAdd = () => {
         </div>
         <div className={style.roomTitle}>
           <h3 className={style.title}>Room's title</h3>
-          {/* <FormField /> */}
-          <input type="text" className={style.input} />
+          <FormField />
         </div>
         <div className={style.roomDesc}>
           <h3 className={style.title}>Room's description</h3>
-          <input type="text" className={style.roomDescInput} />
+          <FormField />
         </div>
         <div className={style.type}>
           <h3 className={style.title}>Type</h3>
-          <input type="text" className={style.input} />
+          <FormField />
         </div>
         <div className={style.totalSeat}>
           <h3 className={style.title}>Total Seat</h3>
-          <input type="text" className={style.input} />
+          <FormField />
         </div>
         <div className={style.roomFloor}>
           <h3 className={style.title}>Room's floor</h3>
-          <input type="text" className={style.input} />
+          <FormField />
         </div>
       </form>
     </div>
