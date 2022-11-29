@@ -1,5 +1,5 @@
-import axios from 'axios';
 import localStorageHelper from '../helpers/localStorageHelper';
+import { sendAxiosRequest } from '../helpers/axiosHelper';
 
 export const fetchProfileInfo = async () => {
   const options = {
@@ -9,9 +9,7 @@ export const fetchProfileInfo = async () => {
       authorization: `Bearer ${localStorageHelper('get', 'token')}`,
     },
   };
-  const { data } = await axios(options);
-
-  return data;
+  return await sendAxiosRequest(options);
 };
 
 export const updateProfileInfo = async (data) => {
@@ -23,9 +21,7 @@ export const updateProfileInfo = async (data) => {
     },
     data,
   };
-  const res = await axios(options);
-
-  return res;
+  return await sendAxiosRequest(options);
 };
 
 export const sendVideoLike = async (videoId, isLike) => {
@@ -39,7 +35,5 @@ export const sendVideoLike = async (videoId, isLike) => {
       authorization: `Bearer ${localStorageHelper('get', 'token')}`,
     },
   };
-  const { data } = await axios(options);
-
-  return data;
+  return await sendAxiosRequest(options);
 };
