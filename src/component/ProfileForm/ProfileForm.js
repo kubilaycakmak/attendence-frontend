@@ -1,12 +1,16 @@
-import React, { useEffect, useReducer, useContext } from 'react';
+import React, { useEffect, useReducer, useContext, useState } from 'react';
+import { ErrorContext } from '../../contexts/ErrorContext';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { v4 as uuidv4 } from 'uuid';
 import { updateProfileInfo } from '../../services/user-service';
 import FormField from '../ui/FormField/FormField';
+import checkEquality from '../../utils/checkEquality';
 import styles from './ProfileForm.module.scss';
 
 const ProfileForm = ({ profileData }) => {
+  const [dataToCompareWith, setDataToCompareWith] = useState(profileData);
   const { setIsLoadingShown } = useContext(LoadingContext);
+  const { setErrorMessage } = useContext(ErrorContext);
   const { videos } = profileData;
   const {
     full_name,
@@ -31,16 +35,25 @@ const ProfileForm = ({ profileData }) => {
           (item) => item._id === arrItemObjId
         );
         // replace with new object
-        state[arrKey].splice(targetIndex, 1, {
+        const arrCopy = [...state[arrKey]];
+        arrCopy.splice(targetIndex, 1, {
           ...state[arrKey][targetIndex],
           [arrItemObjKey]: value,
         });
         return {
           ...state,
-          [arrKey]: state[arrKey],
+          [arrKey]: arrCopy,
         };
     }
   };
+  useEffect(() => {
+    setDataToCompareWith({
+      ...profileData.user,
+      ...profileData.user.social,
+      videos: profileData.videos,
+    });
+  }, []);
+
   const [state, dispatch] = useReducer(reducer, {
     full_name,
     password,
@@ -76,27 +89,46 @@ const ProfileForm = ({ profileData }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoadingShown(true);
+
     // TODO: compare with original values and send only updated fields
-    const dataToCompareWith = {
-      ...profileData.user,
-      ...profileData.user.social,
-      ...profileData.videos,
-    };
-    console.log('dataToCompareWith', dataToCompareWith);
-    // send only fields that are updated by user
-    const updatedFields = {};
-    Object.keys(state).forEach((key) => {
-      if (state[key] !== dataToCompareWith[key]) {
-        if (['slack', 'discord', 'linkedin'].includes(key)) {
-          updatedFields.social = { ...updatedFields.social, [key]: state[key] };
-          return;
-        }
-        updatedFields[key] = state[key];
+    const updatedFieldsKeys = Object.keys(state).filter((key) => {
+      if (key === 'videos') {
+        const filtered = state.videos.filter(
+          (video) => video.title !== '' && video.url !== ''
+        );
+        return !checkEquality(filtered, dataToCompareWith.videos);
       }
+      return !checkEquality(state[key], dataToCompareWith[key]);
+    });
+    let reqBody = {};
+    updatedFieldsKeys.forEach((fieldKey) => {
+      if (['slack', 'discord', 'linkedin'].includes(fieldKey)) {
+        if (!('social' in reqBody)) {
+          reqBody = {
+            ...reqBody,
+            social: {},
+          };
+        }
+        reqBody.social[fieldKey] = state[fieldKey];
+        return;
+      }
+      reqBody[fieldKey] = state[fieldKey];
     });
 
-    await updateProfileInfo(updatedFields);
+    if (!updatedFieldsKeys.length) {
+      setErrorMessage(
+        'None of the field values have been changed since last update.'
+      );
+      return;
+    }
+
+    setIsLoadingShown(true);
+    await updateProfileInfo(reqBody);
+    setDataToCompareWith((prev) => ({
+      ...prev,
+      ...state,
+    }));
+    setErrorMessage('');
     setIsLoadingShown(false);
   };
 
