@@ -1,5 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { ErrorProvider } from './contexts/ErrorContext';
 import { LoadingProvider } from './contexts/LoadingContext';
 import { Provider } from 'react-redux';
 import './scss/global.scss';
@@ -12,11 +13,13 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <LoadingProvider>
-      {/* <Provider store={store}> */}
-      <App />
-      {/* </Provider> */}
-    </LoadingProvider>
+    <ErrorProvider>
+      <LoadingProvider>
+        {/* <Provider store={store}> */}
+        <App />
+        {/* </Provider> */}
+      </LoadingProvider>
+    </ErrorProvider>
   </React.StrictMode>
 );
 

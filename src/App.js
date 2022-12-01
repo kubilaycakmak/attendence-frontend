@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
+import ErrorDisplay from './component/ErrorDisplay/ErrorDisplay';
 import Loading from './component/Loading/Loading';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import Profile from './pages/Profile/Profile';
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <ErrorDisplay />
       <Loading />
       <BrowserRouter>
         <Routes>
