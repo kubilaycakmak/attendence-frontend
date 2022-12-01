@@ -11,7 +11,7 @@ import MakeRoomReservations from './pages/MakeRoomReservations/MakeRoomReservati
 import AppointmentConfirmation from './pages/AppointmentConfirmation/AppointmentConfirmation';
 import ReservationPage from './pages/ReservationPage/ReservationPage';
 import './App.css';
-import ClassroomAdd from './pages/ClassromAddPage/ClassroomAdd';
+import ClassroomAdd from './pages/ClassroomAddPage/ClassroomAdd';
 
 function App() {
   // TODO: temp data
