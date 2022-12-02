@@ -1,36 +1,75 @@
 import React, { useState } from 'react';
 import { FileUploader } from 'react-drag-drop-files';
-import Sidebar from '../../component/Sidebar/Sidebar';
 import FormField from '../../component/ui/FormField/FormField';
 import axios from 'axios';
 import style from './ClassroomAdd.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 const fileTypes = ['JPG', 'PNG', 'GIF'];
 
 const ClassroomAdd = () => {
-  const [file, setFile] = useState(null);
+  const [page, setPage] = useState(0);
+  const [file, setFile] = useState('');
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
-  const [type, setType] = useState('');
+  const [roomType, setRoomType] = useState('');
   const [totalSeat, setTotalSeat] = useState('');
   const [floor, setFloor] = useState('');
-
+  const [roomId, setRoomId] = useState(null);
+  const navigate = useNavigate();
   const handleChange = (file) => {
-    setFile(file);
+    console.log(file);
+    postPhoto(roomId, file);
   };
-  const updateValue = ({ value }) => {
-    setTitle(value);
+
+  const postPhoto = async (id, file1) => {
+    let bodyFormData = new FormData();
+    bodyFormData.append('photo', file1);
+    await axios
+      .post(
+        `https://attendance-backend-dev.herokuapp.com/api/rooms/${id}/update-photo`,
+        bodyFormData,
+        {
+          headers: {
+            Authorization:
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2Njk3Njc2NDQsImV4cCI6MTY4NzA0NzY0NH0.Jy9giZEEs-dfrPM_N5zOsAkUFof3qvh4M2aqyptArUI',
+          },
+        }
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          // navigate to
+          navigate('/profile');
+        }
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const updateValue = ({ field, value }) => {
+    console.log(field);
+    if (field === 'title') {
+      setTitle(value);
+    } else if (field === 'description') {
+      setDesc(value);
+    } else if (field === 'roomType') {
+      setRoomType(value);
+    } else if (field === 'totalSeat') {
+      setTotalSeat(parseInt(value));
+    } else if (field === 'roomFloor') {
+      setFloor(parseInt(value));
+    }
   };
   const postRoom = async (e) => {
     const requestBody = {
       name: title,
-      type: type,
+      type: roomType,
       floor: floor,
       description: desc,
       picture_url: file,
       total_seats: totalSeat,
     };
-
+    console.log(file);
     console.log(requestBody);
     e.preventDefault(e);
 
@@ -41,12 +80,16 @@ const ClassroomAdd = () => {
         {
           headers: {
             Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
+              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2Njk3Njc2NDQsImV4cCI6MTY4NzA0NzY0NH0.Jy9giZEEs-dfrPM_N5zOsAkUFof3qvh4M2aqyptArUI',
           },
         }
       )
       .then((res) => {
+        console.log(res);
         if (res.status === 201) {
+          console.log(res.data.room._id);
+          setRoomId(res.data.room._id);
+          setPage(1);
           // navigate client to confirm
         }
       })
@@ -57,39 +100,73 @@ const ClassroomAdd = () => {
       <form className={style.container}>
         <div className={style.titleContainer}>
           <h1 className={style.header}>Add new room</h1>
-          <button className={style.button} onClick={postRoom}>
-            Publish
-          </button>
+
+          {page === 0 ? (
+            <button className={style.button} onClick={postRoom}>
+              Next
+            </button>
+          ) : (
+            ''
+          )}
         </div>
-        <div className={style.fileUploader}>
-          <h3 className={style.title}>Room Image</h3>
-          <FileUploader
-            handleChange={handleChange}
-            name="file"
-            types={fileTypes}
-          />
-        </div>
-        <div className={style.roomTitle}>
-          <h3 className={style.title}>Room's title</h3>
-          <div>{title}</div>
-          <FormField value={title} handleChange={updateValue} />
-        </div>
-        <div className={style.roomDesc}>
-          <h3 className={style.title}>Room's description</h3>
-          <FormField value={desc} handleChange={setDesc} />
-        </div>
-        <div className={style.type}>
-          <h3 className={style.title}>Type</h3>
-          <FormField value={type} handleChange={setType} />
-        </div>
-        <div className={style.totalSeat}>
-          <h3 className={style.title}>Total Seat</h3>
-          <FormField value={totalSeat} handleChange={setTotalSeat} />
-        </div>
-        <div className={style.roomFloor}>
-          <h3 className={style.title}>Room's floor</h3>
-          <FormField value={floor} handleChange={setFloor} />
-        </div>
+        {page === 1 ? (
+          <div className={style.fileUploader}>
+            <h3 className={style.title}>Room Image</h3>
+            <FileUploader
+              handleChange={handleChange}
+              name="file"
+              types={fileTypes}
+            />
+          </div>
+        ) : (
+          <>
+            <div className={style.roomTitle}>
+              <h3 className={style.title}>Room's title</h3>
+              <FormField
+                id="title"
+                type="text"
+                value={title}
+                handleChange={updateValue}
+              />
+            </div>
+            <div className={style.roomDesc}>
+              <h3 className={style.title}>Room's description</h3>
+              <FormField
+                id="description"
+                type="text"
+                value={desc}
+                handleChange={updateValue}
+              />
+            </div>
+            <div className={style.type}>
+              <h3 className={style.title}>Type</h3>
+              <FormField
+                id="roomType"
+                type="text"
+                value={roomType}
+                handleChange={updateValue}
+              />
+            </div>
+            <div className={style.totalSeat}>
+              <h3 className={style.title}>Total Seat</h3>
+              <FormField
+                type="number"
+                value={totalSeat}
+                handleChange={updateValue}
+                id="totalSeat"
+              />
+            </div>
+            <div className={style.roomFloor}>
+              <h3 className={style.title}>Room's floor</h3>
+              <FormField
+                type="number"
+                value={floor}
+                handleChange={updateValue}
+                id="roomFloor"
+              />
+            </div>
+          </>
+        )}
       </form>
     </div>
   );
