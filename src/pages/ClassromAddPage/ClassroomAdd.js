@@ -111,6 +111,10 @@ const ClassroomAdd = () => {
         </div>
         {page === 1 ? (
           <div className={style.fileUploader}>
+            <h1 className={style.pageTitle}>
+              Second Page - You will direct to profile page after uploading an
+              image.
+            </h1>
             <h3 className={style.title}>Room Image</h3>
             <FileUploader
               handleChange={handleChange}
@@ -121,6 +125,7 @@ const ClassroomAdd = () => {
         ) : (
           <>
             <div className={style.roomTitle}>
+              <h1 className={style.pageTitle}>First Page</h1>
               <h3 className={style.title}>Room's title</h3>
               <FormField
                 id="title"
