@@ -7,8 +7,6 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
-
-  // margin-left: 180px;
 }
 .title {
   text-align: left;
@@ -17,6 +15,8 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 .contain {
   display: flex;
@@ -44,7 +44,7 @@
   .inputContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 68px;
+    margin-top: 58px;
   }
   .input {
     background: #ffffff;
@@ -75,14 +75,19 @@
   .container {
     left: auto;
     right: auto;
-    margin: 0px 70px;
+    margin: 0px auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
+  .title {
+    text-align: center;
+  }
   .duration {
     .inputContainer {
-      margin-top: 20px;
+      margin-top: 10px;
+      margin-left: -90px;
     }
   }
 }
