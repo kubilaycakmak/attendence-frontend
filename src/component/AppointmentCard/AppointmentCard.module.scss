@@ -2,6 +2,12 @@
 @import '../../scss/utils';
 
 .card_wrapper {
+  @include for-mobile-screen {
+    min-width: 90%;
+  }
+  @include for-pc-screen {
+    width: 260px;
+  }
   & .card_body {
     box-sizing: border-box;
     background: #ffffff;
@@ -13,11 +19,14 @@
       display: block;
       text-align: center;
       & .prof_img {
-        height: 160px;
+        height: 45vw;
         object-fit: cover;
         object-position: top;
         border-radius: 8px;
         width: 100%;
+        @include for-pc-screen {
+          height: 160px;
+        }
       }
     }
 
@@ -26,7 +35,8 @@
       h1 {
         font-family: 'Poppins';
         font-size: 14px;
-        margin: 0.5rem 0;
+        margin: 0.8rem 0;
+        word-break: break-all;
       }
     }
 

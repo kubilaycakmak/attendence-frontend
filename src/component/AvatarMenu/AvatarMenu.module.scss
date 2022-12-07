@@ -50,11 +50,10 @@
     padding: 0.8em;
     text-align: left;
     &Wrap {
-      opacity: 0;
+      display: none;
       overflow: hidden;
-      transition: opacity 100ms ease-out;
       &.isShown {
-        opacity: 1;
+        display: block;
       }
     }
     li {

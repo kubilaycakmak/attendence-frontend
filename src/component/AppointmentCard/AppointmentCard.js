@@ -11,8 +11,6 @@ const AppointmentCard = ({
   description,
   filteredRole,
 }) => {
-  console.log(classes);
-  console.log('ri', role);
   return (
     <>
       <div className={classes.card_wrapper} key={id}>
@@ -22,17 +20,6 @@ const AppointmentCard = ({
           </div>
           <div className={classes.name_wrapper}>
             <h1>{full_name}</h1>
-          </div>
-          <div className={classes.tag_wrapper}>
-            {role.map((el) => {
-              return (
-                <RoleTag
-                  role={el}
-                  activeList={filteredRole}
-                  style={{ opacity: 1 }}
-                />
-              );
-            })}
           </div>
           <div className={classes.description_wrapper}>
             <p className={classes.desc_text}>{description}</p>

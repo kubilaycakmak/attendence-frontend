@@ -11,7 +11,9 @@ const ProfileHeader = ({ profileData }) => {
       <div className={styles.contentWrapper}>
         <div className={styles.titleContainer}>
           <h3 className={styles.title}>{profileData.full_name}</h3>
-          <h3>{profileData.current_program}</h3>
+          <h3 className={styles.program}>
+            Program: <span>{profileData.current_program}</span>
+          </h3>
         </div>
         <div className={styles.tagContainer}>
           {profileData.role?.map((item, index) => (
@@ -19,13 +21,25 @@ const ProfileHeader = ({ profileData }) => {
           ))}
         </div>
         <div className={styles.linkContainer}>
-          <a href={profileData.social?.slack} target="_blank">
+          <a
+            href={profileData.social?.slack}
+            className={!profileData.social?.slack ? styles.isDisabled : ''}
+            target="_blank"
+          >
             @slack
           </a>
-          <a href={profileData.social?.discord} target="_blank">
+          <a
+            href={profileData.social?.discord}
+            className={!profileData.social?.discord ? styles.isDisabled : ''}
+            target="_blank"
+          >
             @discord
           </a>
-          <a href={profileData.social?.linkedin} target="_blank">
+          <a
+            href={profileData.social?.linkedin}
+            className={!profileData.social?.linkedin ? styles.isDisabled : ''}
+            target="_blank"
+          >
             @linkedIn
           </a>
         </div>

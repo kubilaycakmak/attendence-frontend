@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from '../Profile/Profile.module.scss';
 import ProfileHeader from '../../component/Profile-header/ProfileHeader';
-import Video from '../../component/Video/Video';
-import ProfileForm from '../../component/ProfileForm/ProfileForm';
 import { useSelector } from 'react-redux';
+import ProfileTabBtn from '../../component/Profile-tab-btn/ProfileTabBtn';
 
 const Profile = () => {
   const userData = useSelector((state) => state.user);
+  console.log('userData', userData);
 
   return (
     <>
@@ -14,12 +14,7 @@ const Profile = () => {
         <div className={styles.wrapper}>
           <div className={styles.mainContent}>
             <ProfileHeader profileData={userData.user} />
-            <div className={styles.videoList}>
-              {userData.videos?.map((video) => (
-                <Video {...video} />
-              ))}
-            </div>
-            <ProfileForm profileData={userData} />
+            <ProfileTabBtn userData={userData} />
           </div>
         </div>
       )}

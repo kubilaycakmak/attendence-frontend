@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { updateProfileInfo } from '../../services/user-service';
 import FormField from '../ui/FormField/FormField';
 import checkEquality from '../../utils/checkEquality';
-import styles from './ProfileForm.module.scss';
+import styles from './UserProfileForm.module.scss';
 
-const ProfileForm = ({ profileData }) => {
+const UserProfileForm = ({ profileData }) => {
   const [dataToCompareWith, setDataToCompareWith] = useState(profileData);
   const { setIsLoadingShown } = useContext(LoadingContext);
   const { setErrorMessage } = useContext(ErrorContext);
@@ -239,4 +239,4 @@ const ProfileForm = ({ profileData }) => {
   );
 };
 
-export default ProfileForm;
+export default UserProfileForm;
