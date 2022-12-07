@@ -1,24 +1,23 @@
-import React, { useState } from "react";
-import { GoogleLogin } from "react-google-login";
-import { Link, useLocation } from "react-router-dom";
-import styles from "./LoginSignupForm.module.scss";
-import { register } from "../../services/auth-service";
-import { login } from "../../services/auth-service";
-import { useDispatch } from "react-redux";
-import { authActions } from "../../reducers/auth";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { GoogleLogin } from 'react-google-login';
+import { Link, useLocation } from 'react-router-dom';
+import styles from './LoginSignupForm.module.scss';
+import { register } from '../../services/auth-service';
+import { login } from '../../services/auth-service';
+import localStorageHelper from '../../helpers/localStorageHelper';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch(authActions);
-  const [username, setUsername] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [username, setUsername] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
   const location = useLocation();
 
-  const isLoginPage = location.pathname.includes("login");
+  const isLoginPage = location.pathname.includes('login');
   const handleGoogleSuccess = (res) => {
     if (!isLoginPage) googleSignupCallback();
     // logics for success
@@ -31,13 +30,13 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register(username, fullName, password, email, "student").then(
+      await register(username, fullName, password, email, 'student').then(
         (res) => {
           if (res.status === 401) {
-            throw new Error("user already existed");
+            throw new Error('user already existed');
           }
           if (res.status === 201) {
-            setMessage("user added successfully");
+            setMessage('user added successfully');
           }
         }
       );
@@ -49,9 +48,10 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     e.preventDefault();
     try {
       await login(email, password).then((res) => {
-        if (res.status === 200) {
-          dispatch(authActions.login());
-          navigate("/");
+        console.log('res', res);
+        if (res.token) {
+          localStorageHelper('set', 'token', res.token);
+          navigate('/');
         }
       });
     } catch (error) {
@@ -60,16 +60,16 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
   };
   return (
     <div className={styles.formWrap}>
-      <h1>{isLoginPage ? "Login" : "Register"}</h1>
+      <h1>{isLoginPage ? 'Login' : 'Register'}</h1>
       <div className={styles.googleBtnWrap}>
         <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
           buttonText={
-            isLoginPage ? "Sign in with Google" : "Sign up with Google"
+            isLoginPage ? 'Sign in with Google' : 'Sign up with Google'
           }
           onSuccess={handleGoogleSuccess}
           onFailure={handleGoogleFailure}
-          cookiePolicy={"single_host_origin"}
+          cookiePolicy={'single_host_origin'}
         />
       </div>
       <hr />
@@ -98,7 +98,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isLoginPage ? "SIGN IN" : "SIGN UP"}</button>
+        <button type="submit">{isLoginPage ? 'SIGN IN' : 'SIGN UP'}</button>
         <p className={styles.message}>{message}</p>
       </form>
       <div className={styles.otherOptions}>

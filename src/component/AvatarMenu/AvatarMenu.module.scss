@@ -33,10 +33,10 @@
     @include hover-opacity;
     img {
       margin-right: 0.5em;
-      width: 25%;
-      @include for-pc-screen {
-        width: 46px;
-      }
+      object-fit: cover;
+      object-position: top;
+      height: 46px;
+      width: 46px;
     }
     p {
       font-size: $FONT_SIZE_12;

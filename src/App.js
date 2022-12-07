@@ -14,19 +14,6 @@ import './App.css';
 import ClassroomAdd from './pages/ClassroomAddPage/ClassroomAdd';
 
 function App() {
-  // TODO: temp data
-  const user = {};
-  const data = {
-    user: {
-      fullName: 'Joe Doe',
-      roles: ['TA', 'Teacher'],
-      department: 'WMAD Co-op Manager',
-    },
-    id: '1293193ahsdhsadh1238183',
-    date: 1660546800,
-    duration: '30m',
-  };
-
   return (
     <div className="App">
       <ErrorDisplay />
@@ -37,7 +24,7 @@ function App() {
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
           {/* Protected routes */}
-          <Route element={<ProtectedRoutes user={user} />}>
+          <Route element={<ProtectedRoutes />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/reservation" element={<ReservationPage />} />
             <Route path="/add-new-room" element={<ClassroomAdd />} />
@@ -48,7 +35,7 @@ function App() {
             <Route path="/make-appointments" element={<MakeAppointments />} />
             <Route
               path="/appointment/confirm"
-              element={<AppointmentConfirmation {...data} />}
+              element={<AppointmentConfirmation />}
             />
           </Route>
         </Routes>

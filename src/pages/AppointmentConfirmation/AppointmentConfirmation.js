@@ -16,7 +16,7 @@ const AppointmentConfirmation = ({ user, id, date, duration }) => {
     <>
       {id ? (
         <div className={styles.container}>
-          {success ? <h3>Your Appointment Successfull!</h3> : <h3>Confirm</h3>}
+          {success ? <h3>Your Appointment Successful!</h3> : <h3>Confirm</h3>}
           <div className={styles.imgTitleContainer}>
             {success ? '' : <img src={profileImg} alt="profileImg" />}
             <div className={styles.titleWrap}>

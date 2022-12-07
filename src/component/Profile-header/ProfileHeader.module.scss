@@ -5,10 +5,19 @@
   height: auto;
   display: flex;
   .img {
-    height: auto;
     text-align: center;
     @include for-pc-screen {
       text-align: left;
+    }
+    img {
+      height: 30vw;
+      object-fit: cover;
+      object-position: top;
+      width: 30vw;
+      @include for-pc-screen {
+        height: 200px;
+        width: 200px;
+      }
     }
   }
   h3 {
