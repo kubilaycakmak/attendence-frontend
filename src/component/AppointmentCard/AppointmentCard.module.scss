@@ -2,11 +2,14 @@
 @import '../../scss/utils';
 
 .card_wrapper {
+  width: 16%;
   @include for-mobile-screen {
-    min-width: 90%;
+    min-width: 80%;
   }
   @include for-pc-screen {
-    width: 260px;
+    max-width: 240px;
+    min-width: 220px;
+    width: 36%;
   }
   & .card_body {
     box-sizing: border-box;
@@ -42,23 +45,6 @@
 
     & .tag_wrapper {
       text-align: left;
-      // & .tag_body {
-      //     width: 75px;
-      //     height: 32px;
-      //     background: #AE7D00;
-      //     border-radius: 4px;
-      //     display: inline-block;
-
-      //     & p {
-      //         font-family: 'Poppins';
-      //         text-align: center;
-      //         margin: 8px auto;
-      //         font-size: 12px;
-      //         font-family: 'Poppins';
-      //         color: white;
-
-      //     }
-      // }
     }
 
     & .description_wrapper {
@@ -82,24 +68,25 @@
       }
     }
 
-    & .btn_wrapper {
+    .btn_wrapper {
       text-align: center;
       margin-top: 15px;
-      & .card_btn {
+      .card_btn {
         border: none;
         cursor: pointer;
         background-color: #000000;
         border-radius: 4px;
+        display: inline-block;
         font-size: 12px;
+        text-decoration: none;
         color: white;
         padding: 10px;
         width: 100%;
         @include hover-opacity;
+        @include for-pc-screen {
+          width: 80%;
+        }
       }
     }
   }
 }
-// description-wrapper
-// height: 36px;
-// word-wrap: break-word;
-// border: 1px solid black;

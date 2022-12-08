@@ -12,6 +12,7 @@ import AppointmentConfirmation from './pages/AppointmentConfirmation/Appointment
 import ReservationPage from './pages/ReservationPage/ReservationPage';
 import './App.css';
 import ClassroomAdd from './pages/ClassroomAddPage/ClassroomAdd';
+import AppointmentCreation from './pages/AppointmentCreation/AppointmentCreation';
 
 function App() {
   return (
@@ -34,7 +35,11 @@ function App() {
             />
             <Route path="/make-appointments" element={<MakeAppointments />} />
             <Route
-              path="/appointment/confirm"
+              path="/make-appointments/:userId"
+              element={<AppointmentCreation />}
+            />
+            <Route
+              path="/make-appointments/:userId/confirm"
               element={<AppointmentConfirmation />}
             />
           </Route>

@@ -1,5 +1,6 @@
-import { React, useState } from 'react';
-import RoleTag from '../Role-tag/Roletag';
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 //import userData from "./userData.json";
 import classes from './AppointmentCard.module.scss';
 
