@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LoadingContext } from './contexts/LoadingContext';
 import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
 import ErrorDisplay from './component/ErrorDisplay/ErrorDisplay';
@@ -15,10 +16,12 @@ import ClassroomAdd from './pages/ClassroomAddPage/ClassroomAdd';
 import AppointmentCreation from './pages/AppointmentCreation/AppointmentCreation';
 
 function App() {
+  const { isLoadingShown } = useContext(LoadingContext);
+
   return (
     <div className="App">
       <ErrorDisplay />
-      <Loading />
+      {isLoadingShown && <Loading isFull={true} />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
