@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useContext, useState } from 'react';
-import { ErrorContext } from '../../contexts/ErrorContext';
+import { AlertContext } from '../../contexts/AlertContext';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { v4 as uuidv4 } from 'uuid';
 import { updateProfileInfo } from '../../services/user-service';
@@ -10,7 +10,7 @@ import styles from './UserProfileForm.module.scss';
 const UserProfileForm = ({ profileData }) => {
   const [dataToCompareWith, setDataToCompareWith] = useState(profileData);
   const { setIsLoadingShown } = useContext(LoadingContext);
-  const { setErrorMessage } = useContext(ErrorContext);
+  const { setAlert } = useContext(AlertContext);
   const { videos } = profileData;
   const {
     full_name,
@@ -116,9 +116,11 @@ const UserProfileForm = ({ profileData }) => {
     });
 
     if (!updatedFieldsKeys.length) {
-      setErrorMessage(
-        'None of the field values have been changed since last update.'
-      );
+      setAlert({
+        message:
+          'None of the field values have been changed since last update.',
+        type: 'error',
+      });
       return;
     }
 
@@ -128,7 +130,7 @@ const UserProfileForm = ({ profileData }) => {
       ...prev,
       ...state,
     }));
-    setErrorMessage('');
+    setAlert({});
     setIsLoadingShown(false);
   };
 

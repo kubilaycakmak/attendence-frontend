@@ -1,14 +1,20 @@
 @import '../../scss/variables';
 @import '../../scss/utils';
 
-.errorDisplay {
+.alert {
   position: fixed;
   top: 50px;
   left: 50%;
-  transform: translateX(-50%);
   z-index: 999;
   width: 80%;
   max-width: 380px;
+  @include for-mobile-screen {
+    transform: translateX(-50%);
+  }
+  @include for-pc-screen {
+    right: 10%;
+    left: unset;
+  }
 }
 .closeBtn {
   background-color: #d32f2f;

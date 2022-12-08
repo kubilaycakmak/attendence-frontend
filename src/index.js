@@ -1,7 +1,7 @@
 import React from 'react';
 import StoreProvider from './store';
 import { createRoot } from 'react-dom/client';
-import { ErrorProvider } from './contexts/ErrorContext';
+import { AlertProvider } from './contexts/AlertContext';
 import { LoadingProvider } from './contexts/LoadingContext';
 import './scss/global.scss';
 import App from './App';
@@ -13,11 +13,11 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <StoreProvider>
-      <ErrorProvider>
+      <AlertProvider>
         <LoadingProvider>
           <App />
         </LoadingProvider>
-      </ErrorProvider>
+      </AlertProvider>
     </StoreProvider>
   </React.StrictMode>
 );

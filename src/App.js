@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LoadingContext } from './contexts/LoadingContext';
 import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
-import ErrorDisplay from './component/ErrorDisplay/ErrorDisplay';
+import Alert from './component/Alert/Alert';
 import Loading from './component/Loading/Loading';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import Profile from './pages/Profile/Profile';
@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <ErrorDisplay />
+      <Alert />
       {isLoadingShown && <Loading isFull={true} />}
       <BrowserRouter>
         <Routes>
