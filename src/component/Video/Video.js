@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { sendVideoLike } from '../../services/user-service';
+import Loading from '../Loading/Loading';
 import styles from './Video.module.scss';
 
 const Video = ({ _id, url, likes, title }) => {
   const [likesCount, setLikesCount] = useState(likes.length);
   const [toggled, setToggled] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const handleLike = async () => {
     sendVideoLike(_id, !toggled);
@@ -27,12 +29,14 @@ const Video = ({ _id, url, likes, title }) => {
         <span className={styles.para}>{likesCount} people loved it</span>
       </div>
       <div className={styles.video}>
+        {!isLoaded && <Loading />}
         <iframe
           src={url}
           title={title}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          onLoad={() => setIsLoaded(true)}
         ></iframe>
       </div>
     </div>
