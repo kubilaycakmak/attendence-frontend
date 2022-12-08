@@ -11,6 +11,8 @@ const AppointmentCard = ({
   role,
   description,
   filteredRole,
+  buttonText,
+  clickHandler,
 }) => {
   return (
     <>
@@ -26,7 +28,15 @@ const AppointmentCard = ({
             <p className={classes.desc_text}>{description}</p>
           </div>
           <div className={classes.btn_wrapper}>
-            <button className={classes.card_btn}>See Available</button>
+            {clickHandler ? (
+              <button onClick={clickHandler} className={classes.card_btn}>
+                {buttonText}
+              </button>
+            ) : (
+              <Link to={`./${id}`} className={classes.card_btn}>
+                See Availability
+              </Link>
+            )}
           </div>
         </div>
       </div>
