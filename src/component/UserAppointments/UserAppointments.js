@@ -3,6 +3,7 @@ import { cancelAppointment } from '../../services/user-service';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { AlertContext } from '../../contexts/AlertContext';
 import AppointmentCard from '../AppointmentCard/AppointmentCard';
+import NoItemResult from '../NoItemResult/NoItemResult';
 import styles from './UserAppointments.module.scss';
 
 const UserAppointments = ({ userData }) => {
@@ -23,16 +24,20 @@ const UserAppointments = ({ userData }) => {
     <>
       {userData ? (
         <div className={styles.userAppointments}>
-          {userData.appointments.map((appointment) => (
-            <AppointmentCard
-              id={appointment._id}
-              photo={userData.user.photo}
-              full_name={appointment.target_user}
-              description={appointment.datetime}
-              buttonText="Cancel Appointment"
-              clickHandler={() => handleClick(appointment._id)}
-            />
-          ))}
+          {userData.appointments?.length ? (
+            userData.appointments.map((appointment) => (
+              <AppointmentCard
+                id={appointment._id}
+                photo={userData.user.photo}
+                full_name={appointment.target_user}
+                description={appointment.datetime}
+                buttonText="Cancel Appointment"
+                clickHandler={() => handleClick(appointment._id)}
+              />
+            ))
+          ) : (
+            <NoItemResult name="appointments" />
+          )}
         </div>
       ) : (
         ''
