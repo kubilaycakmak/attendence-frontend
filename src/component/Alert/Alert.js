@@ -14,7 +14,10 @@ const Alert = () => {
     <>
       {alert.message && (
         <div className={styles.alert}>
-          <button className={styles.closeBtn} onClick={closeDisplay}>
+          <button
+            className={`${styles.closeBtn} ${styles[alert.type]}`}
+            onClick={closeDisplay}
+          >
             ×
           </button>
           <MuiAlert variant="filled" severity={alert.type}>

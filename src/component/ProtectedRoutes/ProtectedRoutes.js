@@ -12,7 +12,7 @@ const ProtectedRoutes = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchProfileInfo().then((data) => {
+    fetchProfileInfo().then(({ data }) => {
       dispatch({ type: SAVE_USER_DATA, payload: data });
       setUserData(data);
       setIsReady(true);

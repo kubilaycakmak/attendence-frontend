@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { cancelAppointment } from '../../services/user-service';
+import { LoadingContext } from '../../contexts/LoadingContext';
+import { AlertContext } from '../../contexts/AlertContext';
 import AppointmentCard from '../AppointmentCard/AppointmentCard';
 import styles from './UserAppointments.module.scss';
 
 const UserAppointments = ({ userData }) => {
-  console.log('userData', userData);
+  const { setAlert } = useContext(AlertContext);
+  const { setIsLoadingShown } = useContext(LoadingContext);
 
   const handleClick = async (id) => {
-    const result = await cancelAppointment(id);
+    setIsLoadingShown(true);
+    const {
+      data: { message },
+      resultType,
+    } = await cancelAppointment(id);
+    setAlert({ message, type: resultType });
+    setIsLoadingShown(false);
   };
 
   return (

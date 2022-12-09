@@ -17,7 +17,6 @@
   }
 }
 .closeBtn {
-  background-color: #d32f2f;
   border: none;
   border-radius: 50%;
   color: #fff;
@@ -30,4 +29,10 @@
   position: absolute;
   top: -1rem;
   right: -1rem;
+  &.success {
+    background-color: #2e7d32;
+  }
+  &.error {
+    background-color: #d32f2f;
+  }
 }
