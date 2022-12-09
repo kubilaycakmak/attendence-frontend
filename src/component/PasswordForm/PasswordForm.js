@@ -1,9 +1,11 @@
 import React from 'react';
+import { setFirstPassword } from '../../services/auth-service';
 import styles from './PasswordForm.module.scss';
 
 const PasswordForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    // setFirstPassword(token);
   };
 
   return (

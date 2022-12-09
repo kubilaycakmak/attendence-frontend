@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
 import ErrorDisplay from './component/ErrorDisplay/ErrorDisplay';
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
+
           {/* Protected routes */}
           <Route element={<ProtectedRoutes user={user} />}>
             <Route path="/profile" element={<Profile />} />

@@ -15,9 +15,9 @@ root.render(
   <React.StrictMode>
     <ErrorProvider>
       <LoadingProvider>
-        {/* <Provider store={store}> */}
-        <App />
-        {/* </Provider> */}
+        <Provider store={store}>
+          <App />
+        </Provider>
       </LoadingProvider>
     </ErrorProvider>
   </React.StrictMode>

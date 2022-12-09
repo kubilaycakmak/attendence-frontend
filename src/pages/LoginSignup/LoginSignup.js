@@ -16,7 +16,7 @@ const LoginSignup = () => {
         </Modal>
         <div className={styles.container}>
           <div className={styles.loginInner}>
-            <LoginSignupForm googleSignupCallback={openModal} />
+            <LoginSignupForm openModal={openModal} />
           </div>
         </div>
       </div>
