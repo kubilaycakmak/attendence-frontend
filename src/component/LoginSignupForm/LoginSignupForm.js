@@ -9,9 +9,10 @@ import { authActions } from '../../reducers/auth';
 import { useNavigate } from 'react-router-dom';
 import GoogleLoginSignUpButton from '../GoogleLoginSignUpButton/GoogleLoginSignUpButton';
 
+import localStorageHelper from '../../helpers/localStorageHelper';
+
 const LoginSignupForm = ({ openModal }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch(authActions);
   const [username, setUsername] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,7 +21,6 @@ const LoginSignupForm = ({ openModal }) => {
   const location = useLocation();
 
   const isLoginPage = location.pathname.includes('login');
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -42,8 +42,9 @@ const LoginSignupForm = ({ openModal }) => {
     e.preventDefault();
     try {
       await login(email, password).then((res) => {
-        if (res.status === 200) {
-          dispatch(authActions.login());
+        console.log('res', res);
+        if (res.token) {
+          localStorageHelper('set', 'token', res.token);
           navigate('/');
         }
       });

@@ -11,6 +11,7 @@ const FormField = ({
   arrItemObjId = '',
   arrItemObjKey = '',
   handleChange,
+  handleDirectValue,
 }) => {
   return (
     <div className={styles.fieldGroup}>

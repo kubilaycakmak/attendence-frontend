@@ -1,0 +1,13 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.userAppointments {
+  display: flex;
+  gap: 1rem;
+  @include for-mobile-screen {
+    overflow-x: scroll;
+  }
+  @include for-pc-screen {
+    flex-wrap: wrap;
+  }
+}

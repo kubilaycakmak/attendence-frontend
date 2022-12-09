@@ -1,25 +1,24 @@
 import React from 'react';
+import StoreProvider from './store';
 import { createRoot } from 'react-dom/client';
-import { ErrorProvider } from './contexts/ErrorContext';
+import { AlertProvider } from './contexts/AlertContext';
 import { LoadingProvider } from './contexts/LoadingContext';
-import { Provider } from 'react-redux';
 import './scss/global.scss';
 import App from './App';
 import './index.css';
-import { store } from './store';
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <ErrorProvider>
-      <LoadingProvider>
-        <Provider store={store}>
+    <StoreProvider>
+      <AlertProvider>
+        <LoadingProvider>
           <App />
-        </Provider>
-      </LoadingProvider>
-    </ErrorProvider>
+        </LoadingProvider>
+      </AlertProvider>
+    </StoreProvider>
   </React.StrictMode>
 );
 

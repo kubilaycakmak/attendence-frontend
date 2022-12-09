@@ -7,6 +7,7 @@ import Week from '../../component/Week/Week';
 import axios from 'axios';
 import RoomCart from '../../component/RoomCart/RoomCart';
 import moment from 'moment';
+import style from './ReservationPage.module.scss';
 
 const ReservationPage = () => {
   const [data, setData] = useState([]);
@@ -131,7 +132,9 @@ const ReservationPage = () => {
       <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
       <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
       <Time startTimeProps={startTime} endTimeProps={endTime} />
-      <button onClick={postData}>Next </button>
+      <button className={style.button} onClick={postData}>
+        Continue{' '}
+      </button>
     </div>
   );
 };

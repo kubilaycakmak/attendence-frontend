@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useStore } from 'react-redux';
 import RoleTag from '../Role-tag/Roletag';
 import classes from './FilterView.module.scss';
@@ -31,7 +31,6 @@ const FilterView = ({ userData, onClickFunction, filteredRole }) => {
         {userData?.map((user, id) => {
           let text = 'hello';
           text.toUpperCase();
-          // return (<p className={classes[`user:${id}`]}>{user.role}</p>)
           return (
             <AppointmentCard
               id={user.id}

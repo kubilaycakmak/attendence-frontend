@@ -33,12 +33,13 @@
 
 .cardsWrapper {
   margin: 30px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: auto;
-  gap: 20px;
-  font-family: sans-serif;
-  > div {
-    max-width: 420px;
+  display: flex;
+  gap: 1rem;
+  @include for-mobile-screen {
+    overflow-x: scroll;
+  }
+  @include for-pc-screen {
+    font-family: sans-serif;
+    flex-wrap: wrap;
   }
 }

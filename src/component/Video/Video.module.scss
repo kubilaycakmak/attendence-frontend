@@ -8,6 +8,9 @@
 
 .videoMainWrap {
   max-width: 675px;
+  & + .videoMainWrap {
+    margin-top: 2rem;
+  }
 }
 .videoContainer {
   width: 100%;
@@ -78,4 +81,19 @@
     left: 0;
     width: 100%;
   }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   height: 100%;
+  //   width: 100%;
+  //   background: orange;
+  //   z-index: 999;
+  // }
+  // &.isLoaded {
+  //   &::before {
+  //     display: none;
+  //   }
+  // }
 }
