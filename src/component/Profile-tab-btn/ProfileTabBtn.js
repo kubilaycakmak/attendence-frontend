@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import styles from './ProfileTabBtn.module.scss';
-import ProfileForm from '../ProfileForm/ProfileForm';
+import UserProfileForm from '../UserProfileForm/UserProfileForm';
+import UserAppointments from '../UserAppointments/UserAppointments';
+import UserVideos from '../UserVideos/UserVideos';
 
-const ProfileTabBtn = () => {
+const ProfileTabBtn = ({ userData }) => {
   const [isActive, setIsActive] = useState(1);
 
   const data = [
@@ -42,10 +44,10 @@ const ProfileTabBtn = () => {
           })}
         </div>
         <div className={styles.formWrap}>
-          {isActive == 1 && <ProfileForm />}
-          {isActive == 2 && <p>this is 2</p>}
-          {isActive == 3 && <p>this is 3</p>}
-          {isActive == 4 && <p>this is 4</p>}
+          {isActive == 1 && <UserProfileForm profileData={userData} />}
+          {isActive == 2 && <UserAppointments userData={userData} />}
+          {isActive == 3 && 'this is reservation section'}
+          {isActive == 4 && <UserVideos videos={userData.videos} />}
         </div>
       </div>
     </>

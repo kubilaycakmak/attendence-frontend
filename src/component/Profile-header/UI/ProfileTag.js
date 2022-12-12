@@ -1,8 +1,8 @@
-import React from "react"
-import styles from "../UI/ProfileTag.module.scss"
+import React from 'react';
+import styles from '../UI/ProfileTag.module.scss';
 
-const ProfileTag = (props) => {
-  return <p className={styles.color}>{props.children}</p>
-}
+const ProfileTag = ({ item }) => {
+  return <p className={styles.color}>{item}</p>;
+};
 
-export default ProfileTag
+export default ProfileTag;

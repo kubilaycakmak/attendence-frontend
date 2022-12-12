@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+// import { Link } from 'react-router-dom';
 import RoleTag from '../Role-tag/Roletag';
 //import userData from "./userData.json";
 import classes from './AppointmentCard.module.scss';
@@ -11,9 +12,9 @@ const AppointmentCard = ({
   role,
   description,
   filteredRole,
+  buttonText,
+  clickHandler,
 }) => {
-  console.log(classes);
-  console.log('ri', role);
   return (
     <>
       <div className={classes.card_wrapper} key={id}>
@@ -39,10 +40,15 @@ const AppointmentCard = ({
             <p className={classes.desc_text}>{description}</p>
           </div>
           <div className={classes.btn_wrapper}>
-            {/* <button className={classes.card_btn}>See Available</button> */}
-            <SecondaryBtn className={classes.card_btn}>
-              See Available
-            </SecondaryBtn>
+            {clickHandler ? (
+              <button onClick={clickHandler} className={classes.card_btn}>
+                {buttonText}
+              </button>
+            ) : (
+              <Link to={`./${id}`} className={classes.card_btn}>
+                See Availability
+              </Link>
+            )}
           </div>
         </div>
       </div>

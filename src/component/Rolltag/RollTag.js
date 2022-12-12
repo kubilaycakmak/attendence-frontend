@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './RollTag.module.scss';
 
 const RollTag = ({ role }) => {

@@ -7,6 +7,7 @@ import Week from '../../component/Week/Week';
 import axios from 'axios';
 import RoomCart from '../../component/RoomCart/RoomCart';
 import moment from 'moment';
+import style from './ReservationPage.module.scss';
 
 const ReservationPage = () => {
   const [data, setData] = useState([]);
@@ -67,15 +68,12 @@ const ReservationPage = () => {
 
   const getReservationsById = async (id) => {
     await axios
-      .get(
-        `https://attendance-backend-dev.herokuapp.com/api/rooms/${id}/reservations`,
-        {
-          headers: {
-            Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
-          },
-        }
-      )
+      .get(`https://aged-dust-8037.fly.dev/api/rooms/${id}/reservations`, {
+        headers: {
+          Authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
+        },
+      })
       .then((data) => {
         // console.log(data.data)
         setData(data.data);
@@ -83,7 +81,7 @@ const ReservationPage = () => {
   };
   const getRoomById = async (id) => {
     await axios
-      .get(`https://attendance-backend-dev.herokuapp.com/api/rooms/${id}`, {
+      .get(`https://aged-dust-8037.fly.dev/api/rooms/${id}`, {
         headers: {
           Authorization:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
@@ -108,7 +106,7 @@ const ReservationPage = () => {
     e.preventDefault();
     await axios
       .post(
-        `https://attendance-backend-dev.herokuapp.com/api/rooms/reservations`,
+        `https://aged-dust-8037.fly.dev/api/rooms/reservations`,
         requestBody,
         {
           headers: {
@@ -131,7 +129,9 @@ const ReservationPage = () => {
       <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
       <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
       <Time startTimeProps={startTime} endTimeProps={endTime} />
-      <button onClick={postData}>Next </button>
+      <button className={style.button} onClick={postData}>
+        Continue{' '}
+      </button>
     </div>
   );
 };

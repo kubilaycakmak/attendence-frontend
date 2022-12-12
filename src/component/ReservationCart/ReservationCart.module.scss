@@ -10,6 +10,7 @@
     margin-bottom: 15px;
     width: 200px;
     height: 117.31px;
+    margin-left: 16px;
   }
   .infoContainer {
     display: flex;
@@ -22,9 +23,7 @@
     margin-left: 16px;
   }
   .info {
-    margin-top: -25px;
-    margin-left: 10px;
-
+    margin-bottom: 16px;
     .subtitle {
       font-family: 'Poppins';
       font-style: normal;
@@ -32,6 +31,8 @@
       font-size: 16px;
       line-height: 21px;
       text-align: left;
+      margin-left: 10px;
+      margin-bottom: 5px;
     }
     .subtitle2 {
       font-family: 'Poppins';
@@ -40,7 +41,7 @@
       font-size: 16px;
       line-height: 21px;
       text-align: left;
-      margin-top: -25px;
+      margin-left: 10px;
     }
   }
 
@@ -50,7 +51,6 @@
     font-weight: 700;
     font-size: 13px;
     line-height: 18px;
-    margin-top: -15px;
     text-align: left;
     margin-left: 16px;
   }
@@ -63,7 +63,7 @@
     line-height: 18px;
     margin-left: 16px;
     text-align: left;
-    margin-top: -15px;
+    margin-top: 12px;
   }
 }
 
@@ -71,6 +71,8 @@
   .cartContainer {
     left: auto;
     right: auto;
-    margin: 15px 0px !important;
+    margin: 15px auto !important;
+    display: flex;
+    flex-direction: column;
   }
 }

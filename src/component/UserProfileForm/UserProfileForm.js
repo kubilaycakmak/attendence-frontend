@@ -1,18 +1,18 @@
 import React, { useEffect, useReducer, useContext, useState } from 'react';
-import { ErrorContext } from '../../contexts/ErrorContext';
+import { AlertContext } from '../../contexts/AlertContext';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { v4 as uuidv4 } from 'uuid';
 import { updateProfileInfo } from '../../services/user-service';
 import FormField from '../ui/FormField/FormField';
 import checkEquality from '../../utils/checkEquality';
-import styles from './ProfileForm.module.scss';
+import styles from './UserProfileForm.module.scss';
 import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
 import SecondaryBtn from '../ui/Modal/Btn/SecondaryBtn';
 
-const ProfileForm = ({ profileData }) => {
+const UserProfileForm = ({ profileData }) => {
   const [dataToCompareWith, setDataToCompareWith] = useState(profileData);
   const { setIsLoadingShown } = useContext(LoadingContext);
-  const { setErrorMessage } = useContext(ErrorContext);
+  const { setAlert } = useContext(AlertContext);
   const { videos } = profileData;
   const {
     full_name,
@@ -118,9 +118,11 @@ const ProfileForm = ({ profileData }) => {
     });
 
     if (!updatedFieldsKeys.length) {
-      setErrorMessage(
-        'None of the field values have been changed since last update.'
-      );
+      setAlert({
+        message:
+          'None of the field values have been changed since last update.',
+        type: 'error',
+      });
       return;
     }
 
@@ -130,7 +132,7 @@ const ProfileForm = ({ profileData }) => {
       ...prev,
       ...state,
     }));
-    setErrorMessage('');
+    setAlert({});
     setIsLoadingShown(false);
   };
 
@@ -247,4 +249,4 @@ const ProfileForm = ({ profileData }) => {
   );
 };
 
-export default ProfileForm;
+export default UserProfileForm;
