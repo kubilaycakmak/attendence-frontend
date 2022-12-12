@@ -5,10 +5,19 @@
   height: auto;
   display: flex;
   .img {
-    height: auto;
     text-align: center;
     @include for-pc-screen {
       text-align: left;
+    }
+    img {
+      height: 50vw;
+      object-fit: cover;
+      object-position: top;
+      width: 50vw;
+      @include for-pc-screen {
+        height: 200px;
+        width: 200px;
+      }
     }
   }
   h3 {
@@ -20,9 +29,7 @@
   .contentWrapper {
     height: auto;
     padding-left: 24px;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     @include for-mobile-screen {
       padding-left: 0px;
     }
@@ -41,28 +48,57 @@
 
 .titleContainer {
   .title {
-    font-size: 24px;
+    font-size: 32px;
+    text-transform: capitalize;
     @include for-mobile-screen {
       text-align: center;
+    }
+  }
+  .program {
+    span {
+      font-weight: bold;
     }
   }
 }
 
 .tagContainer {
   display: flex;
-  margin-top: 0.6rem;
+  margin-top: 1rem;
   justify-content: center;
 }
 
 .linkContainer {
   display: flex;
-  justify-content: center;
-  margin-top: 0.6rem;
+  margin-top: 1rem;
+  @include for-mobile-screen {
+    justify-content: center;
+  }
   a {
     text-decoration: none;
     color: #000;
+    position: relative;
     & + a {
       margin-left: 0.6rem;
+    }
+    &.isDisabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      translate: -50% 0;
+      bottom: -5px;
+      width: 0;
+      transition: width 150ms ease-in-out;
+      height: 1px;
+      background-color: #000;
+    }
+    &:hover {
+      &::before {
+        width: 90%;
+      }
     }
   }
 }

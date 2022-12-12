@@ -24,6 +24,18 @@ export const updateProfileInfo = async (data) => {
   return await sendAxiosRequest(options);
 };
 
+export const cancelAppointment = async (id) => {
+  const options = {
+    method: 'PUT',
+    url: `${process.env.REACT_APP_URL}/api/users/appointments/${id}/cancel`,
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+    data: { id },
+  };
+  return await sendAxiosRequest(options);
+};
+
 export const sendVideoLike = async (videoId, isLike) => {
   const options = {
     method: 'GET',

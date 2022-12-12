@@ -2,7 +2,6 @@
 @import '../../scss/utils';
 
 .container {
-  margin-top: 30px;
   .sectionWrap {
     @include for-pc-screen {
       display: grid;

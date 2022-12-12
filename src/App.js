@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { LoadingContext } from './contexts/LoadingContext';
 import ProtectedRoutes from './component/ProtectedRoutes/ProtectedRoutes';
 import Home from './pages/Home/Home';
-import ErrorDisplay from './component/ErrorDisplay/ErrorDisplay';
+import Alert from './component/Alert/Alert';
 import Loading from './component/Loading/Loading';
 import LoginSignup from './pages/LoginSignup/LoginSignup';
 import Profile from './pages/Profile/Profile';
@@ -12,32 +13,22 @@ import AppointmentConfirmation from './pages/AppointmentConfirmation/Appointment
 import ReservationPage from './pages/ReservationPage/ReservationPage';
 import './App.css';
 import ClassroomAdd from './pages/ClassroomAddPage/ClassroomAdd';
+import AppointmentCreation from './pages/AppointmentCreation/AppointmentCreation';
 
 function App() {
-  // TODO: temp data
-  const user = {};
-  const data = {
-    user: {
-      fullName: 'Joe Doe',
-      roles: ['TA', 'Teacher'],
-      department: 'WMAD Co-op Manager',
-    },
-    id: '1293193ahsdhsadh1238183',
-    date: 1660546800,
-    duration: '30m',
-  };
+  const { isLoadingShown } = useContext(LoadingContext);
 
   return (
     <div className="App">
-      <ErrorDisplay />
-      <Loading />
+      <Alert />
+      {isLoadingShown && <Loading isFull={true} />}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
           {/* Protected routes */}
-          <Route element={<ProtectedRoutes user={user} />}>
+          <Route element={<ProtectedRoutes />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/reservation" element={<ReservationPage />} />
             <Route path="/add-new-room" element={<ClassroomAdd />} />
@@ -47,8 +38,12 @@ function App() {
             />
             <Route path="/make-appointments" element={<MakeAppointments />} />
             <Route
-              path="/appointment/confirm"
-              element={<AppointmentConfirmation {...data} />}
+              path="/make-appointments/:userId"
+              element={<AppointmentCreation />}
+            />
+            <Route
+              path="/make-appointments/:userId/confirm"
+              element={<AppointmentConfirmation />}
             />
           </Route>
         </Routes>
