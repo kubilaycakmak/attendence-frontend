@@ -1,8 +1,11 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-.div {
-  width: 350px;
-  /* max-height: 440px; */
-  /* min-height: 440px; */
+.calendarWrap {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 90%;
   padding: 5px;
   background: white;
   box-shadow: 0 2px 4px 0 #073678;
@@ -11,6 +14,9 @@
   position: relative;
   border-spacing: 4px;
   border-radius: 15px;
+  @include for-pc-screen {
+    align-self: flex-start;
+  }
 }
 .react-calendar__navigation__label {
   background-color: white !important;
@@ -48,17 +54,35 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: none !important;
+  cursor: pointer !important;
   font-family: poppins !important;
 }
 .react-calendar button {
+  position: relative;
+  // height: 45px;
   margin: 0;
+  // max-width: 45px;
   border: 0;
   outline: none;
+  z-index: 3;
+  &::before {
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 40px;
+    height: 40px;
+    z-index: -1;
+  }
 }
 .react-calendar button:enabled:hover {
   cursor: pointer;
-  background-color: #b0ceebbd;
   border-radius: 80%;
+  &::before {
+    background-color: #b0ceebbd;
+  }
 }
 .react-calendar__navigation {
   position: relative;
@@ -109,8 +133,9 @@
   padding: 2em 0.5em;
 }
 .react-calendar__tile--now {
-  border-radius: 50%;
-  background-color: #b0ceebbd !important;
+  &::before {
+    background-color: #b0ceebbd;
+  }
   /* color: white !important; */
 }
 .react-calendar__month-view__days__day--weekend {
@@ -132,8 +157,9 @@
 }
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-  background-color: #e6e6e6;
-  border-radius: 50%;
+  &::before {
+    background-color: #e6e6e6;
+  }
 }
 .react-calendar__tile--active {
   color: white !important;
@@ -147,14 +173,17 @@
 }
 .react-calendar__tile--active {
   height: 45px;
-  border-radius: 50%;
-  background: #b0ceebbd;
   color: #0252a2;
   font-weight: bolder;
+  &::before {
+    background: #b0ceebbd;
+  }
 }
 .react-calendar__tile--active:enabled:hover,
 .react-calendar__tile--active:enabled:focus {
-  background-color: #b0ceebbd;
+  &::before {
+    background-color: #b0ceebbd;
+  }
 }
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
