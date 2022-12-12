@@ -1,6 +1,7 @@
 import React from 'react';
 import ManReadBook from '../../assets/imgs/man-reading-book.svg';
 import styles from './FindLocationHero.module.scss';
+import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
 
 const FindLocationHero = ({ className }) => {
   return (

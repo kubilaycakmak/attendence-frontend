@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import '../../scss/utils';
+@import '../../scss/variables';
+
 .calendarHero {
   display: flex;
   flex-direction: row;
@@ -60,19 +63,18 @@
   }
 }
 .button {
-  background: #ffffff;
-  border: 0.5px solid #000000;
-  border-radius: 4px;
-  font-size: 11px;
-  width: 239px;
-  height: 36px;
-  margin-top: 0px;
-  cursor: pointer;
-  &:hover {
-    background-color: black;
-    color: white;
-    transition: 0.5s;
-  }
+  // background: #ffffff;
+  // border: 0.5px solid #000000;
+  // border-radius: 4px;
+  // font-size: 11px;
+  // padding: 8px 16px;
+
+  // cursor: pointer;
+  // &:hover {
+  //   background-color: black;
+  //   color: white;
+  //   transition: 0.5s;
+  // }
 }
 
 @media screen and (max-width: 767px) {
@@ -103,7 +105,7 @@
 
   .button {
     display: block;
-    font-size: 10px;
+    font-size: 12px;
     width: 92%;
     height: 34.94px;
     background: #ffffff;
@@ -111,5 +113,21 @@
     border-radius: 4px;
     margin: 0px auto;
     max-width: 504px;
+  }
+}
+.PrimaryBtn {
+  margin-top: 8px;
+  background: #ffffff;
+  border: 0.5px solid #000000;
+  border-radius: 4px;
+  font-size: 11px;
+  padding: 8px 16px;
+  font-size: $FONT_SIZE_15;
+
+  cursor: pointer;
+  &:hover {
+    background-color: black;
+    color: white;
+    transition: 0.5s;
   }
 }

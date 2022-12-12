@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './CalendarHero.module.scss';
 import CalendarHeroImage from './CalendarHeroImage';
+import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
+
 const CalendarHero = ({ className }) => {
   return (
     <div>
@@ -16,7 +18,7 @@ const CalendarHero = ({ className }) => {
             See Class’s availability for work in empty space also you can
             request an event.
           </p>
-          <button className={styles.button}>Get Started</button>
+          <button className={styles.PrimaryBtn}>Get Started</button>
         </div>
       </div>
     </div>
