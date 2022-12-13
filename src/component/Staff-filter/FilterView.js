@@ -28,7 +28,7 @@ const FilterView = ({ userData, onClickFunction, filteredRole }) => {
         </div>
       </div>
       <div className={classes.cardsWrapper}>
-        {userData?.map((user, id) => {
+        {userData?.map((user) => {
           let text = 'hello';
           text.toUpperCase();
           return (

@@ -24,6 +24,17 @@ export const updateProfileInfo = async (data) => {
   return await sendAxiosRequest(options);
 };
 
+export const fetchSingleUserInfo = async (userId) => {
+  const options = {
+    method: 'GET',
+    url: `${process.env.REACT_APP_URL}/api/users/${userId}`,
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+  };
+  return await sendAxiosRequest(options);
+};
+
 export const getAppointmentsAvailability = async (userId) => {
   const options = {
     method: 'GET',
