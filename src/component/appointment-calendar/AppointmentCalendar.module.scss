@@ -1,6 +1,17 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
 .container {
   display: flex;
   @media screen and (max-width: 767px) {
     flex-direction: column;
+  }
+  > div {
+    &:nth-of-type(2) {
+      @include for-pc-screen {
+        max-width: 300px;
+        width: 45%;
+      }
+    }
   }
 }

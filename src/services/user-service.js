@@ -24,6 +24,29 @@ export const updateProfileInfo = async (data) => {
   return await sendAxiosRequest(options);
 };
 
+export const getAppointmentsAvailability = async (userId) => {
+  const options = {
+    method: 'GET',
+    url: `${process.env.REACT_APP_URL}/api/users/${userId}/appointments`,
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+  };
+  return await sendAxiosRequest(options);
+};
+
+export const postAppointment = async (data) => {
+  const options = {
+    method: 'POST',
+    url: `${process.env.REACT_APP_URL}/api/users/appointments`,
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+    data,
+  };
+  return await sendAxiosRequest(options);
+};
+
 export const cancelAppointment = async (id) => {
   const options = {
     method: 'PUT',

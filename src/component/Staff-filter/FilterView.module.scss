@@ -3,7 +3,7 @@
 
 .upperContainer {
   text-align: center;
-  @include for-pc-lg-screen {
+  @include for-pc-screen {
     text-align: left;
   }
   & .titleWrapper {

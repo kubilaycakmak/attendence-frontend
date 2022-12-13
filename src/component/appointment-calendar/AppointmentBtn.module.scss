@@ -14,10 +14,11 @@
     transition: 0.4s;
     border: 1.5px solid #2d69f6;
     font-size: 16px;
-    padding: 16px 0px;
-    width: 240px;
+    padding: 10px 0px;
+    width: 100%;
     border-radius: 12px;
     color: white;
+    cursor: pointer;
     background-color: #2d69f6;
     @media screen and (max-width: 767px) {
       width: 100%;
@@ -29,12 +30,17 @@
 
   .inActive {
     border: 1.5px solid #2d69f6;
-    font-size: 16px;
-    padding: 16px 0px;
-    width: 240px;
+    font-size: 14px;
+    padding: 10px 0px;
+    width: 100%;
     border-radius: 12px;
     color: #2d69f6;
+    cursor: pointer;
     background-color: white;
+    &:hover {
+      border-width: 2px;
+      font-weight: 600;
+    }
     @media screen and (max-width: 767px) {
       width: 100%;
       font-size: 12px;
@@ -43,13 +49,18 @@
     }
   }
   .submitBtn {
-    font-size: 16px;
+    font-size: 14px;
     padding: 16px 0px;
-    width: 240px;
+    width: 100%;
     border-radius: 12px;
     color: white;
+    cursor: pointer;
     background-color: black;
     border: none;
+    &:hover {
+      border-width: 2px;
+      font-weight: 600;
+    }
     @media screen and (max-width: 767px) {
       width: 100%;
       font-size: 12px;

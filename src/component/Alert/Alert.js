@@ -7,7 +7,7 @@ const Alert = () => {
   const { alert, setAlert } = useContext(AlertContext);
 
   const closeDisplay = () => {
-    setAlert('');
+    setAlert({});
   };
 
   return (

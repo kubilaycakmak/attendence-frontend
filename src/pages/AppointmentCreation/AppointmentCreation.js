@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import AppointmentCalendar from '../../component/appointment-calendar/AppointmentCalendar';
 import ProfileHeader from '../../component/Profile-header/ProfileHeader';
 import styles from './AppointmentCreation.module.scss';
@@ -28,7 +28,7 @@ const AppointmentCreation = () => {
         <ProfileHeader profileData={userData} />
         <section className={styles.calendarSection}>
           <h2>Select a Date & Time</h2>
-          <AppointmentCalendar />
+          <AppointmentCalendar userId={userData._id} />
         </section>
       </div>
     </>
