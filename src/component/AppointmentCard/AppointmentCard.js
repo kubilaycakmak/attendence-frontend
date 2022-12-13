@@ -8,9 +8,7 @@ const AppointmentCard = ({
   id,
   photo,
   full_name,
-  role,
   description,
-  filteredRole,
   buttonText,
   clickHandler,
 }) => {
