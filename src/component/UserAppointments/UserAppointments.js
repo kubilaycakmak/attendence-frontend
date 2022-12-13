@@ -33,6 +33,7 @@ const UserAppointments = ({ userData }) => {
                 description={appointment.datetime}
                 buttonText="Cancel Appointment"
                 clickHandler={() => handleClick(appointment._id)}
+                status={appointment.status}
               />
             ))
           ) : (

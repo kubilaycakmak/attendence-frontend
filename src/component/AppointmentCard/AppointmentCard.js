@@ -1,37 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-//import userData from "./userData.json";
-import classes from './AppointmentCard.module.scss';
+import styles from './AppointmentCard.module.scss';
 
 const AppointmentCard = ({
   id,
   photo,
   full_name,
   description,
+  status,
   buttonText,
   clickHandler,
 }) => {
   return (
     <>
-      <div className={classes.card_wrapper} key={id}>
-        <div className={classes.card_body}>
-          <div className={classes.img_wrapper}>
-            <img className={classes.prof_img} src={photo} alt={'sample_img'} />
+      <div className={styles.card_wrapper} key={id}>
+        {status === 'Canceled' && (
+          <div className={styles.canceledOverlay}>
+            <p>Appointment Canceled</p>
           </div>
-          <div className={classes.name_wrapper}>
+        )}
+        <div className={styles.card_body}>
+          <div className={styles.img_wrapper}>
+            <img className={styles.prof_img} src={photo} alt={'sample_img'} />
+          </div>
+          <div className={styles.name_wrapper}>
             <h1>{full_name}</h1>
           </div>
-          <div className={classes.description_wrapper}>
-            <p className={classes.desc_text}>{description}</p>
+          <div className={styles.description_wrapper}>
+            <p className={styles.desc_text}>{description}</p>
           </div>
-          <div className={classes.btn_wrapper}>
+          <div className={styles.btn_wrapper}>
             {clickHandler ? (
-              <button onClick={clickHandler} className={classes.card_btn}>
+              <button onClick={clickHandler} className={styles.card_btn}>
                 {buttonText}
               </button>
             ) : (
-              <Link to={`./${id}`} className={classes.card_btn}>
+              <Link to={`./${id}`} className={styles.card_btn}>
                 See Availability
               </Link>
             )}
