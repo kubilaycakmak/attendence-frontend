@@ -7,6 +7,7 @@ import AppointmentCard from '../AppointmentCard/AppointmentCard';
 const FilterView = ({ userData, onClickFunction, filteredRole }) => {
   const [filtered, setFiltered] = useState(['All']);
   const roleName = ['All', 'TA', 'Teacher', 'Co-op Manager'];
+  console.log('userData', userData);
 
   return (
     <>
@@ -33,7 +34,7 @@ const FilterView = ({ userData, onClickFunction, filteredRole }) => {
           text.toUpperCase();
           return (
             <AppointmentCard
-              id={user.id}
+              id={user._id}
               photo={user.photo}
               full_name={user.full_name}
               role={user.role}
