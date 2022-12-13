@@ -1,20 +1,22 @@
-import React, { useState } from 'react'
-import styles from './Week.module.scss'
+import React, { useState } from 'react';
+import styles from './Week.module.scss';
+import SecondaryBtn from '../../component/ui/Modal/Btn/SecondaryBtn';
+
 const Week = ({ callback, weeklyInput }) => {
-  const [weekly, setWeekly] = useState(false)
-  const [input, setInput] = useState(0)
+  const [weekly, setWeekly] = useState(false);
+  const [input, setInput] = useState(0);
   //   const [selected, setSelected] = useState(0)
 
   const handleClick = (week) => {
-    console.log(week)
-    callback(week)
-    setWeekly(week)
-  }
+    console.log(week);
+    callback(week);
+    setWeekly(week);
+  };
 
   const handleInput = (val) => {
-    setInput(val)
-    weeklyInput(val)
-  }
+    setInput(val);
+    weeklyInput(val);
+  };
 
   return (
     <div className={styles.container}>
@@ -41,10 +43,10 @@ const Week = ({ callback, weeklyInput }) => {
           <div className={styles.inputContainer}>
             <label className={styles.label}>Duration (How many weeks)</label>
             <input
-              type='number'
-              max='52'
+              type="number"
+              max="52"
               className={styles.input}
-              placeholder='up to 52'
+              placeholder="up to 52"
               value={input}
               onChange={(e) => handleInput(e.target.value)}
             />
@@ -52,7 +54,7 @@ const Week = ({ callback, weeklyInput }) => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Week
+export default Week;

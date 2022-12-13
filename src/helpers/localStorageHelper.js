@@ -5,6 +5,8 @@ const localStorageHelper = (action, key, value) => {
       return JSON.parse(localStorage.getItem(key));
     case 'set':
       return localStorage.setItem(key, JSON.stringify(value));
+    case 'remove':
+      return localStorage.removeItem(key);
   }
 };
 

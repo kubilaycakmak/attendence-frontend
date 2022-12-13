@@ -6,6 +6,8 @@ import { updateProfileInfo } from '../../services/user-service';
 import FormField from '../ui/FormField/FormField';
 import checkEquality from '../../utils/checkEquality';
 import styles from './UserProfileForm.module.scss';
+import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
+import SecondaryBtn from '../ui/Modal/Btn/SecondaryBtn';
 
 const UserProfileForm = ({ profileData }) => {
   const [dataToCompareWith, setDataToCompareWith] = useState(profileData);
@@ -231,12 +233,18 @@ const UserProfileForm = ({ profileData }) => {
               />
             </div>
           ))}
-          <button onClick={addVideoField} className={styles.addVideoBtn}>
+          {/* <button onClick={addVideoField} className={styles.addVideoBtn}>
             Add Video
-          </button>
+          </button> */}
         </section>
       </div>
-      <button type="submit">Update</button>
+      {/* <button type="submit">Update</button> */}
+      <div className={styles.btnWrap}>
+        <PrimaryBtn onClick={addVideoField} className={styles.addVideoBtn}>
+          Add Video
+        </PrimaryBtn>
+        <SecondaryBtn type="submit">Update</SecondaryBtn>
+      </div>
     </form>
   );
 };

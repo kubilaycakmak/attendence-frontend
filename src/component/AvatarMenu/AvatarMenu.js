@@ -2,11 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./AvatarMenu.module.scss";
 // import { useDispatch } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import localStorageHelper from "../../helpers/localStorageHelper";
 // import { authActions } from "../../reducers/auth";
 
 const AvatarMenu = ({ username, photo }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);
+  const navigate = useNavigate();
   const menu = useRef();
   const showMenu = () => {
     setIsMenuShown((prev) => !prev);
@@ -23,7 +25,8 @@ const AvatarMenu = ({ username, photo }) => {
     e.preventDefault();
     // dispatch(authActions.logout());
     // console.log("logout");
-    // navigate("/");
+    localStorageHelper("remove", "token");
+    navigate("/login");
   };
 
   return (

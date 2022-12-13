@@ -1,14 +1,24 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
 .button {
-  background: #000000;
-  border: 0.5px solid #000000;
-  border-radius: 4px;
-  width: 328px;
-  height: 48px;
-  color: white;
   font-family: 'Poppins';
   margin-top: 24px;
   margin-left: 300px;
   margin-bottom: 24px;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: $FONT_SIZE_15;
+  font-weight: 500;
+  padding: 8px 16px;
+  &:hover {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+  }
 }
 
 @media screen and (max-width: 768px) {

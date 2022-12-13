@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../../App.css';
 import FullCalendar from '../../component/FullCalendar/FullCalendar';
 import Sidebar from '../../component/Sidebar/Sidebar';
 import Time from '../../component/Time/Time';

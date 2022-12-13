@@ -1,3 +1,6 @@
+@import '../../../scss/utils';
+@import '../../../scss/variables';
+
 .global_container {
   @media screen and (min-width: 768px) {
     display: flex;
@@ -124,27 +127,45 @@
       text-align: left;
     }
     .button {
-      font-size: 10px;
-      font-family: Poppins;
-      box-sizing: border-box;
-      display: inline-block;
-      max-width: 504px;
-      width: 84%;
-      height: 34.94px;
-      background: #ffffff;
-      border: 0.5px solid #000000;
-      border-radius: 4px;
-      cursor: pointer;
+      // font-size: 10px;
+      // font-family: Poppins;
+      // box-sizing: border-box;
+      // display: inline-block;
+      // max-width: 504px;
+      // width: 84%;
+      // height: 34.94px;
+      // background: #ffffff;
+      // border: 0.5px solid #000000;
+      // border-radius: 4px;
+      // cursor: pointer;
+      margin-top: 8px;
 
+      font-size: $FONT_SIZE_15;
+      padding: 8px 16px;
+      background-color: transparent;
+      border-radius: 4px;
+      border: 0.7px solid black;
+      cursor: pointer;
       &:hover {
         background-color: black;
         color: white;
         transition: 0.5s;
       }
 
-      @media screen and (min-width: 768px) {
-        display: inline;
-        width: 141px;
+      // @media screen and (min-width: 768px) {
+      //   display: inline;
+      // }
+      @media screen and (max-width: 767px) {
+        display: inline-block;
+        margin: 10% 0 0;
+        width: 180px;
+        font-size: 12px;
+        padding: 12px 24px;
+        background-color: transparent;
+        border-radius: 4px;
+        border: 0.5px solid black;
+        max-width: 504px;
+        width: 92%;
       }
     }
   }
