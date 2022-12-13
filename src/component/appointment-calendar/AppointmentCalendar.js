@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { LoadingContext } from '../../contexts/LoadingContext';
@@ -18,6 +19,7 @@ const AppointmentCalendar = ({ userId }) => {
   const [resData, setResData] = useState();
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAppointmentsAvailability(userId).then((res) => {
@@ -40,6 +42,7 @@ const AppointmentCalendar = ({ userId }) => {
     });
     setAlert({ message: data.message, type: 'success' });
     setIsLoadingShown(false);
+    navigate('/make-appointments');
   };
 
   return (
