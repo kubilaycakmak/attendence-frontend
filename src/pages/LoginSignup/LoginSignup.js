@@ -6,17 +6,17 @@ import PasswordForm from '../../component/PasswordForm/PasswordForm';
 import styles from './LoginSignup.module.scss';
 
 const LoginSignup = () => {
-  const { Modal, openModal } = useModal();
+  const { Modal, openModal, closeModal } = useModal();
   return (
     <>
       <Header />
       <div className={styles.login}>
         <Modal isClosable={false}>
-          <PasswordForm />
+          <PasswordForm closeModal={closeModal} />
         </Modal>
         <div className={styles.container}>
           <div className={styles.loginInner}>
-            <LoginSignupForm googleSignupCallback={openModal} />
+            <LoginSignupForm openModal={openModal} />
           </div>
         </div>
       </div>

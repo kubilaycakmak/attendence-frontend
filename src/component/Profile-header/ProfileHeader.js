@@ -6,7 +6,11 @@ const ProfileHeader = ({ profileData }) => {
   return (
     <div className={styles.bigContainer}>
       <div className={styles.img}>
-        <img src={profileData.photo} alt="profile-img" />
+        <img
+          src={profileData.photo}
+          alt="profile-img"
+          referrerpolicy="no-referrer"
+        />
       </div>
       <div className={styles.contentWrapper}>
         <div className={styles.titleContainer}>
