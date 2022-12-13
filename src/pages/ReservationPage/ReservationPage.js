@@ -68,15 +68,12 @@ const ReservationPage = () => {
 
   const getReservationsById = async (id) => {
     await axios
-      .get(
-        `https://attendance-backend-dev.herokuapp.com/api/rooms/${id}/reservations`,
-        {
-          headers: {
-            Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
-          },
-        }
-      )
+      .get(`https://aged-dust-8037.fly.dev/api/rooms/${id}/reservations`, {
+        headers: {
+          Authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
+        },
+      })
       .then((data) => {
         // console.log(data.data)
         setData(data.data);
@@ -84,7 +81,7 @@ const ReservationPage = () => {
   };
   const getRoomById = async (id) => {
     await axios
-      .get(`https://attendance-backend-dev.herokuapp.com/api/rooms/${id}`, {
+      .get(`https://aged-dust-8037.fly.dev/api/rooms/${id}`, {
         headers: {
           Authorization:
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2NjcyNTMwMjAsImV4cCI6MTY4NDUzMzAyMH0.sT3AWJn_ksza4veEPKqwdMFmVbfcDRZABqjFwsjfdXw',
@@ -109,7 +106,7 @@ const ReservationPage = () => {
     e.preventDefault();
     await axios
       .post(
-        `https://attendance-backend-dev.herokuapp.com/api/rooms/reservations`,
+        `https://aged-dust-8037.fly.dev/api/rooms/reservations`,
         requestBody,
         {
           headers: {

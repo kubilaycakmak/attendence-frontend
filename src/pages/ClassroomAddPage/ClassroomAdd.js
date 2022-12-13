@@ -27,12 +27,11 @@ const ClassroomAdd = () => {
     bodyFormData.append('photo', file1);
     await axios
       .post(
-        `https://attendance-backend-dev.herokuapp.com/api/rooms/${id}/update-photo`,
+        `https://aged-dust-8037.fly.dev/api/rooms/${id}/update-photo`,
         bodyFormData,
         {
           headers: {
-            Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2Njk3Njc2NDQsImV4cCI6MTY4NzA0NzY0NH0.Jy9giZEEs-dfrPM_N5zOsAkUFof3qvh4M2aqyptArUI',
+            Authorization: localStorage.getItem('token'),
           },
         }
       )
@@ -74,16 +73,12 @@ const ClassroomAdd = () => {
     e.preventDefault(e);
 
     await axios
-      .post(
-        `https://attendance-backend-dev.herokuapp.com/api/rooms`,
-        requestBody,
-        {
-          headers: {
-            Authorization:
-              'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2Njk3Njc2NDQsImV4cCI6MTY4NzA0NzY0NH0.Jy9giZEEs-dfrPM_N5zOsAkUFof3qvh4M2aqyptArUI',
-          },
-        }
-      )
+      .post(`https://aged-dust-8037.fly.dev/api/rooms`, requestBody, {
+        headers: {
+          Authorization:
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5Y2FAdGVzdC5jb20iLCJ1c2VySWQiOiI2MzYwNDFkZWRkZmEwOWU3NGZlZTQyMjkiLCJpYXQiOjE2Njk3Njc2NDQsImV4cCI6MTY4NzA0NzY0NH0.Jy9giZEEs-dfrPM_N5zOsAkUFof3qvh4M2aqyptArUI',
+        },
+      })
       .then((res) => {
         console.log(res);
         if (res.status === 201) {
@@ -106,7 +101,12 @@ const ClassroomAdd = () => {
               Next
             </button>
           ) : (
-            ''
+            <button
+              className={style.button}
+              onClick={() => navigate('/profile')}
+            >
+              Home
+            </button>
           )}
         </div>
         {page === 1 ? (
