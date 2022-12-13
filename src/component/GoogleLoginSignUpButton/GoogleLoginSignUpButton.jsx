@@ -1,23 +1,40 @@
+import { useContext } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
+import StyledGoogleButton from 'react-google-button';
 import {
   registerWithGoogle,
   loginWithGoogle,
 } from '../../services/auth-service';
+import localStorageHelper from '../../helpers/localStorageHelper';
+import { AlertContext } from '../../contexts/AlertContext';
 
 const GoogleLoginSignUpButton = ({ isLoginPage, openModal }) => {
+  const navigate = useNavigate();
+  const { setAlert } = useContext(AlertContext);
+
   const handleSuccess = async ({ access_token }) => {
     if (isLoginPage) {
-      await loginWithGoogle(access_token);
+      const {
+        data: { message, token },
+        resultType,
+      } = await loginWithGoogle(access_token);
+
+      if (resultType === 'error') {
+        setAlert({ message, type: resultType });
+        return;
+      }
+      localStorageHelper('set', 'token', token);
+      setAlert({});
+      navigate('/profile');
     } else {
-      console.log(
-        'register with google response',
-        await registerWithGoogle(access_token)
-      );
-      // tokenをローカルストレージに入れる
+      const {
+        data: { token },
+      } = await registerWithGoogle(access_token);
+      localStorageHelper('set', 'token', token);
       openModal();
     }
   };
-
   const requestGoogle = useGoogleLogin({
     onSuccess: handleSuccess,
     flow: 'implicit',
@@ -25,9 +42,10 @@ const GoogleLoginSignUpButton = ({ isLoginPage, openModal }) => {
       'email profile openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
   });
   return (
-    <button onClick={() => requestGoogle()}>
-      {isLoginPage ? 'Login' : 'Register'} with Google
-    </button>
+    <StyledGoogleButton
+      onClick={() => requestGoogle()}
+      label={`${isLoginPage ? 'Login' : 'Register'} with Google`}
+    />
   );
 };
 

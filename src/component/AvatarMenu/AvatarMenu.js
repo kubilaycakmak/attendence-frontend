@@ -19,7 +19,7 @@ const AvatarMenu = ({ username, photo }) => {
   return (
     <div className={styles.avatarMenu} ref={menu}>
       <div className={styles.avatarMenu__icon} onClick={showMenu}>
-        <img src={photo} alt="profile image" />
+        <img src={photo} alt="profile image" referrerpolicy="no-referrer" />
         <p>@{username}</p>
       </div>
       <div

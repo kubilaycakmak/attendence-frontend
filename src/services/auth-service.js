@@ -50,17 +50,17 @@ export const loginWithGoogle = async (accessToken) => {
   return await sendAxiosRequest(options);
 };
 
-export const setFirstPassword = async () => {
+export const setFirstPassword = async (newPassword) => {
   const options = {
     method: 'POST',
     url: `${process.env.REACT_APP_URL}/api/auth/set-password`,
     data: {
-      // accessToken,
+      newPassword,
     },
     headers: {
       authorization: `Bearer ${localStorageHelper('get', 'token')}`,
     },
   };
 
-  // maybe we need the jwt token
+  return await sendAxiosRequest(options);
 };

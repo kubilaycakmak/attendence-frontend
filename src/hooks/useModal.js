@@ -9,7 +9,10 @@ const useModal = () => {
     setIsShown(true);
   };
   const closeModal = (e) => {
-    if (e.target === modalOverlay.current) setIsShown(false);
+    console.log('target: ', e.target);
+    console.log('modalOverlay: ', modalOverlay.current);
+    // if (e.target === modalOverlay.current)
+    setIsShown(false);
   };
   /**
    * usage example:

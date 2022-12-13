@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './LoginSignupForm.module.scss';
 import { register } from '../../services/auth-service';
 import { login } from '../../services/auth-service';
-import { useDispatch } from 'react-redux';
-import { authActions } from '../../reducers/auth';
 import { useNavigate } from 'react-router-dom';
 import GoogleLoginSignUpButton from '../GoogleLoginSignUpButton/GoogleLoginSignUpButton';
+import { AlertContext } from '../../contexts/AlertContext';
 
 import localStorageHelper from '../../helpers/localStorageHelper';
 
@@ -17,37 +16,40 @@ const LoginSignupForm = ({ openModal }) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
   const location = useLocation();
+
+  const { setAlert } = useContext(AlertContext);
 
   const isLoginPage = location.pathname.includes('login');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await register(username, fullName, password, email, 'student').then(
-        (res) => {
-          if (res.status === 401) {
-            throw new Error('user already existed');
-          }
-          if (res.status === 201) {
-            setMessage('user added successfully');
-          }
+
+    await register(username, fullName, password, email, 'student').then(
+      ({ data: { message, token }, resultType }) => {
+        if (resultType === 'error') {
+          setAlert({ message, type: resultType });
+          return;
         }
-      );
-    } catch (error) {
-      setMessage(error.message);
-    }
+        localStorageHelper('set', 'token', token);
+        setAlert({});
+        navigate('/profile');
+      }
+    );
   };
   const loginSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password).then((res) => {
-        console.log('res', res);
-        if (res.token) {
-          localStorageHelper('set', 'token', res.token);
-          navigate('/');
+      await login(email, password).then(
+        ({ data: { message, token }, resultType }) => {
+          if (resultType === 'error') {
+            setAlert({ message, type: resultType });
+            return;
+          }
+          localStorageHelper('set', 'token', token);
+          setAlert({});
+          navigate('/profile');
         }
-      });
+      );
     } catch (error) {
       console.log(error.message);
     }
@@ -90,7 +92,6 @@ const LoginSignupForm = ({ openModal }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit">{isLoginPage ? 'SIGN IN' : 'SIGN UP'}</button>
-        <p className={styles.message}>{message}</p>
       </form>
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
