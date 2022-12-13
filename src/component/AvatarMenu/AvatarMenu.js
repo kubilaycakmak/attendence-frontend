@@ -28,7 +28,7 @@ const AvatarMenu = ({ username, photo }) => {
   return (
     <div className={styles.avatarMenu} ref={menu}>
       <div className={styles.avatarMenu__icon} onClick={showMenu}>
-        <img src={photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} alt="profile image" />
+        <img src={photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} alt="profile image" referrerpolicy="no-referrer" />
         <p>@{username}</p>
       </div>
       <div

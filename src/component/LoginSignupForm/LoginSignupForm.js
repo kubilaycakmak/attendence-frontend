@@ -1,62 +1,61 @@
-import React, { useState } from 'react';
-import { GoogleLogin } from 'react-google-login';
+import React, { useState, useContext } from 'react';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './LoginSignupForm.module.scss';
 import { register } from '../../services/auth-service';
 import { login } from '../../services/auth-service';
-import localStorageHelper from '../../helpers/localStorageHelper';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
+import GoogleLoginSignUpButton from '../GoogleLoginSignUpButton/GoogleLoginSignUpButton';
+import { AlertContext } from '../../contexts/AlertContext';
 
-const LoginSignupForm = ({ googleSignupCallback }) => {
+import localStorageHelper from '../../helpers/localStorageHelper';
+
+const LoginSignupForm = ({ openModal }) => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
   const location = useLocation();
 
+  const { setAlert } = useContext(AlertContext);
+
   const isLoginPage = location.pathname.includes('login');
-  const handleGoogleSuccess = (res) => {
-    if (!isLoginPage) googleSignupCallback();
-    // logics for success
-    // console.log(res);
-  };
-  const handleGoogleFailure = (res) => {
-    // logics for failure
-    // console.log(res);
-  };
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       await register(username, fullName, password, email, 'student').then(
-        (res) => {
-          if (res.status === 401) {
-            throw new Error('user already existed');
+        ({ data: { message, token }, resultType }) => {
+          if (resultType === 'error') {
+            setAlert({ message, type: resultType });
+            return;
           }
-          if (res.status === 201) {
-            setMessage('user added successfully');
-          }
-          navigate('/login');
+          localStorageHelper('set', 'token', token);
+          setAlert({});
+          navigate('/profile');
         }
       );
     } catch (error) {
-      setMessage(error.message);
+      console.log(error.message);
     }
   };
   const loginSubmit = async (e) => {
     console.log('login');
     e.preventDefault();
     try {
-      await login(email, password).then((res) => {
-        console.log('res', res);
-        if (res.data.token) {
-          localStorageHelper('set', 'token', res.data.token);
+      await login(email, password).then(
+        ({ data: { message, token }, resultType }) => {
+          if (resultType === 'error') {
+            setAlert({ message, type: resultType });
+            return;
+          }
+          localStorageHelper('set', 'token', token);
+          setAlert({});
           navigate('/profile');
         }
-      });
+      );
     } catch (error) {
       console.log(error.message);
     }
@@ -65,15 +64,12 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     <div className={styles.formWrap}>
       <h1>{isLoginPage ? 'Login' : 'Register'}</h1>
       <div className={styles.googleBtnWrap}>
-        <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-          buttonText={
-            isLoginPage ? 'Sign in with Google' : 'Sign up with Google'
-          }
-          onSuccess={handleGoogleSuccess}
-          onFailure={handleGoogleFailure}
-          cookiePolicy={'single_host_origin'}
-        />
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
+          <GoogleLoginSignUpButton
+            isLoginPage={isLoginPage}
+            openModal={openModal}
+          />
+        </GoogleOAuthProvider>
       </div>
       <hr />
       <form onSubmit={!isLoginPage ? handleSubmit : loginSubmit}>
@@ -104,7 +100,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
         <PrimaryBtn type="submit">
           {isLoginPage ? 'Sign In' : 'Sign Up'}
         </PrimaryBtn>
-        <p className={styles.message}>{message}</p>
+        {/* <p className={styles.message}>{message}</p> */}
       </form>
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
