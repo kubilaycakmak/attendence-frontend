@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AppointmentCalendar from '../../component/appointment-calendar/AppointmentCalendar';
 import ProfileHeader from '../../component/Profile-header/ProfileHeader';
 import styles from './AppointmentCreation.module.scss';
+import { getInformationsUserById } from '../../services/user-service';
 
 // page component for creating appointment
 const AppointmentCreation = () => {
-  // TODO: temp data
+
   const userData = {
     social: {
       discord: 'mydsiscordaccount',
@@ -21,6 +22,23 @@ const AppointmentCreation = () => {
     full_name: 'john doe',
     current_program: 'WMAD',
   };
+
+  // how to get id from url params in react router dom
+  
+  const id = window.location.pathname.split('/')[2];
+  console.log(id);
+  useEffect(() => {
+    callUserInformationById(id);
+  }, [])
+  
+
+  const callUserInformationById = async (id) => {
+    getInformationsUserById(id).then((res) => {
+      console.log('res', res);
+    });
+    // console.log(userInformations);
+  };
+
   return (
     <>
       <div className={styles.mainContent}>

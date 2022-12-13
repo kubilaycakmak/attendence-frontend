@@ -27,6 +27,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
+          {/* <Route path="/forgot-password" element={<LoginSignup />} /> */}
+          {/* <Route path="/new-password/:id" element={<LoginSignup />} /> */}
           {/* Protected routes */}
           <Route element={<ProtectedRoutes />}>
             <Route path="/profile" element={<Profile />} />

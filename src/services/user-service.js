@@ -72,3 +72,14 @@ export const sendVideoLike = async (videoId, isLike) => {
   };
   return await sendAxiosRequest(options);
 };
+
+export const getInformationsUserById = async (id) => {
+  const options = {
+    method: 'GET',
+    url: `${process.env.REACT_APP_URL}/api/users/${id}`,
+    headers: {
+      authorization: `Bearer ${localStorageHelper('get', 'token')}`,
+    },
+  };
+  return await sendAxiosRequest(options);
+}
