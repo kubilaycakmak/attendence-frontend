@@ -14,6 +14,8 @@ import ReservationPage from './pages/ReservationPage/ReservationPage';
 import './App.css';
 import ClassroomAdd from './pages/ClassroomAddPage/ClassroomAdd';
 import AppointmentCreation from './pages/AppointmentCreation/AppointmentCreation';
+import ForgetPasswordPage from './pages/ForgetPassword/ForgetPasswordPage';
+import NewPasswordPage from './pages/NewPassword/NewPasswordPage';
 
 function App() {
   const { isLoadingShown } = useContext(LoadingContext);
@@ -27,9 +29,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
-          {/* <Route path="/forgot-password" element={<LoginSignup />} /> */}
-          {/* <Route path="/new-password/:id" element={<LoginSignup />} /> */}
-          {/* Protected routes */}
+          <Route path="/forgot-password" element={<ForgetPasswordPage />}/>
+          <Route path="/new-password/:id" element={<NewPasswordPage />}/>
           <Route element={<ProtectedRoutes />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/reservation" element={<ReservationPage />} />

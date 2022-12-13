@@ -4,6 +4,7 @@ import styles from './NewPassword.module.scss'
 import CampImage from '../CampImage/CampImage'
 import { newPassword } from '../../services/auth-service'
 import { useSearchParams } from "react-router-dom";
+import SecondaryBtn from '../ui/Modal/Btn/SecondaryBtn'
 
 const NewPassword = () => {
   const { id } = useParams();
@@ -16,14 +17,14 @@ const NewPassword = () => {
   // get token from url slug..
 
   const handleSubmit = async() => {
-    let token = searchParams.get("token");
     if(password !== password2){
       setMessage("Please enter passwords same")
     }
     try {
-      await newPassword(id, password, token).then(
+      await newPassword(id, password).then(
         (res) => {
-          if (res.status === 200) {
+          console.log(res);
+          if (res.resultType === "success") {
             navigate("/login")
           }
         }
@@ -54,7 +55,8 @@ const NewPassword = () => {
         className={styles.input}
       ></input>
       {message && <p className='mb-3'>{message}</p>}
-      <button className={styles.button} onClick={handleSubmit}>Submit</button>
+      <SecondaryBtn action={handleSubmit}>Submit</SecondaryBtn>
+      {/* <button className={styles.button} onClick={handleSubmit}>Submit</button> */}
       <CampImage className={styles.image} />
     </div>
   )

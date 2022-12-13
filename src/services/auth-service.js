@@ -27,6 +27,25 @@ export const login = async (email, password) => {
   return await sendAxiosRequest(options);
 };
 
+export const forgetPassword = async (email) => {
+  const options = {
+    method: 'POST',
+    url: `${process.env.REACT_APP_URL}/api/auth/forgot-password`,
+    data: { email },
+  };
+  return await sendAxiosRequest(options);
+}
+
+export const newPassword = async (token, password) => {
+  const options = {
+    method: 'POST',
+    url: `${process.env.REACT_APP_URL}/api/auth/new-password`,
+    data: { token, password },
+  };
+  return await sendAxiosRequest(options);
+}
+
+
 // export const forget = (email) => {
 //   return axios.post(`${process.env.REACT_APP_URL}/api/auth/forgot-password`, {
 //     email,

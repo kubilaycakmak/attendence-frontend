@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './ForgetPassword.module.scss'
 import CampImage from '../CampImage/CampImage'
-import { forget } from '../../services/auth-service'
-
+import { forgetPassword } from '../../services/auth-service'
+import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
+import SecondaryBtn from '../ui/Modal/Btn/SecondaryBtn'
 
 const ForgetPassword = () => {
   const navigate = useNavigate();
@@ -13,12 +14,13 @@ const ForgetPassword = () => {
 
   const handleSubmit = async (e) => {
     try {
-      await forget(email).then(
+      await forgetPassword(email).then(
         (res) => {
+          console.log(res);
           if (res.status === 401) {
             throw new Error("user already existed");
           }
-          if (res.status === 200) {
+          if (res.resultType === "success") {
             navigate("/login")
             setMessage("Please check your email inbox!");
           }
@@ -28,9 +30,6 @@ const ForgetPassword = () => {
       setMessage(error.message);
     }
   }
-
-
-
 
   return (
     <div className={styles.form} >
@@ -42,7 +41,8 @@ const ForgetPassword = () => {
         placeholder='joe@gmail.com'
         className={styles.input}
       ></input>
-      <button onClick={handleSubmit} className={styles.button}>Submit</button>
+      <SecondaryBtn action={handleSubmit} >Submit</SecondaryBtn>
+      {/* <button onClick={handleSubmit} className={styles.button}>Submit</button> */}
       <CampImage className={styles.image} />
     </div>
   )
