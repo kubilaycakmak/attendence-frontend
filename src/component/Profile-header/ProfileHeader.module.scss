@@ -47,6 +47,8 @@
 }
 
 .titleContainer {
+  width: 100%;
+  flex-wrap: nowrap;
   .title {
     font-size: 32px;
     text-transform: capitalize;

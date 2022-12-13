@@ -49,14 +49,14 @@
   font-family: 'Poppins', sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 48px;
+  font-size: 36px;
   margin-top: 0.5em;
-  line-height: 72px;
+  line-height: 52px;
   color: #000000;
   text-align: left;
   @media screen and (max-width: 767px) {
-    font-size: 36px;
-    line-height: 46px;
+    font-size: 26px;
+    line-height: 36px;
   }
 }
 .button {
@@ -112,4 +112,8 @@
     margin: 0px auto;
     max-width: 504px;
   }
+}
+
+.button{
+  margin-top: 16px;
 }

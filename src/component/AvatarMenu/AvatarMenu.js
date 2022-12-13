@@ -1,6 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './AvatarMenu.module.scss';
+import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import styles from "./AvatarMenu.module.scss";
+// import { useDispatch } from "react-redux";
+// import { useNavigate } from "react-router-dom";
+// import { authActions } from "../../reducers/auth";
 
 const AvatarMenu = ({ username, photo }) => {
   const [isMenuShown, setIsMenuShown] = useState(false);
@@ -9,22 +12,29 @@ const AvatarMenu = ({ username, photo }) => {
     setIsMenuShown((prev) => !prev);
   };
   useEffect(() => {
-    document.addEventListener('click', (e) => {
+    document.addEventListener("click", (e) => {
       if (!menu.current.contains(e.target)) {
         setIsMenuShown(false);
       }
     });
   }, []);
 
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    // dispatch(authActions.logout());
+    // console.log("logout");
+    // navigate("/");
+  };
+
   return (
     <div className={styles.avatarMenu} ref={menu}>
       <div className={styles.avatarMenu__icon} onClick={showMenu}>
-        <img src={photo} alt="profile image" />
+        <img src={photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} alt="profile image" />
         <p>@{username}</p>
       </div>
       <div
         className={`${styles.avatarMenu__menuWrap} ${
-          isMenuShown ? styles.isShown : ''
+          isMenuShown ? styles.isShown : ""
         }`}
       >
         <ul className={styles.avatarMenu__menu}>
@@ -39,6 +49,9 @@ const AvatarMenu = ({ username, photo }) => {
           </li>
           <li>
             <Link to="/profile?tab=reservations">My Reservations</Link>
+          </li>
+          <li>
+            <Link onClick={logoutHandler}>Logout</Link>
           </li>
         </ul>
       </div>

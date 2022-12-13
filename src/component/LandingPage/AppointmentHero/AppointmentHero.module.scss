@@ -52,9 +52,9 @@
   }
   & h1 {
     font-family: Poppins;
-    font-size: 32px;
+    font-size:26px;
     font-weight: 500;
-    line-height: 48px;
+    line-height: 36px;
     text-align: center;
 
     //   @media screen and (min-width: 768px) {
@@ -62,15 +62,15 @@
     //     }
 
     @media (min-width: 768px) and (max-width: 1248px) {
-      font-size: 48px;
+      font-size: 36px;
       text-align: left;
-      line-height: 72px;
+      line-height: 52px;
     }
 
     @media (min-width: 1249px) {
-      font-size: 48px;
+      font-size: 36px;
       text-align: left;
-      line-height: 72px;
+      line-height: 52px;
     }
   }
 }
@@ -161,4 +161,8 @@
       display: block;
     }
   }
+}
+
+.button{
+  margin-top: 12px !important;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './AppointmentHero.module.scss';
-import imageMob from '../../images/img_for_appointment_mob.png';
-import imageWeb from '../../images/img_for_appointment_web.png';
+import imageMob from '../../../images/img_for_appointment_mob.png';
+import imageWeb from '../../../images/img_for_appointment_web.png';
 //import image from "../../images/img_for_appointment.svg"
 
 export const AppointmentHero = ({ className }) => {
@@ -9,7 +9,7 @@ export const AppointmentHero = ({ className }) => {
     <div className={`${classes.global_container} ${className}`}>
       <div>
         <div className={classes.appointment_wrapper}>
-          <p>Appoinment</p>
+          <p>Appointment</p>
         </div>
         <div className={classes.sentence_wrapper}>
           <h1>Request a meeting from our professional team.</h1>

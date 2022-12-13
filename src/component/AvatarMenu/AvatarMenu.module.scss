@@ -5,10 +5,10 @@
   box-sizing: border-box;
   cursor: pointer;
   position: absolute;
-  top: 0;
+  top: 16px;
   transition: opacity 100ms ease;
-  right: 0;
-  max-width: 172px;
+  right: 64px;
+  max-width: auto;
   min-width: 130px;
   width: 35%;
   z-index: 10;
@@ -16,7 +16,7 @@
     display: none;
   }
   @include for-pc-screen {
-    width: 172px;
+    width: auto;
   }
   &__icon,
   &__menu {
@@ -30,6 +30,11 @@
     padding: 0.3em;
     margin: 5px 5px 0 0;
     transition: opacity 100ms;
+    p{
+      padding: 0 6px 0 0;
+      // border: 1px solid black;
+      // max-width: 40%;
+    }
     @include hover-opacity;
     img {
       margin-right: 0.5em;

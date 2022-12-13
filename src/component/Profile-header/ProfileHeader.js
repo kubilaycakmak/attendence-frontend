@@ -6,7 +6,7 @@ const ProfileHeader = ({ profileData }) => {
   return (
     <div className={styles.bigContainer}>
       <div className={styles.img}>
-        <img src={profileData.photo} alt="profile-img" />
+        <img src={profileData.photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} alt="profile-img" />
       </div>
       <div className={styles.contentWrapper}>
         <div className={styles.titleContainer}>

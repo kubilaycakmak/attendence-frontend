@@ -38,6 +38,7 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           if (res.status === 201) {
             setMessage('user added successfully');
           }
+          navigate('/login');
         }
       );
     } catch (error) {
@@ -45,13 +46,14 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
     }
   };
   const loginSubmit = async (e) => {
+    console.log('login');
     e.preventDefault();
     try {
       await login(email, password).then((res) => {
         console.log('res', res);
-        if (res.token) {
-          localStorageHelper('set', 'token', res.token);
-          navigate('/');
+        if (res.data.token) {
+          localStorageHelper('set', 'token', res.data.token);
+          navigate('/profile');
         }
       });
     } catch (error) {
@@ -98,19 +100,19 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isLoginPage ? 'SIGN IN' : 'SIGN UP'}</button>
+        <button type="submit">{isLoginPage ? 'Sign In' : 'Sign Up'}</button>
         <p className={styles.message}>{message}</p>
       </form>
       <div className={styles.otherOptions}>
         {!isLoginPage ? (
           <>
-            <Link to="/login">If you have an account already please login</Link>
+            <Link to="/login">Have an account already? Log in</Link>
           </>
         ) : (
           <>
-            <Link to="/signup">If you don't have an account - register</Link>
-            <Link to="/forgot-password">Forgot your password</Link>
-            <Link to="/guest">Continue as guest</Link>
+            <Link to="/register">Don't have an account? Sign up</Link>
+            <Link to="/forgot-password">Forgot password?</Link>
+            <Link to="#" style={{opacity: .5}}>Continue as guest</Link>
           </>
         )}
       </div>

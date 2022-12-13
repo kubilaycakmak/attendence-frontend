@@ -1,5 +1,5 @@
 import React from 'react';
-import ManReadBook from '../../assets/imgs/man-reading-book.svg';
+import ManReadBook from '../../../assets/imgs/man-reading-book.svg';
 import styles from './FindLocationHero.module.scss';
 
 const FindLocationHero = ({ className }) => {

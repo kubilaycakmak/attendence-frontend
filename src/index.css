@@ -1,4 +1,4 @@
-/* @import 'bootstrap/dist/css/bootstrap.min.css'; */
+@import 'bootstrap/dist/css/bootstrap.min.css';
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -59,4 +59,8 @@ code {
 .lkjDVC{
   border:solid 0.3px black !important;
   min-height:126px !important;
+}
+
+p{
+  margin-bottom: 0 !important;
 }

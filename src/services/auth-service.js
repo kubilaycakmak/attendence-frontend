@@ -26,3 +26,17 @@ export const login = async (email, password) => {
   };
   return await sendAxiosRequest(options);
 };
+
+// export const forget = (email) => {
+//   return axios.post(`${process.env.REACT_APP_URL}/api/auth/forgot-password`, {
+//     email,
+//   });
+// };
+
+// export const newPassword = (id, password, token) => {
+//   return axios.post(`${process.env.REACT_APP_URL}/api/auth/new-password`, {
+//     id,
+//     password,
+//     token
+//   });
+// };

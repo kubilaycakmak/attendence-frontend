@@ -1,4 +1,3 @@
 export const data = [
-  { id: 1, tag: "Student", name: "Jane" },
-  { id: 2, tag: "Teacher", name: "Larry" },
+  "Student", "Teacher", "TA", "Co-op Manager", "Coordinator"
 ]
