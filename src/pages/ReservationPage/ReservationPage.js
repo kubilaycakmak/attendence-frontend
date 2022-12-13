@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import '../../App.css';
 import FullCalendar from '../../component/FullCalendar/FullCalendar';
 import Sidebar from '../../component/Sidebar/Sidebar';
 import Time from '../../component/Time/Time';
@@ -124,15 +123,20 @@ const ReservationPage = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
-      <RoomCart data={data} room={roomData} />
-      <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
-      <Week callback={callBackForWeeklyInfomation} weeklyInput={weeklyInput} />
-      <Time startTimeProps={startTime} endTimeProps={endTime} />
-      <button className={style.button} onClick={postData}>
-        Continue{' '}
-      </button>
-    </div>
+    <>
+      <div>
+        <RoomCart data={data} room={roomData} />
+        <FullCalendar data={data} startDateF={startDate} endDateF={endDate} />
+        <Week
+          callback={callBackForWeeklyInfomation}
+          weeklyInput={weeklyInput}
+        />
+        <Time startTimeProps={startTime} endTimeProps={endTime} />
+        <button className={style.button} onClick={postData}>
+          Continue{' '}
+        </button>
+      </div>
+    </>
   );
 };
 

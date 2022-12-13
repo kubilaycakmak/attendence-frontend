@@ -7,6 +7,7 @@ import { login } from '../../services/auth-service';
 import localStorageHelper from '../../helpers/localStorageHelper';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
 
 const LoginSignupForm = ({ googleSignupCallback }) => {
   const navigate = useNavigate();
@@ -98,7 +99,9 @@ const LoginSignupForm = ({ googleSignupCallback }) => {
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">{isLoginPage ? 'SIGN IN' : 'SIGN UP'}</button>
+        <PrimaryBtn type="submit">
+          {isLoginPage ? 'SIGN IN' : 'SIGN UP'}
+        </PrimaryBtn>
         <p className={styles.message}>{message}</p>
       </form>
       <div className={styles.otherOptions}>
