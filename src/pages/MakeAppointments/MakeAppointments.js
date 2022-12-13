@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { fetchStaffUsers } from '../../services/user-service';
+import { fetchStaffUsers } from '../../services/userService';
 import FilterView from '../../component/Staff-filter/FilterView';
 import styles from './MakeAppointments.module.scss';
 

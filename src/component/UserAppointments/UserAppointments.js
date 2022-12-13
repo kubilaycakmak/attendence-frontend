@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { cancelAppointment } from '../../services/user-service';
+import { cancelAppointment } from '../../services/userService';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { AlertContext } from '../../contexts/AlertContext';
 import AppointmentCard from '../AppointmentCard/AppointmentCard';

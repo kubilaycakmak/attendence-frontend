@@ -4,10 +4,10 @@ import moment from 'moment';
 import { useSelector } from 'react-redux';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { AlertContext } from '../../contexts/AlertContext';
-import { postAppointment } from '../../services/user-service';
+import { postAppointment } from '../../services/userService';
 import AppointmentBtn from './AppointmentBtn';
 import CustomCalendar from '../calendar/CustomCalendar';
-import { getAppointmentsAvailability } from '../../services/user-service';
+import { getAppointmentsAvailability } from '../../services/userService';
 import styles from './AppointmentCalendar.module.scss';
 
 const AppointmentCalendar = ({ userId }) => {

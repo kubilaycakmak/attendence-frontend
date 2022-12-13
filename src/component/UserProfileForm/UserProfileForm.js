@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useContext, useState } from 'react';
 import { AlertContext } from '../../contexts/AlertContext';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { v4 as uuidv4 } from 'uuid';
-import { updateProfileInfo } from '../../services/user-service';
+import { updateProfileInfo } from '../../services/userService';
 import FormField from '../ui/FormField/FormField';
 import checkEquality from '../../utils/checkEquality';
 import styles from './UserProfileForm.module.scss';

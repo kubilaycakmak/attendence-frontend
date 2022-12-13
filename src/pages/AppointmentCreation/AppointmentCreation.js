@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchSingleUserInfo } from '../../services/user-service';
+import { fetchSingleUserInfo } from '../../services/userService';
 import AppointmentCalendar from '../../component/appointment-calendar/AppointmentCalendar';
 import ProfileHeader from '../../component/Profile-header/ProfileHeader';
 import styles from './AppointmentCreation.module.scss';
