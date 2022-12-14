@@ -7,8 +7,6 @@ const [roleName,setRoleName] = useState([]);
 
 
 useEffect(()=>{
-    console.log(role);
-    console.log(activeList)
     if(role === "Co-op Manager"){
         return setRoleName("Co-opManager");
     }else{

@@ -2,14 +2,15 @@ import React, { useState, useContext } from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './LoginSignupForm.module.scss';
-import { register } from '../../services/auth-service';
-import { login } from '../../services/auth-service';
+import { register, login } from '../../services/authService';
+import localStorageHelper from '../../helpers/localStorageHelper';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
 import GoogleLoginSignUpButton from '../GoogleLoginSignUpButton/GoogleLoginSignUpButton';
 import { AlertContext } from '../../contexts/AlertContext';
 
-import localStorageHelper from '../../helpers/localStorageHelper';
+// import localStorageHelper from '../../helpers/localStorageHelper';
 
 const LoginSignupForm = ({ openModal }) => {
   const navigate = useNavigate();

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './ForgetPassword.module.scss'
 import CampImage from '../CampImage/CampImage'
-import { forgetPassword } from '../../services/auth-service'
+import { forgetPassword } from '../../services/authService'
 import PrimaryBtn from '../ui/Modal/Btn/PrimaryBtn';
 import SecondaryBtn from '../ui/Modal/Btn/SecondaryBtn'
 

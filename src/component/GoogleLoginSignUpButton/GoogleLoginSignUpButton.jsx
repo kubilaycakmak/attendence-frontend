@@ -6,7 +6,7 @@ import './GoogleLoginSignUpButton.scss';
 import {
   registerWithGoogle,
   loginWithGoogle,
-} from '../../services/auth-service';
+} from '../../services/authService';
 import localStorageHelper from '../../helpers/localStorageHelper';
 import { AlertContext } from '../../contexts/AlertContext';
 

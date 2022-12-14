@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { setFirstPassword } from '../../services/auth-service';
+import { setFirstPassword } from '../../services/authService';
 import styles from './PasswordForm.module.scss';
 import { AlertContext } from '../../contexts/AlertContext';
 

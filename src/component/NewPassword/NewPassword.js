@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import styles from './NewPassword.module.scss'
 import CampImage from '../CampImage/CampImage'
-import { newPassword } from '../../services/auth-service'
+import { newPassword } from '../../services/authService'
 import { useSearchParams } from "react-router-dom";
 import SecondaryBtn from '../ui/Modal/Btn/SecondaryBtn'
 
