@@ -7,7 +7,7 @@ const ProfileHeader = ({ profileData }) => {
     <div className={styles.bigContainer}>
       <div className={styles.img}>
         <img 
-          alt="profile-img" src={profileData.photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} />
+          alt="profile-img" referrerPolicy="no-referrer"  src={profileData.photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} />
       </div>
       <div className={styles.contentWrapper}>
         <div className={styles.titleContainer}>
