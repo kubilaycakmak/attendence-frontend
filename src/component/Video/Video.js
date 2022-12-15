@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { sendVideoLike } from '../../services/user-service';
+import { sendVideoLike } from '../../services/userService';
 import Loading from '../Loading/Loading';
 import styles from './Video.module.scss';
 

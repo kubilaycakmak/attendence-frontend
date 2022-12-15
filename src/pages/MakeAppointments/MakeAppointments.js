@@ -1,11 +1,41 @@
 import React, { useEffect, useState } from 'react';
+import { fetchStaffUsers } from '../../services/userService';
 import FilterView from '../../component/Staff-filter/FilterView';
-import userDatas from '../../component/AppointmentCard/userData.json';
 import styles from './MakeAppointments.module.scss';
 
 const MakeAppointments = () => {
-  const [filtered, setFiltered] = useState(['All']);
+  const [initialUsers, setInitialUsers] = useState([]);
   const [users, setUsers] = useState([]);
+  const [filtered, setFiltered] = useState(['All']);
+
+  useEffect(() => {
+    fetchStaffUsers().then((data) => {
+      console.log(data);
+      setInitialUsers(data.data.users);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!initialUsers.length) return;
+    if (filtered.length == 0) setFiltered(['All']);
+
+    if (filtered.includes('All')) {
+      setUsers(initialUsers);
+    } else {
+      let unique = [];
+      let arr = [];
+
+      for (let i = 0; i < initialUsers.length; i++) {
+        for (let j = 0; j < initialUsers[i].role.length; j++) {
+          if (filtered.includes(initialUsers[i].role[j])) {
+            arr.push(initialUsers[i]);
+            unique = [...new Set(arr)];
+          }
+        }
+      }
+      setUsers(unique);
+    }
+  }, [initialUsers, filtered]);
 
   const onClickFunction = (role) => {
     if (role === 'All' || filtered.length == 0) {
@@ -31,38 +61,19 @@ const MakeAppointments = () => {
     }
   };
 
-  useEffect(() => {
-    if (filtered.length == 0) setFiltered(['All']);
-
-    if (filtered.includes('All')) {
-      setUsers(userDatas);
-    } else {
-      let unique = [];
-      let arr = [];
-
-      for (let i = 0; i < userDatas.length; i++) {
-        for (let j = 0; j < userDatas[i].role.length; j++) {
-          if (filtered.includes(userDatas[i].role[j])) {
-            arr.push(userDatas[i]);
-            unique = [...new Set(arr)];
-          }
-        }
-      }
-      setUsers(unique);
-    }
-  }, [filtered]);
-
   return (
     <>
-      <div className={styles.wrapper}>
-        <div className={styles.mainContent}>
-          <FilterView
-            userData={users}
-            filteredRole={filtered}
-            onClickFunction={onClickFunction}
-          />
+      {initialUsers.length && (
+        <div className={styles.wrapper}>
+          <div className={styles.mainContent}>
+            <FilterView
+              userData={users}
+              filteredRole={filtered}
+              onClickFunction={onClickFunction}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };

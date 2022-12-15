@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { cancelAppointment } from '../../services/user-service';
+import { cancelAppointment } from '../../services/userService';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { AlertContext } from '../../contexts/AlertContext';
 import AppointmentCard from '../AppointmentCard/AppointmentCard';
@@ -33,6 +33,7 @@ const UserAppointments = ({ userData }) => {
                 description={appointment.datetime}
                 buttonText="Cancel Appointment"
                 clickHandler={() => handleClick(appointment._id)}
+                status={appointment.status}
               />
             ))
           ) : (
