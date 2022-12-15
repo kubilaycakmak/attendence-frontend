@@ -20,8 +20,10 @@ const ProfileTabBtn = ({ userData }) => {
   ];
 
   useEffect(() => {
+    let tab = searchParams.get("tab") || "Information";
+
     data.forEach((item) => {
-      if (item.text.toLowerCase() == searchParams.get("tab").toLowerCase()) {
+      if (item.text.toLowerCase() == tab.toLowerCase()) {
         setIsActive(item.id);
       }
     });
