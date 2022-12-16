@@ -1,15 +1,19 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import styles from './ProfileTabBtn.module.scss';
 import UserProfileForm from '../UserProfileForm/UserProfileForm';
 import UserAppointments from '../UserAppointments/UserAppointments';
 import UserVideos from '../UserVideos/UserVideos';
 import queryString from 'query-string';
 import { useSearchParams } from 'react-router-dom';
+import { fetchProfileInfo } from '../../services/userService';
+import { SAVE_USER_DATA } from '../../store/user/userActionTypes';
 
 const ProfileTabBtn = ({ userData }) => {
   const [isActive, setIsActive] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
 
   const data = [
     { id: 1, text: 'Information', msg: 'msg', read: true },
@@ -20,17 +24,20 @@ const ProfileTabBtn = ({ userData }) => {
   ];
 
   useEffect(() => {
-    let tab = searchParams.get("tab") || "Information";
+    let tab = searchParams.get('tab') || 'Information';
 
     data.forEach((item) => {
       if (item.text.toLowerCase() == tab.toLowerCase()) {
         setIsActive(item.id);
       }
     });
-  }, [searchParams.get("tab")])
-  
+  }, [searchParams.get('tab')]);
 
   const handleClick = (id) => {
+    console.log('hey');
+    fetchProfileInfo().then(({ data }) => {
+      dispatch({ type: SAVE_USER_DATA, payload: data });
+    });
     setIsActive(id);
   };
 
