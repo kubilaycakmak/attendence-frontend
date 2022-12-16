@@ -2,20 +2,18 @@ import React, { useState } from 'react';
 import styles from './Week.module.scss';
 import SecondaryBtn from '../../component/ui/Modal/Btn/SecondaryBtn';
 
-const Week = ({ callback, weeklyInput }) => {
-  const [weekly, setWeekly] = useState(false);
+const Week = ({ callback, duration, weekly, weeklyInput }) => {
   const [input, setInput] = useState(0);
   //   const [selected, setSelected] = useState(0)
 
   const handleClick = (week) => {
     console.log(week);
+    weeklyInput(week);
     callback(week);
-    setWeekly(week);
   };
 
   const handleInput = (val) => {
-    setInput(val);
-    weeklyInput(val);
+    callback(val);
   };
 
   return (
@@ -24,14 +22,18 @@ const Week = ({ callback, weeklyInput }) => {
         <h3 className={styles.title}> 2 - Weekly or Non-Weekly</h3>
         <div className={styles.buttonContainer}>
           <button
-            className={weekly ? styles.activeButton : styles.button}
-            onClick={() => handleClick(true)}
+            className={`${styles.button} ${
+              weekly === 'weekly' && styles.activeButton
+            }`}
+            onClick={() => weeklyInput('weekly')}
           >
             Weekly
           </button>
           <button
-            className={!weekly ? styles.activeButton : styles.button}
-            onClick={() => handleClick(false)}
+            className={`${styles.button} ${
+              weekly === 'non_weekly' && styles.activeButton
+            }`}
+            onClick={() => weeklyInput('non_weekly')}
           >
             Non-Weekly
           </button>
@@ -47,7 +49,7 @@ const Week = ({ callback, weeklyInput }) => {
               max="52"
               className={styles.input}
               placeholder="up to 52"
-              value={input}
+              value={duration}
               onChange={(e) => handleInput(e.target.value)}
             />
           </div>

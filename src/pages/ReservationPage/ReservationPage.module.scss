@@ -1,10 +1,26 @@
 @import '../../scss/variables';
 @import '../../scss/utils';
 
+.mainContent {
+  max-width: 1400px;
+  padding: 90px 4% 4%;
+  @include for-pc-screen {
+    height: 100%;
+    padding: 4%;
+    position: fixed;
+    left: 250px;
+    overflow-y: scroll;
+    width: calc(100% - 250px);
+  }
+  h1 {
+    @include for-mobile-screen {
+      text-align: center;
+    }
+  }
+}
 .button {
   font-family: 'Poppins';
   margin-top: 24px;
-  margin-left: 300px;
   margin-bottom: 24px;
   background-color: black;
   color: white;
@@ -19,14 +35,16 @@
     color: black;
     transition: 0.5s;
   }
-}
-
-@media screen and (max-width: 768px) {
-  .button {
+  @include for-mobile-screen {
     margin: 24px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+  }
+  @include for-pc-screen {
+    max-width: 300px;
+    width: 30%;
   }
 }

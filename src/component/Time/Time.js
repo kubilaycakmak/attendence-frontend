@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import TextField from '@mui/material/TextField'
-import { TimePicker } from '@mui/x-date-pickers/TimePicker'
-import styles from './Time.module.scss'
-import moment from 'moment'
+import React, { useState, useEffect } from 'react';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import TextField from '@mui/material/TextField';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import styles from './Time.module.scss';
+import moment from 'moment';
 
 const Time = ({ startTimeProps, endTimeProps }) => {
-  const [startTime, setStartTime] = useState(null)
-  const [endTime, setEndTime] = useState(null)
-  const [error, setError] = useState('')
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [error, setError] = useState('');
 
   // const handleDate = (e) => {
   //   console.log(e)
@@ -31,14 +31,14 @@ const Time = ({ startTimeProps, endTimeProps }) => {
   // }
 
   const handleStartTime = (val) => {
-    setStartTime(val)
-    startTimeProps(val)
-  }
+    setStartTime(val);
+    startTimeProps(val);
+  };
 
   const handleEndTime = (val) => {
-    setEndTime(val)
-    endTimeProps(val)
-  }
+    setEndTime(val);
+    endTimeProps(val);
+  };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -46,9 +46,8 @@ const Time = ({ startTimeProps, endTimeProps }) => {
         <h3 className={styles.title}>3 - Select Hour</h3>
         <div className={styles.wrapper}>
           <label>Start Time</label>
-          <br />
           <TimePicker
-            label='Start Time'
+            label="Start Time"
             value={startTime}
             onChange={(e) => handleStartTime(e)}
             renderInput={(params) => <TextField {...params} />}
@@ -57,9 +56,8 @@ const Time = ({ startTimeProps, endTimeProps }) => {
         </div>
         <div className={styles.wrapper}>
           <label>End Time</label>
-          <br />
           <TimePicker
-            label='End Time'
+            label="End Time"
             value={endTime}
             onChange={(e) => handleEndTime(e)}
             renderInput={(params) => <TextField {...params} />}
@@ -68,7 +66,7 @@ const Time = ({ startTimeProps, endTimeProps }) => {
         {error && <div>{error}</div>}
       </form>
     </LocalizationProvider>
-  )
-}
+  );
+};
 
-export default Time
+export default Time;

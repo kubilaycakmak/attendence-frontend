@@ -1,12 +1,12 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .container {
   text-align: left;
-  position: relative;
-  left: 300px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+  @include for-pc-screen {
+    max-width: 400px;
+  }
 }
 .title {
   text-align: left;
@@ -15,23 +15,28 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 40px;
 }
 .contain {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   .buttonContainer {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
   .button {
     background: #ffffff;
     border: 1px solid #686868;
     border-radius: 3px;
-    padding: 12px 16px;
-    margin: 10px;
+    padding: 0.6rem 0;
+    width: 50%;
+    & + .button {
+      margin-left: 1rem;
+    }
   }
 
   .button:hover {
@@ -49,7 +54,7 @@
   .input {
     background: #ffffff;
     padding: 12px 16px;
-    width: 208px;
+    width: 100%;
     border: 1px solid #686868;
     border-radius: 3px;
   }
@@ -66,10 +71,12 @@
 .activeButton {
   border: 1px solid #686868;
   border-radius: 3px;
-  padding: 12px 16px;
-  margin: 10px;
   color: white;
   background-color: black !important;
+  padding: 0.4rem 1.8rem;
+}
+.duration {
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   .container {
@@ -87,7 +94,6 @@
   .duration {
     .inputContainer {
       margin-top: 10px;
-      margin-left: -90px;
     }
   }
 }

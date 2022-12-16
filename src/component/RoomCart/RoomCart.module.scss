@@ -1,7 +1,10 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
 .roomCartContainer {
   display: flex;
+  align-items: center;
   flex-direction: row;
-  margin-left: 300px;
   margin-top: 50px;
   margin-bottom: 32px;
 }
@@ -13,6 +16,9 @@
   }
 }
 .roomDesc {
+  @include for-pc-screen {
+    margin-left: 20px;
+  }
   .roomName {
     font-family: 'Poppins';
     font-style: normal;
@@ -22,7 +28,6 @@
     display: flex;
     align-items: center;
     color: #000000;
-    margin-left: 24px;
     margin-bottom: 12px;
   }
   .roomDirection {
@@ -57,7 +62,7 @@
 }
 @media screen and (max-width: 768px) {
   .roomCartContainer {
-    margin: 48px auto !important;
+    margin: 0 auto !important;
     display: flex;
     flex-direction: column;
     justify-content: center;

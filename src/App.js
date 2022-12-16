@@ -29,15 +29,18 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<LoginSignup />} />
           <Route path="/login" element={<LoginSignup />} />
-          <Route path="/forgot-password" element={<ForgetPasswordPage />}/>
-          <Route path="/new-password/:id" element={<NewPasswordPage />}/>
+          <Route path="/forgot-password" element={<ForgetPasswordPage />} />
+          <Route path="/new-password/:id" element={<NewPasswordPage />} />
           <Route element={<ProtectedRoutes />}>
             <Route path="/profile" element={<Profile />} />
-            <Route path="/reservation" element={<ReservationPage />} />
             <Route path="/add-new-room" element={<ClassroomAdd />} />
             <Route
               path="/make-room-reservations"
               element={<MakeRoomReservations />}
+            />
+            <Route
+              path="/make-room-reservations/rooms/:roomId"
+              element={<ReservationPage />}
             />
             <Route path="/make-appointments" element={<MakeAppointments />} />
             <Route

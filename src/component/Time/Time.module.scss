@@ -1,12 +1,12 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 .container {
   text-align: left;
-  position: relative;
-  left: 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  @include for-pc-screen {
+    max-width: 400px;
+  }
 }
 
 .title {
@@ -16,12 +16,15 @@
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  margin-top: 24px;
+  margin-top: 40px;
 }
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 328px;
+  width: 100%;
+  & + .wrapper {
+    margin-top: 20px;
+  }
 }
 label {
   font-family: 'Poppins';
@@ -29,6 +32,7 @@ label {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {
