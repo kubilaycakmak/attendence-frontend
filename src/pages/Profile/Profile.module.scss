@@ -1,0 +1,15 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.mainContent {
+  max-width: 1400px;
+  padding: 90px 4% 4%;
+  @include for-pc-screen {
+    height: 100%;
+    padding: 4%;
+    position: fixed;
+    left: 250px;
+    overflow-y: scroll;
+    width: calc(100% - 250px);
+  }
+}

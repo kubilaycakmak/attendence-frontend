@@ -1,0 +1,79 @@
+.roomCartContainer {
+  display: flex;
+  flex-direction: row;
+  margin-left: 300px;
+  margin-top: 50px;
+  margin-bottom: 32px;
+}
+.roomImageContainer {
+  .roomImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+  }
+}
+.roomDesc {
+  .roomName {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin-left: 24px;
+    margin-bottom: 12px;
+  }
+  .roomDirection {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    margin-left: 24px;
+    margin-bottom: 12px;
+  }
+
+  .roomAvailable {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+  }
+
+  .text {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .roomCartContainer {
+    margin: 48px auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &h1,
+    h2,
+    h3,
+    h4,
+    p {
+      // text-align: center !important;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .roomImageContainer {
+    left: 0px;
+    margin: 20px 20px !important;
+  }
+}

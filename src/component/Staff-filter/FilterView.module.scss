@@ -1,0 +1,45 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.upperContainer {
+  text-align: center;
+  @include for-pc-screen {
+    text-align: left;
+  }
+  & .titleWrapper {
+    margin-bottom: 30px;
+    & .filterTitle {
+      font-size: 36px;
+    }
+  }
+}
+.tagsWrapper {
+  & .filterText {
+    padding-right: 7px;
+    font-family: Poppins;
+    font-size: 12px;
+    margin-bottom: 10px;
+
+    @include for-pc-lg-screen {
+      display: inline;
+      margin: none;
+      text-align: left;
+    }
+  }
+  > div {
+    cursor: pointer;
+  }
+}
+
+.cardsWrapper {
+  margin: 30px auto 0;
+  display: flex;
+  gap: 1rem;
+  @include for-mobile-screen {
+    overflow-x: scroll;
+  }
+  @include for-pc-screen {
+    font-family: sans-serif;
+    flex-wrap: wrap;
+  }
+}

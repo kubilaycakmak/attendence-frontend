@@ -1,0 +1,27 @@
+@mixin for-mobile-screen {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+@mixin for-pc-screen {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin for-pc-lg-screen {
+  @media screen and (min-width: 960px) {
+    @content;
+  }
+}
+@mixin hover-opacity {
+  transition: opacity 200ms ease;
+  &:hover {
+    opacity: 0.75;
+  }
+}
+@mixin hover-scale-up {
+  transition: transform 200ms ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

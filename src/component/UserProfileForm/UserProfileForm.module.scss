@@ -1,0 +1,36 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.container {
+  .sectionWrap {
+    @include for-pc-screen {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+  }
+  section {
+    & + section {
+      @include for-mobile-screen {
+        margin-top: 1.6rem;
+      }
+    }
+    div {
+      margin-top: 0.8rem;
+    }
+    h3 {
+      font-size: $FONT_SIZE_16;
+    }
+  }
+  .videoFieldGroup {
+    & + .videoFieldGroup {
+      margin-top: 25px;
+    }
+  }
+}
+
+.btnWrap {
+  button {
+    margin: 16px 16px 0px 0px;
+  }
+}

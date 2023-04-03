@@ -1,0 +1,74 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+  .tabContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    width: 100%;
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+}
+.notification {
+  position: relative;
+  & + .notification {
+    @include for-mobile-screen {
+      margin-top: 0.4rem;
+    }
+    @include for-pc-screen {
+      margin-left: 16px;
+    }
+  }
+  @include for-mobile-screen {
+    width: 100%;
+  }
+  button {
+    cursor: pointer;
+    font-size: 18px;
+    background-color: transparent;
+    border-radius: 7px;
+    border: 1px solid black;
+    padding: 0.4rem 0.8rem;
+    width: 100%;
+    @include for-pc-screen {
+      padding: 0.4rem 0.8rem;
+    }
+    &:hover {
+      background-color: black;
+      color: white;
+      transition: 0.5s;
+    }
+    &.active {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.badge {
+  position: absolute;
+  padding: 2px 6px;
+  border-radius: 12%;
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  top: -6px;
+  right: 6px;
+  @include for-pc-screen {
+    top: -8px;
+    right: -16px;
+  }
+  @media screen and (max-width: 767px) {
+  }
+}
+.formWrap {
+  width: 100%;
+}

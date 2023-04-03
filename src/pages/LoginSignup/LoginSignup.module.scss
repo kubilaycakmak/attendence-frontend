@@ -1,0 +1,28 @@
+@import "../../scss/variables";
+@import "../../scss/utils";
+
+.login {
+  @include for-mobile-screen {
+    margin-top: 16%;
+  }
+  @include for-pc-screen {
+    align-items: center;
+    background: url(../../assets/imgs/graduating-1.png) no-repeat 100%;
+    display: flex;
+    height: calc(100vh - 5px);
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 80%;
+    @include for-pc-screen {
+      width: 60%;
+    }
+  }
+  &Inner {
+    @include for-pc-screen {
+      width: 48%;
+      max-width: 320px;
+    }
+  }
+}

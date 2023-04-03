@@ -1,0 +1,17 @@
+@import '../../../scss/variables';
+@import '../../../scss/utils';
+
+.fieldGroup {
+  label {
+    display: block;
+    font-size: $FONT_SIZE_12;
+    margin-bottom: 6px;
+  }
+  input {
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
+    font-size: $FONT_SIZE_14;
+    padding: 8px;
+    width: 100%;
+  }
+}

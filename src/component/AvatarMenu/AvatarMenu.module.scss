@@ -1,0 +1,80 @@
+@import '../../scss/variables';
+@import '../../scss/utils';
+
+.avatarMenu {
+  box-sizing: border-box;
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  transition: opacity 100ms ease;
+  right: 64px;
+  max-width: auto;
+  min-width: 130px;
+  width: 35%;
+  z-index: 10;
+  @include for-mobile-screen {
+    display: none;
+  }
+  @include for-pc-screen {
+    width: auto;
+  }
+  &__icon,
+  &__menu {
+    background: #fff;
+    border: 0.5px solid #000000;
+    border-radius: 4px;
+  }
+  &__icon {
+    align-items: center;
+    display: flex;
+    padding: 0.3em;
+    margin: 5px 5px 0 0;
+    transition: opacity 100ms;
+    p{
+      padding: 0 6px 0 0;
+      // border: 1px solid black;
+      // max-width: 40%;
+    }
+    @include hover-opacity;
+    img {
+      margin-right: 0.5em;
+      object-fit: cover;
+      object-position: top;
+      height: 46px;
+      width: 46px;
+    }
+    p {
+      font-size: $FONT_SIZE_12;
+      font-weight: 500;
+      word-break: break-all;
+    }
+  }
+  &__menu {
+    font-size: $FONT_SIZE_10;
+    margin-top: 0.3em;
+    padding: 0.8em;
+    text-align: left;
+    &Wrap {
+      display: none;
+      overflow: hidden;
+      &.isShown {
+        display: block;
+      }
+    }
+    li {
+      @include hover-opacity;
+      & + li {
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+      }
+      padding: 0.4em 0;
+      a {
+        color: inherit;
+        font-size: 0.7rem;
+        text-decoration: none;
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
