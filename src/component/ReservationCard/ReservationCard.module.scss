@@ -1,0 +1,64 @@
+@import "../../scss/variables";
+@import "../../scss/utils";
+
+.reservationCard {
+  height: auto;
+  border: 0.5px solid #000000;
+  border-radius: 8px;
+  scroll-snap-align: center;
+  padding: 1em;
+  text-align: left;
+  margin-bottom: 16px;
+
+  img {
+    display: block;
+    width: 76%;
+    border-radius: 16px;
+    margin: auto;
+
+    @include for-mobile-screen {
+      width: 60%;
+      align-content: center;
+    }
+  }
+  li {
+    margin-top: 1em;
+  }
+  &__location {
+    font-size: $FONT_SIZE_14;
+    font-weight: 500;
+    list-style: none;
+  }
+  &__date {
+    font-size: $FONT_SIZE_12;
+  }
+  &__duration {
+    font-size: $FONT_SIZE_12;
+  }
+  &__description {
+    font-size: $FONT_SIZE_12;
+    height: 3.5em;
+    line-height: 1.5;
+    overflow-y: scroll;
+  }
+  button {
+    background: #fff;
+    border: 0.2px solid #000000;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: $FONT_SIZE_14;
+    font-weight: 500;
+    margin-top: 1.3em;
+    padding: 1em 0;
+    width: 100%;
+    &:hover {
+      background-color: black;
+      color: white;
+      transition: 0.4s;
+    }
+    @include for-mobile-screen {
+      padding: 8px 0;
+      font-size: $FONT_SIZE_12;
+    }
+  }
+}
