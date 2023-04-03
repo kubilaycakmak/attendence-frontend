@@ -30,8 +30,13 @@ const GoogleLoginSignUpButton = ({ isLoginPage, openModal }) => {
       navigate('/profile');
     } else {
       const {
-        data: { token },
+        data: { token, message },
+        resultType,
       } = await registerWithGoogle(access_token);
+      if (resultType === 'error') {
+        setAlert({ message, type: resultType });
+        return;
+      }
       localStorageHelper('set', 'token', token);
       openModal();
     }
@@ -43,7 +48,7 @@ const GoogleLoginSignUpButton = ({ isLoginPage, openModal }) => {
       'email profile openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
   });
   return (
-    <div className='styledGoogle'>
+    <div className="styledGoogle">
       <StyledGoogleButton
         onClick={() => requestGoogle()}
         label={`${isLoginPage ? 'Login' : 'Register'} with Google`}
