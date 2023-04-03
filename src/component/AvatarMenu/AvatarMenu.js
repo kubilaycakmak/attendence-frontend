@@ -13,6 +13,7 @@ const AvatarMenu = ({ username, photo }) => {
   };
   useEffect(() => {
     document.addEventListener("click", (e) => {
+      if(!menu.current) return;
       if (!menu.current.contains(e.target)) {
         setIsMenuShown(false);
       }

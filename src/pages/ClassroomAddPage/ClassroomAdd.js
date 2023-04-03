@@ -4,6 +4,7 @@ import FormField from '../../component/ui/FormField/FormField';
 import axios from 'axios';
 import style from './ClassroomAdd.module.scss';
 import { useNavigate } from 'react-router-dom';
+import SecondaryBtn from '../../component/ui/Modal/Btn/SecondaryBtn';
 
 const fileTypes = ['JPG', 'PNG', 'GIF'];
 
@@ -97,16 +98,9 @@ const ClassroomAdd = () => {
           <h1 className={style.header}>Add new room</h1>
 
           {page === 0 ? (
-            <button className={style.button} onClick={postRoom}>
-              Next
-            </button>
+            <SecondaryBtn action={postRoom}>Next</SecondaryBtn>
           ) : (
-            <button
-              className={style.button}
-              onClick={() => navigate('/profile')}
-            >
-              Home
-            </button>
+            <SecondaryBtn action={() => navigate('/profile')} >Home</SecondaryBtn>
           )}
         </div>
         {page === 1 ? (
