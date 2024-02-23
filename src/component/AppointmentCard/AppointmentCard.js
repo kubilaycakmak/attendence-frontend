@@ -27,7 +27,14 @@ const AppointmentCard = ({
         )}
         <div className={styles.card_body}>
           <div className={styles.img_wrapper}>
-            <img className={styles.prof_img} src={photo ?? "https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51"} alt={'sample_img'} />
+            <img
+              className={styles.prof_img}
+              src={
+                photo ??
+                'https://source.boringavatars.com/marble/120/Maria%20Mitchell?colors=264653,2a9d8f,e9c46a,f4a261,e76f51'
+              }
+              alt={'sample_img'}
+            />
           </div>
           <div className={styles.name_wrapper}>
             <h1>{full_name}</h1>

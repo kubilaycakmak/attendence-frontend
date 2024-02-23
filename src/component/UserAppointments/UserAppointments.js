@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
+import { useDispatch } from 'react-redux';
 import { cancelAppointment } from '../../services/userService';
 import { LoadingContext } from '../../contexts/LoadingContext';
 import { AlertContext } from '../../contexts/AlertContext';
 import AppointmentCard from '../AppointmentCard/AppointmentCard';
 import NoItemResult from '../NoItemResult/NoItemResult';
 import styles from './UserAppointments.module.scss';
+import { fetchProfileInfo } from '../../services/userService';
+import { SAVE_USER_DATA } from '../../store/user/userActionTypes';
 
 const UserAppointments = ({ userData }) => {
   const { setAlert } = useContext(AlertContext);
   const { setIsLoadingShown } = useContext(LoadingContext);
+  const dispatch = useDispatch();
 
   const handleClick = async (id) => {
     setIsLoadingShown(true);
@@ -16,6 +20,9 @@ const UserAppointments = ({ userData }) => {
       data: { message },
       resultType,
     } = await cancelAppointment(id);
+    fetchProfileInfo().then(({ data }) => {
+      dispatch({ type: SAVE_USER_DATA, payload: data });
+    });
     setAlert({ message, type: resultType });
     setIsLoadingShown(false);
   };
